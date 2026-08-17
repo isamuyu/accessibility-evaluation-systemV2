@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无障碍设施评价系统 - T/CNAEC 1304—2022</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.2/dist/axios.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f5f7fa; 
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .app { min-height: 100vh; display: flex; flex-direction: column; }
+        .header { 
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white; 
+            padding: 0 32px; 
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .header-left { display: flex; align-items: center; gap: 32px; }
+        .header h1 { font-size: 20px; font-weight: 600; }
+        .header-subtitle { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+        .nav-menu { display: flex; gap: 4px; }
+        .nav-item {
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            color: rgba(255,255,255,0.8);
+        }
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+        
+        .content { flex: 1; padding: 24px 32px; max-width: 1400px; margin: 0 auto; width: 100%; }
+        .footer { 
+            text-align: center; 
+            padding: 20px; 
+            color: #999; 
+            font-size: 13px;
+            border-top: 1px solid #e8e8e8;
+            background: white;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e8e8e8;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-title-primary { border-bottom-color: #3b82f6; color: #1e3a8a; }
+        .card-title-success { border-bottom-color: #10b981; color: #065f46; }
+        .card-title-warning { border-bottom-color: #f59e0b; color: #92400e; }
+        .card-title-danger { border-bottom-color: #ef4444; color: #991b1b; }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .btn:hover { border-color: #9ca3af; background: #f9fafb; }
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .btn-primary:hover { background: #2563eb; border-color: #2563eb; }
+        .btn-success {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        .btn-success:hover { background: #059669; }
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        .btn-sm { padding: 6px 12px; font-size: 13px; }
+        .btn-lg { padding: 14px 28px; font-size: 16px; }
+        
+        .table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .table th { 
+            background: #f8fafc; 
+            padding: 12px 16px; 
+            text-align: left; 
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .table td { 
+            padding: 12px 16px; 
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+        .table tr:hover { background: #f8fafc; }
+        .table tr.completed { background: #f0fdf4; }
+        .table tr.pending { background: #fefce8; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { 
+            display: block; 
+            margin-bottom: 6px; 
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+        .form-group .help-text {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+            background: white;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal {
+            background: white;
+            border-radius: 16px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-body { padding: 24px; }
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .tag-gray { background: #f3f4f6; color: #6b7280; }
+        .tag-blue { background: #dbeafe; color: #1d4ed8; }
+        .tag-green { background: #d1fae5; color: #047857; }
+        .tag-red { background: #fee2e2; color: #b91c1c; }
+        .tag-orange { background: #fed7aa; color: #9a3412; }
+        .tag-purple { background: #e9d5ff; color: #7c3aed; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+        }
+        .stat-card.primary::before { background: #3b82f6; }
+        .stat-card.success::before { background: #10b981; }
+        .stat-card.warning::before { background: #f59e0b; }
+        .stat-card.danger::before { background: #ef4444; }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .stat-label { color: #6b7280; font-size: 14px; }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .page-title { font-size: 24px; font-weight: 700; color: #111827; }
+        .page-subtitle { font-size: 14px; color: #6b7280; margin-top: 4px; }
+        
+        .breadcrumb { 
+            margin-bottom: 20px; 
+            color: #6b7280; 
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .breadcrumb a { 
+            color: #3b82f6; 
+            cursor: pointer; 
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb-separator { color: #d1d5db; }
+        
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        .message-success { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+        .message-error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .loading { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: #6b7280; 
+        }
+        .spinner {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border: 3px solid #e5e7eb;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 12px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .tabs { 
+            display: flex; 
+            gap: 4px; 
+            margin-bottom: 20px; 
+            background: white;
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+        .tab-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tab-item:hover { color: #374151; background: #f9fafb; }
+        .tab-item.active { 
+            color: #1d4ed8; 
+            background: #eff6ff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .tab-content { padding: 8px 0; }
+        
+        /* 章节模式 */
+        .mode-switch { display: flex; gap: 8px; margin-bottom: 20px; }
+        .mode-btn { padding: 8px 18px; border-radius: 8px; border: 1px solid #e5e7eb; background: white; cursor: pointer; font-size: 13px; font-weight: 500; color: #6b7280; transition: all 0.2s; }
+        .mode-btn.active { background: #3b82f6; color: white; border-color: #3b82f6; }
+        .chapter-layout { display: flex; gap: 20px; align-items: flex-start; }
+        .chapter-nav { width: 250px; flex-shrink: 0; position: sticky; top: 20px; }
+        .chapter-nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; cursor: pointer; border: 1px solid transparent; margin-bottom: 4px; transition: all 0.15s; }
+        .chapter-nav-item:hover { background: #f3f4f6; }
+        .chapter-nav-item.active { background: #eff6ff; border-color: #3b82f6; }
+        .chapter-nav-item.done { border-left: 3px solid #10b981; }
+        .chapter-num { width: 42px; flex-shrink: 0; font-size: 12px; font-weight: 700; color: #6b7280; background: #f3f4f6; border-radius: 6px; text-align: center; padding: 3px 0; }
+        .chapter-nav-item.active .chapter-num { background: #3b82f6; color: white; }
+        .chapter-nav-item.done .chapter-num { background: #10b981; color: white; }
+        .chapter-name { flex: 1; font-size: 13px; font-weight: 500; color: #374151; line-height: 1.3; }
+        .chapter-prog { font-size: 11px; color: #9ca3af; white-space: nowrap; }
+        .chapter-content { flex: 1; min-width: 0; }
+        .section-header { font-size: '13px'; font-weight: 600; color: #374151; padding: 8px 12px; background: #f9fafb; border-left: 3px solid #3b82f6; margin: 16px 0 8px 0; border-radius: 0 6px 6px 0; }
+        @media (max-width: 900px) { .chapter-layout { flex-direction: column; } .chapter-nav { width: 100%; position: static; } }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .content { padding: 12px; }
+            .header h1 { font-size: 17px; }
+            .header-subtitle { font-size: 11px; }
+            .nav-menu { display: flex; flex-wrap: wrap; }
+            .nav-item { padding: 12px 10px; font-size: 13px; }
+            .card { padding: 14px; }
+            .card-title { font-size: 15px; flex-wrap: wrap; gap: 8px; }
+            .mode-switch { flex-wrap: wrap; }
+            .mode-btn { flex: 1; text-align: center; padding: 8px 6px; font-size: 12px; white-space: nowrap; }
+            .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .tab-item { padding: 10px 14px; font-size: 13px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .stat-card { padding: 12px; }
+            .stat-value { font-size: 22px !important; }
+            .table { min-width: 540px; }
+            .table th, .table td { padding: 8px 6px; font-size: 12px; }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 12px; }
+            .chapter-nav .card { padding: 8px; }
+            .chapter-nav { display: block; max-height: 220px; overflow-y: auto; }
+            .breadcrumb { font-size: 13px; flex-wrap: wrap; }
+            .btn-lg { padding: 8px 14px; font-size: 13px; }
+            .info-box { font-size: 13px; }
+            .modal { width: 95%; margin: 10px auto; max-height: 92vh; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .chapter-num { width: 34px; font-size: 11px; }
+            .chapter-name { font-size: 12px; }
+        }
+        
+        .steps { 
+            display: flex; 
+            margin-bottom: 32px;
+            gap: 0;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 16px 8px;
+            position: relative;
+            border-bottom: 3px solid #e5e7eb;
+        }
+        .step.active { border-bottom-color: #3b82f6; }
+        .step.completed { border-bottom-color: #10b981; }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #9ca3af;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .step.active .step-number { background: #dbeafe; color: #1d4ed8; }
+        .step.completed .step-number { background: #d1fae5; color: #047857; }
+        .step-title { font-size: 13px; color: #6b7280; font-weight: 500; }
+        .step.active .step-title { color: #1d4ed8; font-weight: 600; }
+        .step.completed .step-title { color: #047857; }
+        
+        .score-input-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr auto;
+            gap: 12px;
+            align-items: end;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        .score-input-grid input,
+        .score-input-grid select {
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 48px 20px;
+            color: #9ca3af;
+        }
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        
+        .info-box {
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .info-box-blue { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+        .info-box-green { background: #f0fdf4; border: 1px solid #a7f3d0; color: #065f46; }
+        .info-box-yellow { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+        
+        .standard-clause-item {
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            background: white;
+        }
+        .standard-clause-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .clause-number {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 13px;
+        }
+        .clause-description {
+            margin-top: 4px;
+            color: #374151;
+            font-size: 14px;
+        }
+        .clause-meta {
+            margin-top: 8px;
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .dimension-card {
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+        .dimension-card.active { border-color: #3b82f6; background: #eff6ff; }
+        .dimension-card.inactive { border-color: #d1d5db; background: #f9fafb; opacity: 0.7; }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6b7280;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+        .close-btn:hover { background: #f3f4f6; color: #374151; }
+        
+        @media (max-width: 1024px) {
+            .content { padding: 16px; }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .score-input-grid { grid-template-columns: 1fr; }
+            .header { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script>
+        window.showMessage = function(type, text) {
+            const msg = document.createElement('div');
+            msg.className = 'message message-' + type;
+            msg.textContent = text;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 4000);
+        };
+        
+        const API_BASE = '';
+        const api = axios.create({ baseURL: API_BASE, headers: { 'Content-Type': 'application/json' }});
+        
+        const projectApi = {
+            getAll: () => api.get('/projects/'),
+            getById: (id) => api.get('/projects/' + id),
+            create: (data) => api.post('/projects/', data),
+        };
+        
+        const buildingApi = {
+            getByProject: (projectId) => api.get('/buildings/project/' + projectId),
+            getById: (id) => api.get('/buildings/' + id),
+            create: (data) => api.post('/buildings/', data),
+            update: (id, data) => api.put('/buildings/' + id, data),
+        };
+        
+        const scoringApi = {
+            getControlItems: (buildingId) => api.get('/scoring/control-items/' + buildingId),
+            createControlItem: (buildingId, data) => api.post('/scoring/control-items/' + buildingId, data),
+            updateControlItem: (itemId, data) => api.put('/scoring/control-items/' + itemId, data),
+            deleteControlItem: (itemId) => api.delete('/scoring/control-items/' + itemId),
+            getSystemScores: (buildingId) => api.get('/scoring/system-scores/' + buildingId),
+            createSystemScore: (buildingId, data) => api.post('/scoring/system-scores/' + buildingId, data),
+            updateSystemScore: (scoreId, data) => api.put('/scoring/system-scores/' + scoreId, data),
+            deleteSystemScore: (scoreId) => api.delete('/scoring/system-scores/' + scoreId),
+            getFacilities: (buildingId) => api.get('/scoring/facilities/' + buildingId),
+            createFacility: (buildingId, data) => api.post('/scoring/facilities/' + buildingId, data),
+            deleteFacility: (facilityId) => api.delete('/scoring/facilities/' + facilityId),
+            getFacilityScores: (facilityId) => api.get('/scoring/facilities/' + facilityId + '/scores'),
+            createFacilityScore: (facilityId, data) => api.post('/scoring/facilities/' + facilityId + '/scores', data),
+            updateFacilityScore: (scoreId, data) => api.put('/scoring/facilities/scores/' + scoreId, data),
+            evaluate: (buildingId) => api.post('/scoring/evaluate/' + buildingId),
+            getResults: (buildingId) => api.get('/scoring/results/' + buildingId),
+        };
+
+        const templatesApi = {
+            generateControlItems: (buildingId) => api.post('/templates/generate-control-items/' + buildingId),
+            generateSystemScores: (buildingId) => api.post('/templates/generate-system-scores/' + buildingId),
+            generateFacilityScores: (facilityId) => api.post('/templates/generate-facility-scores/' + facilityId),
+            getFacilityCategories: () => api.get('/templates/facility-categories'),
+        };
+
+        const reportApi = {
+            getSuggestions: (buildingId) => api.get('/reports/building/' + buildingId + '/suggestions'),
+            getPdfUrl: (buildingId) => API_BASE + '/reports/building/' + buildingId + '/pdf',
+        };
+        
+        const clauseApi = {
+            getByChapter: (chapter) => api.get('/standard-clauses/chapter/' + chapter),
+            getAll: () => api.get('/standard-clauses/'),
+        };
+    </script>
+    
+    <script>
+        const { useState, useEffect } = React;
+        
+        const evaluationTypeMap = {
+            'initial': '初评',
+            'renewal': '复评',
+            'pre': '预评价'
+        };
+        
+        const buildingTypeMap = {
+            'residential': { name: '住宅类居住建筑', chapters: ['Q1', 'Q3', 'Q4', 'Q5'], formula: '(Q1+Q3+Q4)/3+Q5' },
+            'non_residential': { name: '非住宅类居住建筑', chapters: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'], formula: '(Q1+Q2+Q3+Q4)/4+Q5' },
+            'public_with_accom': { name: '含住宿功能公共建筑', chapters: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'], formula: '(Q1+Q2+Q3+Q4)/4+Q5' },
+            'public_no_accom': { name: '不含住宿功能公共建筑', chapters: ['Q1', 'Q2', 'Q4', 'Q5'], formula: '(Q1+Q2+Q4)/3+Q5' }
+        };
+        
+        const gradeMap = {
+            'none': '不达标',
+            'one_star': '一星级',
+            'two_star': '二星级',
+            'three_star': '三星级'
+        };
+        
+        const chapterLabels = {
+            'Q1': 'Q1 无障碍通行',
+            'Q2': 'Q2 公共无障碍服务',
+            'Q3': 'Q3 无障碍住宿',
+            'Q4': 'Q4 信息交流与智慧服务',
+            'Q5': 'Q5 创新与提升',
+            'construction': '施工验收',
+            'maintenance': '运行维护',
+            'control': '控制项'
+        };
+        
+        // ============ 组件 ============
+        
+        // 统一选择评分：有选项按选项分数；无选项则 符合(满分)/不符合(0分)
+        function renderScoreChoice(item, onScore, disabled) {
+            const current = parseFloat(item.actual_score);
+            const maxScore = parseFloat(item.max_score);
+            const hasOptions = item.options && item.options.length > 0;
+            const options = hasOptions ? item.options : [{ label: '符合', score: maxScore }];
+            const zeroLabel = hasOptions ? '以上均不符合' : '不符合';
+            const scored = item.is_scored === true || item.is_scored === undefined;
+            const isOpt = (sc) => scored && !disabled && current === parseFloat(sc);
+            const optStyle = (active) => ({
+                display: 'flex', alignItems: 'flex-start', gap: '8px', padding: '7px 10px', borderRadius: '6px',
+                cursor: disabled ? 'not-allowed' : 'pointer', fontSize: '13px', lineHeight: '1.5', marginBottom: '4px',
+                border: '1px solid ' + (active ? '#3b82f6' : '#e5e7eb'),
+                background: active ? '#eff6ff' : 'white',
+                color: active ? '#1d4ed8' : '#374151',
+                opacity: disabled ? 0.5 : 1
+            });
+            const dot = (active) => React.createElement('span', {
+                style: { width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
+                         border: '2px solid ' + (active ? '#3b82f6' : '#d1d5db'),
+                         background: active ? '#3b82f6' : 'white',
+                         boxShadow: active ? 'inset 0 0 0 2px white' : 'none' }
+            });
+            return React.createElement('div', { style: { marginTop: '8px' } },
+                options.map(opt =>
+                    React.createElement('div', {
+                        key: opt.label,
+                        style: optStyle(isOpt(opt.score)),
+                        onClick: () => { if (!disabled) onScore(opt.score); }
+                    },
+                        dot(isOpt(opt.score)),
+                        React.createElement('span', { style: { flex: 1 } }, opt.label),
+                        React.createElement('span', { style: { fontWeight: 700, whiteSpace: 'nowrap' } }, opt.score + ' 分')
+                    )
+                ),
+                React.createElement('div', {
+                    style: optStyle(scored && !disabled && current === 0),
+                    onClick: () => { if (!disabled) onScore(0); }
+                },
+                    dot(scored && !disabled && current === 0),
+                    React.createElement('span', { style: { flex: 1, color: '#6b7280' } }, zeroLabel),
+                    React.createElement('span', { style: { fontWeight: 700, color: '#6b7280' } }, '0 分')
+                )
+            );
+        }
+
+        // 分类模式表格用：统一下拉选择（有选项按选项，无选项则符合/不符合）
+        function renderScoreSelect(item, onScore, disabled) {
+            const current = parseFloat(item.actual_score);
+            const maxScore = parseFloat(item.max_score);
+            const hasOptions = item.options && item.options.length > 0;
+            const options = hasOptions ? item.options : [{ label: '符合', score: maxScore }];
+            const zeroLabel = hasOptions ? '均不符合 (0分)' : '不符合 (0分)';
+            const scored = item.is_scored === true || item.is_scored === undefined;
+            return React.createElement('select', {
+                value: scored ? String(current) : '',
+                disabled: disabled,
+                onChange: (e) => onScore(parseFloat(e.target.value)),
+                style: { padding: '5px 8px', fontSize: '12px', border: '1px solid #d1d5db', borderRadius: '6px',
+                         maxWidth: '220px', fontWeight: 600,
+                         color: !scored ? '#9ca3af' : current > 0 ? '#059669' : '#dc2626' }
+            },
+                !scored && React.createElement('option', { value: '', disabled: true }, '— 未评分 —'),
+                React.createElement('option', { value: '0' }, zeroLabel),
+                options.map(opt =>
+                    React.createElement('option', { key: opt.label, value: String(opt.score) },
+                        opt.label.length > 24 ? opt.label.slice(0, 24) + '…' : opt.label + ' (' + opt.score + '分)'
+                    )
+                )
+            );
+        }
+
+        // 条文级适用性过滤：无适用类型信息（旧数据/手动添加）的保留显示
+        function clauseAppliesTo(item, buildingType) {
+            if (!item.applicable_building_types || item.applicable_building_types.length === 0) return true;
+            return item.applicable_building_types.includes(buildingType);
+        }
+
+        function EmptyState({ icon, title, description }) {
+            return React.createElement('div', { className: 'empty-state' },
+                React.createElement('div', { className: 'empty-state-icon' }, icon),
+                React.createElement('h3', { style: { color: '#374151', marginBottom: '8px' } }, title),
+                React.createElement('p', null, description)
+            );
+        }
+        
+        function Modal({ title, children, footer, onClose }) {
+            return React.createElement('div', { className: 'modal-overlay', onClick: onClose },
+                React.createElement('div', { className: 'modal', onClick: (e) => e.stopPropagation() },
+                    React.createElement('div', { className: 'modal-header' },
+                        React.createElement('h3', { style: { fontSize: '18px', fontWeight: 600 } }, title),
+                        React.createElement('button', { className: 'close-btn', onClick: onClose }, '×')
+                    ),
+                    React.createElement('div', { className: 'modal-body' }, children),
+                    footer && React.createElement('div', { className: 'modal-footer' }, footer)
+                )
+            );
+        }
+        
+        // ============ 项目管理 ============
+        
+        function ProjectList() {
+            const [projects, setProjects] = useState([]);
+            const [loading, setLoading] = useState(false);
+            const [modalVisible, setModalVisible] = useState(false);
+            const [currentView, setCurrentView] = useState('list');
+            const [selectedProject, setSelectedProject] = useState(null);
+            
+            useEffect(() => {
+                loadProjects();
+            }, []);
+            
+            const loadProjects = async () => {
+                setLoading(true);
+                try {
+                    const res = await projectApi.getAll();
+                    setProjects(res.data);
+                } catch (error) {
+                    window.showMessage('error', '加载项目失败');
+                }
+                setLoading(false);
+            };
+            
+            const handleCreate = async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const values = {
+                    project_name: form.project_name.value,
+                    project_code: form.project_code.value,
+                    applicant_name: form.applicant_name.value,
+                    evaluation_type: form.evaluation_type.value,
+                };
+                try {
+                    await projectApi.create(values);
+                    window.showMessage('success', '项目创建成功');
+                    setModalVisible(false);
+                    form.reset();
+                    loadProjects();
+                } catch (error) {
+                    window.showMessage('error', '创建失败: ' + (error.response?.data?.detail || error.message));
+                }
+            };
+            
+            if (currentView === 'detail' && selectedProject) {
+                return React.createElement(ProjectDetail, { 
+                    project: selectedProject, 
+                    onBack: () => { setCurrentView('list'); setSelectedProject(null); }
+                });
+            }
+            
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'page-header' },
+                    React.createElement('div',
+                        React.createElement('h1', { className: 'page-title' }, '项目管理'),
+                        React.createElement('p', { className: 'page-subtitle' }, '管理无障碍设施评价项目')
+                    ),
+                    React.createElement('button', { className: 'btn btn-primary', onClick: () => setModalVisible(true) },
+                        '+ 新建项目'
+                    )
+                ),
+                
+                loading 
+                    ? React.createElement('div', { className: 'loading' },
+                        React.createElement('div', { className: 'spinner' }),
+                        React.createElement('p', null, '加载中...')
+                    )
+                    : projects.length === 0
+                        ? React.createElement(EmptyState, {
+                            icon: '📁',
+                            title: '暂无项目',
+                            description: '点击"新建项目"按钮创建您的第一个评价项目'
+                        })
+                        : React.createElement('div', { className: 'card' },
+                            React.createElement('table', { className: 'table' },
+                                React.createElement('thead', null,
+                                    React.createElement('tr', null,
+                                        React.createElement('th', null, '项目名称'),
+                                        React.createElement('th', null, '项目编号'),
+                                        React.createElement('th', null, '评价类型'),
+                                        React.createElement('th', null, '状态'),
+                                        React.createElement('th', null, '创建时间'),
+                                        React.createElement('th', null, '操作')
+                                    )
+                                ),
+                                React.createElement('tbody', null,
+                                    projects.map(project => React.createElement('tr', { key: project.id },
+                                        React.createElement('td', null,
+                                            React.createElement('strong', null, project.project_name)
+                                        ),
+                                        React.createElement('td', null, project.project_code || '-'),
+                                        React.createElement('td', null,
+                                            React.createElement('span', { className: 'tag tag-blue' },
+                                                evaluationTypeMap[project.evaluation_type]
+                                            )
+                                        ),
+                                        React.createElement('td', null,
+                                            React.createElement('span', {
+                                                className: 'tag ' + (project.status === 'approved' ? 'tag-green' : project.status === 'draft' ? 'tag-gray' : 'tag-blue')
+                                            }, project.status)
+                                        ),
+                                        React.createElement('td', null,
+                                            new Date(project.created_at).toLocaleDateString()
+                                        ),
+                                        React.createElement('td', null,
+                                            React.createElement('button', {
+                                                className: 'btn btn-primary btn-sm',
+                                                onClick: () => { setSelectedProject(project); setCurrentView('detail'); }
+                                            }, '查看详情')
+                                        )
+                                    ))
+                                )
+                            )
+                        ),
+                
+                modalVisible && React.createElement(Modal, {
+                    title: '新建评价项目',
+                    onClose: () => setModalVisible(false)
+                },
+                    React.createElement('form', { id: 'createProjectForm', onSubmit: handleCreate },
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '项目名称 *'),
+                            React.createElement('input', { name: 'project_name', placeholder: '请输入项目名称', required: true }),
+                            React.createElement('p', { className: 'help-text' }, '项目的完整名称')
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '项目编号'),
+                            React.createElement('input', { name: 'project_code', placeholder: '如：2026-001' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '申请人'),
+                            React.createElement('input', { name: 'applicant_name', placeholder: '申请人姓名' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '评价类型 *'),
+                            React.createElement('select', { name: 'evaluation_type', required: true },
+                                React.createElement('option', { value: '' }, '请选择'),
+                                React.createElement('option', { value: 'initial' }, '初评 - 首次评价'),
+                                React.createElement('option', { value: 'renewal' }, '复评 - 到期复评'),
+                                React.createElement('option', { value: 'pre' }, '预评价 - 预评价')
+                            )
+                        )
+                    ),
+                    React.createElement('div', null,
+                        React.createElement('button', { className: 'btn', onClick: () => setModalVisible(false) }, '取消'),
+                        React.createElement('button', { className: 'btn btn-primary', onClick: () => document.getElementById('createProjectForm').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true })) }, '创建项目')
+                    )
+                )
+            );
+        }
+        
+        // ============ 项目详情 ============
+        
+        function ProjectDetail({ project, onBack }) {
+            const [buildings, setBuildings] = useState([]);
+            const [loading, setLoading] = useState(false);
+            const [modalVisible, setModalVisible] = useState(false);
+            const [currentView, setCurrentView] = useState('detail');
+            const [selectedBuilding, setSelectedBuilding] = useState(null);
+            const [editingBuilding, setEditingBuilding] = useState(null);
+            const [complexResult, setComplexResult] = useState(null);
+            const [complexLoading, setComplexLoading] = useState(false);
+
+            const loadComplexResult = async () => {
+                try {
+                    const res = await api.get('/scoring/complex/' + project.id);
+                    setComplexResult(res.data);
+                } catch (error) {}
+            };
+
+            const handleComplexEvaluate = async () => {
+                const z2Input = document.getElementById('z2Input');
+                const z2 = z2Input && z2Input.value !== '' ? parseFloat(z2Input.value) : null;
+                setComplexLoading(true);
+                try {
+                    const res = await api.post('/scoring/complex/' + project.id + (z2 !== null ? '?z2_score=' + z2 : ''));
+                    setComplexResult(res.data);
+                    window.showMessage('success', '建筑群评价完成');
+                } catch (error) {
+                    window.showMessage('error', error.response?.data?.detail || '建筑群评价失败');
+                }
+                setComplexLoading(false);
+            };
+
+            useEffect(() => {
+                loadBuildings();
+                loadComplexResult();
+            }, [project.id]);
+
+            const handleUpdateBuilding = async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const values = {
+                    building_name: form.building_name.value,
+                    building_code: form.building_code.value,
+                    floor_area: parseFloat(form.floor_area.value) || 0,
+                    is_within_one_year: form.is_within_one_year.value === 'true',
+                    site_inspection_passed: form.site_inspection_passed.value === '' ? null : form.site_inspection_passed.value === 'true'
+                };
+                try {
+                    await buildingApi.update(editingBuilding.id, values);
+                    window.showMessage('success', '建筑信息已更新');
+                    setEditingBuilding(null);
+                    loadBuildings();
+                } catch (error) {
+                    window.showMessage('error', '更新失败：' + (error.response?.data?.detail || error.message));
+                }
+            };
+            
+            const loadBuildings = async () => {
+                setLoading(true);
+                try {
+                    const res = await buildingApi.getByProject(project.id);
+                    setBuildings(res.data);
+                } catch (error) {
+                    window.showMessage('error', '加载建筑失败');
+                }
+                setLoading(false);
+            };
+            
+            const handleCreateBuilding = async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const values = {
+                    project_id: project.id,
+                    building_name: form.building_name.value,
+                    building_code: form.building_code.value,
+                    building_type: form.building_type.value,
+                    floor_area: parseFloat(form.floor_area.value) || 0,
+                    is_within_one_year: form.is_within_one_year.value === 'true',
+                    site_inspection_passed: form.site_inspection_passed.value === '' ? null : form.site_inspection_passed.value === 'true'
+                };
+                try {
+                    const res = await buildingApi.create(values);
+                    const newBuildingId = res.data.id;
+                    
+                    window.showMessage('success', '建筑添加成功，正在自动生成评价项...');
+                    
+                    // 自动生成控制项
+                    try {
+                        await api.post('/templates/generate-control-items/' + newBuildingId);
+                        console.log('控制项生成完成');
+                    } catch (err) {
+                        console.error('生成控制项失败', err);
+                    }
+                    
+                    // 自动生成系统评分项
+                    try {
+                        await api.post('/templates/generate-system-scores/' + newBuildingId);
+                        console.log('系统评分项生成完成');
+                    } catch (err) {
+                        console.error('生成系统评分项失败', err);
+                    }
+                    
+                    window.showMessage('success', '评价项自动生成完成！');
+                    setModalVisible(false);
+                    form.reset();
+                    loadBuildings();
+                } catch (error) {
+                    window.showMessage('error', '添加失败: ' + (error.response?.data?.detail || error.message));
+                }
+            };
+            
+            if (currentView === 'scoring' && selectedBuilding) {
+                return React.createElement(ScoringPage, {
+                    building: selectedBuilding,
+                    onBack: () => { setCurrentView('detail'); setSelectedBuilding(null); }
+                });
+            }
+            
+            const typeInfo = buildingTypeMap[project.building_type] || { name: '未知类型', chapters: [] };
+            
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'breadcrumb' },
+                    React.createElement('a', { onClick: onBack }, '← 返回项目列表'),
+                    React.createElement('span', { className: 'breadcrumb-separator' }, '/'),
+                    React.createElement('span', null, project.project_name)
+                ),
+                
+                React.createElement('div', { className: 'card' },
+                    React.createElement('div', { className: 'card-title card-title-primary' },
+                        project.project_name,
+                        React.createElement('span', { className: 'tag tag-blue' }, evaluationTypeMap[project.evaluation_type])
+                    ),
+                    React.createElement('div', { className: 'stats-grid' },
+                        React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value' }, buildings.length),
+                            React.createElement('div', { className: 'stat-label' }, '建筑数量')
+                        ),
+                        React.createElement('div', { className: 'stat-card' },
+                            React.createElement('div', { className: 'stat-value' }, project.project_code || '-'),
+                            React.createElement('div', { className: 'stat-label' }, '项目编号')
+                        ),
+                        React.createElement('div', { className: 'stat-card' },
+                            React.createElement('div', { className: 'stat-value' }, project.applicant_name || '-'),
+                            React.createElement('div', { className: 'stat-label' }, '申请人')
+                        ),
+                        React.createElement('div', { className: 'stat-card' },
+                            React.createElement('div', { className: 'stat-value' }, new Date(project.created_at).toLocaleDateString()),
+                            React.createElement('div', { className: 'stat-label' }, '创建时间')
+                        )
+                    )
+                ),
+                
+                React.createElement('div', { className: 'page-header' },
+                    React.createElement('div',
+                        React.createElement('h2', { className: 'page-title', style: { fontSize: '20px' } }, '建筑列表'),
+                        React.createElement('p', { className: 'page-subtitle' }, '管理项目下的建筑单体')
+                    ),
+                    React.createElement('button', { className: 'btn btn-primary', onClick: () => setModalVisible(true) },
+                        '+ 添加建筑'
+                    )
+                ),
+                
+                loading
+                    ? React.createElement('div', { className: 'loading' }, React.createElement('div', { className: 'spinner' }))
+                    : buildings.length === 0
+                        ? React.createElement(EmptyState, {
+                            icon: '🏢',
+                            title: '暂无建筑',
+                            description: '请添加建筑单体进行评价'
+                        })
+                        : React.createElement('div', { className: 'card' },
+                            React.createElement('table', { className: 'table' },
+                                React.createElement('thead', null,
+                                    React.createElement('tr', null,
+                                        React.createElement('th', null, '建筑名称'),
+                                        React.createElement('th', null, '建筑类型'),
+                                        React.createElement('th', null, '建筑面积'),
+                                        React.createElement('th', null, '参评维度'),
+                                        React.createElement('th', null, '竣工时间'),
+                                        React.createElement('th', null, '操作')
+                                    )
+                                ),
+                                React.createElement('tbody', null,
+                                    buildings.map(building => {
+                                        const bType = buildingTypeMap[building.building_type];
+                                        return React.createElement('tr', { key: building.id },
+                                            React.createElement('td', null,
+                                                React.createElement('strong', null, building.building_name),
+                                                building.building_code && React.createElement('div', { style: { fontSize: '12px', color: '#6b7280' } }, building.building_code)
+                                            ),
+                                            React.createElement('td', null,
+                                                React.createElement('span', { className: 'tag tag-purple' }, bType?.name || building.building_type)
+                                            ),
+                                            React.createElement('td', null, (building.floor_area || '-') + ' m²'),
+                                            React.createElement('td', null,
+                                                React.createElement('div', { style: { display: 'flex', gap: '4px', flexWrap: 'wrap' } },
+                                                    (bType?.chapters || []).map(ch =>
+                                                        React.createElement('span', { key: ch, className: 'tag tag-blue' }, chapterLabels[ch])
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement('td', null, building.is_within_one_year ? '一年内' : '一年以上'),
+                                            React.createElement('td', null,
+                                                React.createElement('div', { style: { display: 'flex', gap: '6px' } },
+                                                    React.createElement('button', {
+                                                        className: 'btn btn-success btn-sm',
+                                                        onClick: () => { setSelectedBuilding(building); setCurrentView('scoring'); }
+                                                    }, '开始评分'),
+                                                    React.createElement('button', {
+                                                        className: 'btn btn-sm',
+                                                        onClick: () => setEditingBuilding(building)
+                                                    }, '编辑')
+                                                )
+                                            )
+                                        );
+                                    })
+                                )
+                            )
+                        ),
+                
+                buildings.length > 0 && React.createElement('div', { className: 'card', style: { marginTop: '20px' } },
+                    React.createElement('div', { className: 'card-title' },
+                        '🏘 建筑群综合评价（4.2.1.10）',
+                        React.createElement('div', { style: { display: 'flex', gap: '8px', alignItems: 'center' } },
+                            React.createElement('input', {
+                                id: 'z2Input', type: 'number', step: '0.01', min: '0', max: '100',
+                                placeholder: 'Z2场地通行分(默认80)',
+                                style: { width: '180px', padding: '6px 10px', fontSize: '13px', border: '1px solid #d1d5db', borderRadius: '6px' }
+                            }),
+                            React.createElement('button', {
+                                className: 'btn btn-success', onClick: handleComplexEvaluate, disabled: complexLoading
+                            }, complexLoading ? '计算中...' : '▶ 执行建筑群评价')
+                        )
+                    ),
+                    React.createElement('div', { style: { fontSize: '12px', color: '#6b7280', marginBottom: '12px' } },
+                        'ZQ = Z1×80% + Z2×20%；Z1为各单体Q按面积加权（前提：每个单体Q≥40）；Q1-Q4、施工验收、运行维护同样按面积加权后按表2/表3定级'),
+                    !complexResult
+                        ? React.createElement('div', { style: { color: '#9ca3af', fontSize: '13px' } }, '暂无建筑群评价结果')
+                        : React.createElement('div', null,
+                            React.createElement('div', { className: 'stats-grid' },
+                                React.createElement('div', { className: 'stat-card primary' },
+                                    React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, complexResult.zq_score),
+                                    React.createElement('div', { className: 'stat-label' }, '建筑群综合 ZQ')
+                                ),
+                                React.createElement('div', { className: 'stat-card warning' },
+                                    React.createElement('div', { className: 'stat-value', style: { color: '#f59e0b' } },
+                                        gradeMap[complexResult.determined_grade] || complexResult.determined_grade || '-'),
+                                    React.createElement('div', { className: 'stat-label' }, '建筑群等级')
+                                ),
+                                React.createElement('div', { className: 'stat-card' },
+                                    React.createElement('div', { className: 'stat-value', style: { color: '#6b7280' } }, complexResult.z1_score),
+                                    React.createElement('div', { className: 'stat-label' }, 'Z1 单体加权')
+                                ),
+                                React.createElement('div', { className: 'stat-card' },
+                                    React.createElement('div', { className: 'stat-value', style: { color: '#6b7280' } }, complexResult.z2_score),
+                                    React.createElement('div', { className: 'stat-label' }, 'Z2 场地通行')
+                                )
+                            ),
+                            complexResult.breakdown && complexResult.breakdown.reason && React.createElement('div', {
+                                className: 'info-box info-box-red', style: { marginBottom: '16px' }
+                            }, React.createElement('strong', null, '✗ 未达标原因：'), complexResult.breakdown.reason),
+
+                            complexResult.dimension_scores && React.createElement('div', { style: { overflowX: 'auto', marginBottom: '16px' } },
+                                React.createElement('table', { className: 'table' },
+                                    React.createElement('thead', null,
+                                        React.createElement('tr', null,
+                                            React.createElement('th', null, '综合维度'),
+                                            ['Q1','Q2','Q3','Q4','construction','maintenance'].map(k =>
+                                                React.createElement('th', { key: k }, chapterLabels[k] || k))
+                                        )
+                                    ),
+                                    React.createElement('tbody', null,
+                                        React.createElement('tr', null,
+                                            React.createElement('td', null, '面积加权综合分值'),
+                                            ['Q1','Q2','Q3','Q4','construction','maintenance'].map(k =>
+                                                React.createElement('td', { key: k },
+                                                    complexResult.dimension_scores[k.toLowerCase()] ?? '—'))
+                                        )
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { style: { overflowX: 'auto' } },
+                                React.createElement('table', { className: 'table' },
+                                    React.createElement('thead', null,
+                                        React.createElement('tr', null,
+                                            React.createElement('th', null, '建筑'),
+                                            React.createElement('th', null, '建筑面积'),
+                                            React.createElement('th', null, '权重'),
+                                            React.createElement('th', null, '单体Q'),
+                                            React.createElement('th', null, 'Q×权重')
+                                        )
+                                    ),
+                                    React.createElement('tbody', null,
+                                        Object.entries(complexResult.building_scores || {}).map(([bid, bs]) =>
+                                            React.createElement('tr', { key: bid },
+                                                React.createElement('td', null, bs.name),
+                                                React.createElement('td', null, bs.floor_area + ' m²'),
+                                                React.createElement('td', null, (parseFloat(bs.weight) * 100).toFixed(1) + '%'),
+                                                React.createElement('td', null, bs.Q),
+                                                React.createElement('td', null, (parseFloat(bs.Q) * parseFloat(bs.weight)).toFixed(2))
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                ),
+
+                modalVisible && React.createElement(Modal, {
+                    title: '添加建筑单体',
+                    onClose: () => setModalVisible(false)
+                },
+                    React.createElement('form', { id: 'createBuildingForm', onSubmit: handleCreateBuilding },
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑名称 *'),
+                            React.createElement('input', { name: 'building_name', placeholder: '如：1号楼', required: true })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑编号'),
+                            React.createElement('input', { name: 'building_code', placeholder: '如：A-01' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑类型 *'),
+                            React.createElement('select', { name: 'building_type', required: true },
+                                React.createElement('option', { value: '' }, '请选择建筑类型'),
+                                Object.entries(buildingTypeMap).map(([key, value]) =>
+                                    React.createElement('option', { key, value: key },
+                                        value.name + ' - 参评：' + value.chapters.join('、')
+                                    )
+                                )
+                            ),
+                            React.createElement('p', { className: 'help-text' }, '选择后将自动确定参评维度和计算公式')
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑面积 (m²)'),
+                            React.createElement('input', { name: 'floor_area', type: 'number', placeholder: '建筑面积' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '竣工一年内'),
+                            React.createElement('select', { name: 'is_within_one_year' },
+                                React.createElement('option', { value: 'true' }, '是 - 按表2评价（含施工验收）'),
+                                React.createElement('option', { value: 'false' }, '否 - 按表3评价（免施工验收，需现场检测）')
+                            )
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '现场检测合格（仅竣工一年后评价需要）'),
+                            React.createElement('select', { name: 'site_inspection_passed' },
+                                React.createElement('option', { value: '' }, '未检测/不适用'),
+                                React.createElement('option', { value: 'true' }, '✓ 检测合格'),
+                                React.createElement('option', { value: 'false' }, '✗ 检测不合格')
+                            ),
+                            React.createElement('p', { className: 'help-text' }, '按GB50642对无障碍设施性能进行现场检测（表3要求）')
+                        )
+                    ),
+                    React.createElement('div', null,
+                        React.createElement('button', { className: 'btn', onClick: () => setModalVisible(false) }, '取消'),
+                        React.createElement('button', { className: 'btn btn-primary', onClick: () => document.getElementById('createBuildingForm').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true })) }, '添加建筑')
+                    )
+                ),
+
+                // 编辑建筑弹窗
+                editingBuilding && React.createElement(Modal, {
+                    title: '编辑建筑 - ' + editingBuilding.building_name,
+                    onClose: () => setEditingBuilding(null)
+                },
+                    React.createElement('form', { id: 'editBuildingForm', onSubmit: handleUpdateBuilding },
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑名称 *'),
+                            React.createElement('input', { name: 'building_name', required: true, defaultValue: editingBuilding.building_name })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑编号'),
+                            React.createElement('input', { name: 'building_code', defaultValue: editingBuilding.building_code || '' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑类型'),
+                            React.createElement('input', { value: (buildingTypeMap[editingBuilding.building_type] || {}).name || editingBuilding.building_type, disabled: true }),
+                            React.createElement('p', { className: 'help-text' }, '建筑类型创建后不可修改（影响参评维度与已生成评价项）')
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '建筑面积 (m²)'),
+                            React.createElement('input', { name: 'floor_area', type: 'number', step: '0.01', defaultValue: editingBuilding.floor_area || '' })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '竣工一年内'),
+                            React.createElement('select', { name: 'is_within_one_year', defaultValue: String(editingBuilding.is_within_one_year) },
+                                React.createElement('option', { value: 'true' }, '是 - 按表2评价（含施工验收）'),
+                                React.createElement('option', { value: 'false' }, '否 - 按表3评价（免施工验收，需现场检测）')
+                            ),
+                            React.createElement('p', { className: 'help-text' }, '修改后请到评分页点"重新生成"补充/调整对应章节评价项')
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '现场检测合格（仅竣工一年后评价需要）'),
+                            React.createElement('select', { name: 'site_inspection_passed',
+                                defaultValue: editingBuilding.site_inspection_passed === null || editingBuilding.site_inspection_passed === undefined ? '' : String(editingBuilding.site_inspection_passed) },
+                                React.createElement('option', { value: '' }, '未检测/不适用'),
+                                React.createElement('option', { value: 'true' }, '✓ 检测合格'),
+                                React.createElement('option', { value: 'false' }, '✗ 检测不合格')
+                            ),
+                            React.createElement('p', { className: 'help-text' }, '按GB50642对无障碍设施性能进行现场检测（表3要求）')
+                        )
+                    ),
+                    React.createElement('div', null,
+                        React.createElement('button', { className: 'btn', onClick: () => setEditingBuilding(null) }, '取消'),
+                        React.createElement('button', { className: 'btn btn-primary', onClick: () => document.getElementById('editBuildingForm').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true })) }, '保存')
+                    )
+                )
+            );
+        }
+        
+        // ============ 评分页面（按标准章节组织） ============
+        
+        function ScoringPage({ building, onBack }) {
+            const [results, setResults] = useState([]);
+            const [loading, setLoading] = useState(false);
+            const [activeTab, setActiveTab] = useState('control');
+            const [entryMode, setEntryMode] = useState('chapter');
+            
+            const buildingType = buildingTypeMap[building.building_type];
+            const applicableChapters = buildingType?.chapters || [];
+            
+            useEffect(() => {
+                loadResults();
+            }, [building.id]);
+            
+            const loadResults = async () => {
+                try {
+                    const res = await scoringApi.getResults(building.id);
+                    setResults(res.data);
+                } catch (error) {}
+            };
+            
+
+            const handleEvaluate = async () => {
+                setLoading(true);
+                try {
+                    const res = await scoringApi.evaluate(building.id);
+                    if (res.data.eligible) {
+                        window.showMessage('success', `评价完成！等级：${gradeMap[res.data.grade] || res.data.grade}，总分：${res.data.total_score_q}`);
+                        await loadResults();
+                        setEntryMode('result');
+                    } else {
+                        window.showMessage('error', '评价未通过：' + (res.data.reason || '未知原因'));
+                    }
+                } catch (error) {
+                    window.showMessage('error', '评价失败: ' + (error.response?.data?.detail || error.message));
+                }
+                setLoading(false);
+            };
+            
+            const latestResult = results.length > 0 ? results[0] : null;
+            
+            const tabs = [
+                { key: 'control', label: '① 控制项检查', desc: '控制项闸门' },
+                { key: 'system', label: '② 系统评分', desc: 'Q1-Q5+施工运维' },
+                { key: 'facility', label: '③ 设施评分', desc: '设施实体评分' }
+            ];
+            
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'breadcrumb' },
+                    React.createElement('a', { onClick: onBack }, '← 返回项目详情'),
+                    React.createElement('span', { className: 'breadcrumb-separator' }, '/'),
+                    React.createElement('span', null, building.building_name)
+                ),
+                
+                React.createElement('div', { className: 'card' },
+                    React.createElement('div', { className: 'card-title card-title-primary' },
+                        React.createElement('div', null,
+                            building.building_name,
+                            React.createElement('span', { style: { fontSize: '14px', fontWeight: 'normal', color: '#6b7280', marginLeft: '12px' } },
+                                buildingType?.name
+                            )
+                        ),
+                        React.createElement('button', {
+                            className: 'btn btn-success btn-lg',
+                            onClick: handleEvaluate,
+                            disabled: loading
+                        }, loading ? '评价计算中...' : '▶ 执行评价计算')
+                    ),
+                    
+                    React.createElement('div', { className: 'info-box info-box-blue' },
+                        React.createElement('strong', null, '计算公式：'),
+                        ' Q = ' + buildingType?.formula,
+                        React.createElement('span', { style: { marginLeft: '16px' } },
+                            '参评维度：' + applicableChapters.map(c => chapterLabels[c]).join('、')
+                        )
+                    ),
+                    
+                    latestResult && React.createElement('div', { className: 'stats-grid' },
+                        React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, latestResult.total_score_q),
+                            React.createElement('div', { className: 'stat-label' }, '总体评分 Q')
+                        ),
+                        React.createElement('div', { className: 'stat-card warning' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#f59e0b' } },
+                                gradeMap[latestResult.determined_grade] || latestResult.determined_grade
+                            ),
+                            React.createElement('div', { className: 'stat-label' }, '认定等级')
+                        ),
+                        React.createElement('div', { className: 'stat-card success' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#10b981' } },
+                                latestResult.construction_score !== null && latestResult.construction_score !== undefined ? latestResult.construction_score : '—'),
+                            React.createElement('div', { className: 'stat-label' }, '施工验收分')
+                        ),
+                        React.createElement('div', { className: 'stat-card' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#6b7280' } }, latestResult.maintenance_score || '-'),
+                            React.createElement('div', { className: 'stat-label' }, '运行维护分')
+                        )
+                    )
+                ),
+                
+                React.createElement('div', { className: 'mode-switch' },
+                    React.createElement('button', {
+                        className: 'mode-btn' + (entryMode === 'chapter' ? ' active' : ''),
+                        onClick: () => setEntryMode('chapter')
+                    }, '📑 章节评价模式'),
+                    React.createElement('button', {
+                        className: 'mode-btn' + (entryMode === 'type' ? ' active' : ''),
+                        onClick: () => setEntryMode('type')
+                    }, '🗂 分类评价模式'),
+                    React.createElement('button', {
+                        className: 'mode-btn' + (entryMode === 'result' ? ' active' : ''),
+                        onClick: () => setEntryMode('result')
+                    }, '📊 评价结果')
+                ),
+
+                entryMode === 'result'
+                    ? React.createElement(ResultPanel, { latestResult, applicableChapters, building, withinOneYear: building.is_within_one_year })
+                    : entryMode === 'chapter'
+                    ? React.createElement(ChapterModePanel, {
+                        building, applicableChapters,
+                        withinOneYear: building.is_within_one_year,
+                        buildingType: building.building_type
+                    })
+                    : React.createElement('div', null,
+                        React.createElement('div', { className: 'tabs' },
+                            tabs.map(tab => React.createElement('div', {
+                                key: tab.key,
+                                className: 'tab-item' + (activeTab === tab.key ? ' active' : ''),
+                                onClick: () => setActiveTab(tab.key)
+                            },
+                                React.createElement('div', null, tab.label),
+                                React.createElement('div', { style: { fontSize: '11px', fontWeight: 'normal', opacity: 0.7 } }, tab.desc)
+                            ))
+                        ),
+                        React.createElement('div', { className: 'tab-content' },
+                            activeTab === 'control' && React.createElement(ControlItemsPanel, { buildingId: building.id, applicableChapters, withinOneYear: building.is_within_one_year, buildingType: building.building_type }),
+                            activeTab === 'system' && React.createElement(SystemScoresPanel, { buildingId: building.id, applicableChapters, withinOneYear: building.is_within_one_year, buildingType: building.building_type }),
+                            activeTab === 'facility' && React.createElement(FacilityScoresPanel, { buildingId: building.id, applicableChapters })
+                        )
+                    )
+            );
+        }
+        
+        // ============ 控制项面板 ============
+
+        function ControlItemsPanel({ buildingId, applicableChapters, withinOneYear, buildingType }) {
+            const [items, setItems] = useState([]);
+            const [generating, setGenerating] = useState(false);
+
+            useEffect(() => { loadItems(); }, [buildingId]);
+
+            const loadItems = async () => {
+                try {
+                    const res = await scoringApi.getControlItems(buildingId);
+                    setItems(res.data);
+                } catch (error) {}
+            };
+
+            const handleGenerate = async () => {
+                setGenerating(true);
+                try {
+                    const res = await templatesApi.generateControlItems(buildingId);
+                    window.showMessage('success', res.data.message);
+                    loadItems();
+                } catch (error) {
+                    window.showMessage('error', '生成失败');
+                }
+                setGenerating(false);
+            };
+
+            const updateStatus = async (itemId, value) => {
+                let isCompliant = null;
+                if (value === 'true') isCompliant = true;
+                else if (value === 'false') isCompliant = false;
+                try {
+                    await scoringApi.updateControlItem(itemId, { is_compliant: isCompliant });
+                    loadItems();
+                } catch (error) {
+                    window.showMessage('error', '更新失败');
+                }
+            };
+
+            const handleDelete = async (itemId) => {
+                if (!confirm('确定删除此控制项？')) return;
+                try {
+                    await scoringApi.deleteControlItem(itemId);
+                    loadItems();
+                } catch (error) {}
+            };
+
+            // 只显示该建筑类型参评章节的控制项；施工验收控制项仅竣工一年内参评（表2/表3）
+            const chapterOrder = ['Q1', 'Q2', 'Q3', 'Q4'].filter(ch => applicableChapters.includes(ch))
+                .concat(withinOneYear ? ['construction', 'maintenance'] : ['maintenance']);
+            const filteredItems = items.filter(item =>
+                chapterOrder.includes(item.chapter) && clauseAppliesTo(item, buildingType));
+
+            const checkedItems = filteredItems.filter(i => i.is_compliant !== null);
+            const allChecked = filteredItems.length > 0 && checkedItems.length === filteredItems.length;
+            const allPassed = allChecked && checkedItems.every(i => i.is_compliant === true);
+            const nonCompliantCount = checkedItems.filter(i => i.is_compliant === false).length;
+            const uncheckedCount = filteredItems.length - checkedItems.length;
+
+            const renderRow = (item) => React.createElement('tr', {
+                key: item.id,
+                style: {
+                    backgroundColor: item.is_compliant === true ? '#f0fdf4' :
+                                    item.is_compliant === false ? '#fef2f2' : '#fffbeb'
+                }
+            },
+                React.createElement('td', null,
+                    React.createElement('div', { style: { fontSize: '13px', lineHeight: '1.5' } }, item.description || '无描述'),
+                    item.clause_number && React.createElement('div', { style: { fontSize: '11px', color: '#6b7280', marginTop: '4px' } },
+                        '条文号: ' + item.clause_number
+                    )
+                ),
+                React.createElement('td', null,
+                    React.createElement('select', {
+                        value: item.is_compliant === null ? '' : String(item.is_compliant),
+                        onChange: (e) => updateStatus(item.id, e.target.value),
+                        style: {
+                            padding: '6px 10px', borderRadius: '4px', border: '1px solid #d1d5db', fontSize: '13px',
+                            backgroundColor: item.is_compliant === true ? '#dcfce7' :
+                                            item.is_compliant === false ? '#fee2e2' : '#f3f4f6'
+                        }
+                    },
+                        React.createElement('option', { value: '' }, '⏳ 待核查'),
+                        React.createElement('option', { value: 'true' }, '✓ 达标'),
+                        React.createElement('option', { value: 'false' }, '✗ 不达标')
+                    )
+                ),
+                React.createElement('td', null, item.check_result || '-'),
+                React.createElement('td', null,
+                    React.createElement('button', {
+                        className: 'btn btn-sm btn-danger',
+                        onClick: () => handleDelete(item.id)
+                    }, '删除')
+                )
+            );
+
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'info-box ' + (allPassed ? 'info-box-green' : nonCompliantCount > 0 ? 'info-box-red' : uncheckedCount > 0 ? 'info-box-yellow' : 'info-box-blue') },
+                    React.createElement('strong', null, '控制项闸门：'),
+                    filteredItems.length === 0 ? '尚未生成控制项，请点击下方按钮自动生成；控制项必须全部核查且全部达标才能评定等级' :
+                    allPassed ? `✓ 全部 ${filteredItems.length} 项控制项已达标，可以通过评价` :
+                    nonCompliantCount > 0 ? `✗ 有 ${nonCompliantCount} 项控制项未达标，无法评定等级` :
+                    `⏳ 还有 ${uncheckedCount} 项控制项待核查（全部核查并达标后才能通过评价）`
+                ),
+
+                React.createElement('div', { style: { marginBottom: '16px' } },
+                    React.createElement('button', {
+                        className: 'btn btn-primary',
+                        onClick: handleGenerate,
+                        disabled: generating
+                    }, generating ? '生成中...' : filteredItems.length === 0 ? '⚡ 自动生成控制项' : '↻ 重新生成（补充缺失项）')
+                ),
+
+                filteredItems.length === 0
+                    ? React.createElement('div', { className: 'card' },
+                        React.createElement(EmptyState, { icon: '✓', title: '暂无控制项', description: '点击"自动生成控制项"根据建筑类型和适用条文生成核查清单' })
+                    )
+                    : chapterOrder.map(ch => {
+                        const chItems = filteredItems.filter(i => i.chapter === ch);
+                        if (chItems.length === 0) return null;
+                        const chPassed = chItems.filter(i => i.is_compliant === true).length;
+                        return React.createElement('div', { key: ch, className: 'card', style: { marginBottom: '16px' } },
+                            React.createElement('div', { className: 'card-title' },
+                                chapterLabels[ch],
+                                React.createElement('span', {
+                                    className: 'tag ' + (chPassed === chItems.length ? 'tag-green' : 'tag-orange')
+                                }, `${chPassed}/${chItems.length} 达标`)
+                            ),
+                            React.createElement('div', { style: { overflowX: 'auto' } },
+                                React.createElement('table', { className: 'table' },
+                                    React.createElement('thead', null,
+                                        React.createElement('tr', null,
+                                            React.createElement('th', { style: { width: '55%' } }, '条文内容'),
+                                            React.createElement('th', null, '达标状态'),
+                                            React.createElement('th', null, '核查结果'),
+                                            React.createElement('th', null, '操作')
+                                        )
+                                    ),
+                                    React.createElement('tbody', null, chItems.map(renderRow))
+                                )
+                            )
+                        );
+                    })
+            );
+        }
+
+        // ============ 系统评分面板 ============
+
+        function SystemScoresPanel({ buildingId, applicableChapters, withinOneYear, buildingType }) {
+            const [scores, setScores] = useState([]);
+            const [generating, setGenerating] = useState(false);
+
+            useEffect(() => { loadScores(); }, [buildingId]);
+
+            const loadScores = async () => {
+                try {
+                    const res = await scoringApi.getSystemScores(buildingId);
+                    setScores(res.data);
+                } catch (error) {}
+            };
+
+            const handleGenerate = async () => {
+                setGenerating(true);
+                try {
+                    const res = await templatesApi.generateSystemScores(buildingId);
+                    window.showMessage('success', res.data.message);
+                    loadScores();
+                } catch (error) {
+                    window.showMessage('error', '生成失败');
+                }
+                setGenerating(false);
+            };
+
+            const updateScore = async (scoreId, field, value) => {
+                const data = {};
+                if (field === 'actual_score') data.actual_score = parseFloat(value) || 0;
+                else if (field === 'is_applicable') data.is_applicable = value === 'true';
+                try {
+                    await scoringApi.updateSystemScore(scoreId, data);
+                    loadScores();
+                } catch (error) {
+                    window.showMessage('error', error.response?.data?.detail || '更新失败');
+                }
+            };
+
+            const handleDelete = async (scoreId) => {
+                if (!confirm('确定删除此评分项？')) return;
+                try {
+                    await scoringApi.deleteSystemScore(scoreId);
+                    loadScores();
+                } catch (error) {}
+            };
+
+            // 参评章节 + 运行维护；施工验收仅竣工一年内参评（表2/表3）；不参评章节的数据不显示
+            const chapterOrder = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'].filter(ch => applicableChapters.includes(ch))
+                .concat(withinOneYear ? ['construction', 'maintenance'] : ['maintenance']);
+            const filteredScores = scores.filter(s =>
+                chapterOrder.includes(s.chapter) && clauseAppliesTo(s, buildingType));
+
+            const chapterSummary = (ch) => {
+                const chScores = filteredScores.filter(s => s.chapter === ch && s.is_applicable);
+                if (chScores.length === 0) return null;
+                const total = chScores.reduce((sum, s) => sum + parseFloat(s.actual_score), 0);
+                const max = chScores.reduce((sum, s) => sum + parseFloat(s.max_score), 0);
+                return { total, max, percent: max > 0 ? ((total / max) * 100).toFixed(1) : '0.0', count: chScores.length };
+            };
+
+            const renderRow = (score) => {
+                const rate = parseFloat(score.max_score) > 0 ? ((parseFloat(score.actual_score) / parseFloat(score.max_score)) * 100).toFixed(1) : '0.0';
+                return React.createElement('tr', { key: score.id, style: score.is_applicable ? {} : { opacity: 0.45 } },
+                    React.createElement('td', null,
+                        React.createElement('div', { style: { fontSize: '13px', lineHeight: '1.5' } }, score.description || '无描述'),
+                        score.clause_number && React.createElement('div', { style: { fontSize: '11px', color: '#6b7280', marginTop: '4px' } },
+                            '条文号: ' + score.clause_number
+                        )
+                    ),
+                    React.createElement('td', { style: { whiteSpace: 'nowrap' } }, score.max_score),
+                    React.createElement('td', null,
+                        renderScoreSelect(score, (v) => updateScore(score.id, 'actual_score', String(v)), !score.is_applicable)
+                    ),
+                    React.createElement('td', null,
+                        React.createElement('span', {
+                            className: 'tag ' + (rate >= 80 ? 'tag-green' : rate >= 60 ? 'tag-orange' : 'tag-red')
+                        }, rate + '%')
+                    ),
+                    React.createElement('td', null,
+                        React.createElement('select', {
+                            value: String(score.is_applicable),
+                            onChange: (e) => updateScore(score.id, 'is_applicable', e.target.value),
+                            style: { padding: '4px 6px', fontSize: '13px', border: '1px solid #d1d5db', borderRadius: '4px' }
+                        },
+                            React.createElement('option', { value: 'true' }, '参评'),
+                            React.createElement('option', { value: 'false' }, '不参评')
+                        )
+                    ),
+                    React.createElement('td', null,
+                        React.createElement('button', { className: 'btn btn-sm btn-danger', onClick: () => handleDelete(score.id) }, '删除')
+                    )
+                );
+            };
+
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'grid-4', style: { marginBottom: '20px' } },
+                    chapterOrder.map(ch => {
+                        const cs = chapterSummary(ch);
+                        return React.createElement('div', { key: ch, className: 'dimension-card ' + (cs ? 'active' : 'inactive') },
+                            React.createElement('div', { style: { fontSize: '13px', fontWeight: 600, color: '#374151' } }, chapterLabels[ch]),
+                            React.createElement('div', { style: { fontSize: '22px', fontWeight: 700, color: cs ? '#3b82f6' : '#9ca3af', margin: '6px 0' } },
+                                cs ? cs.percent + '%' : '-'
+                            ),
+                            React.createElement('div', { style: { fontSize: '12px', color: '#6b7280' } },
+                                cs ? `${cs.total.toFixed(1)}/${cs.max.toFixed(1)} 分` : '未录入'
+                            ),
+                            cs && React.createElement('div', { className: 'progress-bar' },
+                                React.createElement('div', {
+                                    className: 'progress-bar-fill',
+                                    style: {
+                                        width: Math.min(cs.percent, 100) + '%',
+                                        background: parseFloat(cs.percent) >= 60 ? '#10b981' : parseFloat(cs.percent) >= 40 ? '#f59e0b' : '#ef4444'
+                                    }
+                                })
+                            )
+                        );
+                    })
+                ),
+
+                React.createElement('div', { style: { marginBottom: '16px' } },
+                    React.createElement('button', {
+                        className: 'btn btn-primary',
+                        onClick: handleGenerate,
+                        disabled: generating
+                    }, generating ? '生成中...' : filteredScores.length === 0 ? '⚡ 自动生成系统评分项' : '↻ 重新生成（补充缺失项）')
+                ),
+
+                filteredScores.length === 0
+                    ? React.createElement('div', { className: 'card' },
+                        React.createElement(EmptyState, { icon: '📝', title: '暂无评分项', description: '点击"自动生成系统评分项"根据建筑类型生成Q1-Q5、施工验收、运行维护评分项' })
+                    )
+                    : chapterOrder.map(ch => {
+                        const chScores = filteredScores.filter(s => s.chapter === ch);
+                        if (chScores.length === 0) return null;
+                        const cs = chapterSummary(ch);
+                        return React.createElement('div', { key: ch, className: 'card', style: { marginBottom: '16px' } },
+                            React.createElement('div', { className: 'card-title' },
+                                chapterLabels[ch],
+                                React.createElement('span', { className: 'tag tag-blue' }, `${chScores.length} 项`),
+                                cs && React.createElement('span', { className: 'tag tag-gray' }, `${cs.total.toFixed(1)}/${cs.max.toFixed(1)} 分`)
+                            ),
+                            React.createElement('div', { style: { overflowX: 'auto' } },
+                                React.createElement('table', { className: 'table' },
+                                    React.createElement('thead', null,
+                                        React.createElement('tr', null,
+                                            React.createElement('th', { style: { width: '50%' } }, '条文内容'),
+                                            React.createElement('th', null, '满分'),
+                                            React.createElement('th', null, '实际得分'),
+                                            React.createElement('th', null, '得分率'),
+                                            React.createElement('th', null, '参评'),
+                                            React.createElement('th', null, '操作')
+                                        )
+                                    ),
+                                    React.createElement('tbody', null, chScores.map(renderRow))
+                                )
+                            )
+                        );
+                    })
+            );
+        }
+
+        // ============ 设施评分面板 ============
+
+        function FacilityScoresPanel({ buildingId, applicableChapters }) {
+            const [facilities, setFacilities] = useState([]);
+            const [categories, setCategories] = useState([]);
+            const [showForm, setShowForm] = useState(false);
+            const [selectedFacility, setSelectedFacility] = useState(null);
+            const [scoreItems, setScoreItems] = useState([]);
+            const [creating, setCreating] = useState(false);
+
+            // 设施章节：Q1/Q2/Q3 中该建筑类型参评的部分
+            const facilityChapters = ['Q1', 'Q2', 'Q3'].filter(ch => applicableChapters.includes(ch));
+
+            useEffect(() => {
+                loadFacilities();
+                loadCategories();
+            }, [buildingId]);
+
+            useEffect(() => {
+                if (selectedFacility) loadScoreItems(selectedFacility);
+            }, [selectedFacility]);
+
+            const loadFacilities = async () => {
+                try {
+                    const res = await scoringApi.getFacilities(buildingId);
+                    setFacilities(res.data);
+                } catch (error) {}
+            };
+
+            const loadCategories = async () => {
+                try {
+                    const res = await templatesApi.getFacilityCategories();
+                    setCategories(res.data);
+                } catch (error) {}
+            };
+
+            const loadScoreItems = async (facilityId) => {
+                try {
+                    const res = await scoringApi.getFacilityScores(facilityId);
+                    setScoreItems(res.data);
+                } catch (error) {}
+            };
+
+            // 按建筑类型参评章节过滤设施类别
+            const availableCategories = categories.filter(c => facilityChapters.includes(c.chapter));
+            const categoryById = {};
+            categories.forEach(c => { categoryById[c.id] = c; });
+
+            const handleCreate = async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const data = {
+                    category_id: form.category_id.value,
+                    facility_name: form.facility_name.value,
+                    location_description: form.location_description.value
+                };
+                setCreating(true);
+                try {
+                    const res = await scoringApi.createFacility(buildingId, data);
+                    await templatesApi.generateFacilityScores(res.data.id);
+                    window.showMessage('success', '设施添加成功，评分项已生成');
+                    form.reset();
+                    setShowForm(false);
+                    loadFacilities();
+                    setSelectedFacility(res.data.id);
+                } catch (error) {
+                    window.showMessage('error', '添加失败');
+                }
+                setCreating(false);
+            };
+
+            const handleDeleteFacility = async (facilityId) => {
+                if (!confirm('确定删除此设施及其全部评分项？')) return;
+                try {
+                    await scoringApi.deleteFacility(facilityId);
+                    if (selectedFacility === facilityId) setSelectedFacility(null);
+                    loadFacilities();
+                } catch (error) {}
+            };
+
+            const updateScoreItem = async (scoreId, field, value) => {
+                const data = {};
+                if (field === 'actual_score') data.actual_score = parseFloat(value) || 0;
+                else if (field === 'is_applicable') data.is_applicable = value === 'true';
+                try {
+                    await scoringApi.updateFacilityScore(scoreId, data);
+                    loadScoreItems(selectedFacility);
+                } catch (error) {
+                    window.showMessage('error', error.response?.data?.detail || '更新失败');
+                }
+            };
+
+            // 当前设施的归一化得分（实际/满分×10）
+            const applicableItems = scoreItems.filter(i => i.is_applicable);
+            const itemMax = applicableItems.reduce((sum, i) => sum + parseFloat(i.max_score), 0);
+            const itemActual = applicableItems.reduce((sum, i) => sum + parseFloat(i.actual_score), 0);
+            const normalized = itemMax > 0 ? ((itemActual / itemMax) * 10).toFixed(2) : null;
+
+            return React.createElement('div', null,
+                React.createElement('div', { style: { marginBottom: '16px' } },
+                    React.createElement('button', { className: 'btn btn-primary', onClick: () => setShowForm(!showForm) },
+                        showForm ? '- 收起' : '+ 添加设施'
+                    )
+                ),
+
+                showForm && React.createElement('div', { className: 'card', style: { marginBottom: '16px' } },
+                    React.createElement('form', { onSubmit: handleCreate },
+                        React.createElement('div', { className: 'grid-3' },
+                            React.createElement('div', { className: 'form-group' },
+                                React.createElement('label', null, '设施类别 *'),
+                                React.createElement('select', { name: 'category_id', required: true },
+                                    React.createElement('option', { value: '' }, '请选择'),
+                                    availableCategories.map(c =>
+                                        React.createElement('option', { key: c.id, value: c.id }, `[${c.chapter}] ${c.category_name}`)
+                                    )
+                                )
+                            ),
+                            React.createElement('div', { className: 'form-group' },
+                                React.createElement('label', null, '设施名称'),
+                                React.createElement('input', { name: 'facility_name', placeholder: '如：1#轮椅坡道' })
+                            ),
+                            React.createElement('div', { className: 'form-group' },
+                                React.createElement('label', null, '位置描述'),
+                                React.createElement('input', { name: 'location_description', placeholder: '如：1层大厅入口处' })
+                            )
+                        ),
+                        React.createElement('button', { type: 'submit', className: 'btn btn-primary', disabled: creating },
+                            creating ? '创建中...' : '添加设施并生成评分项'
+                        )
+                    )
+                ),
+
+                React.createElement('div', { className: 'grid-2' },
+                    React.createElement('div', null,
+                        React.createElement('div', { className: 'card' },
+                            React.createElement('div', { className: 'card-title' },
+                                '设施清单',
+                                React.createElement('span', { className: 'tag tag-gray' }, `${facilities.length} 个`)
+                            ),
+                            facilities.length === 0
+                                ? React.createElement(EmptyState, { icon: '🏗️', title: '暂无设施', description: '请添加设施实体，系统将自动生成评分项' })
+                                : facilityChapters.concat(facilities.some(f => !categoryById[f.category_id]) ? ['_unknown'] : []).map(ch => {
+                                    const chFacilities = facilities.filter(f => {
+                                        const cat = categoryById[f.category_id];
+                                        return ch === '_unknown' ? !cat : (cat && cat.chapter === ch);
+                                    });
+                                    if (chFacilities.length === 0) return null;
+                                    return React.createElement('div', { key: ch, style: { marginBottom: '12px' } },
+                                        React.createElement('div', {
+                                            style: { fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px', paddingBottom: '4px', borderBottom: '2px solid #e5e7eb' }
+                                        }, ch === '_unknown' ? '⚠ 类别数据异常（请删除重建）' : chapterLabels[ch]),
+                                        chFacilities.map(f => {
+                                            const cat = categoryById[f.category_id];
+                                            return React.createElement('div', {
+                                                key: f.id,
+                                                style: {
+                                                    padding: '10px 12px', borderRadius: '8px', marginBottom: '6px', cursor: 'pointer',
+                                                    border: '1px solid ' + (selectedFacility === f.id ? '#3b82f6' : '#e5e7eb'),
+                                                    background: selectedFacility === f.id ? '#eff6ff' : 'white',
+                                                    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                                                },
+                                                onClick: () => setSelectedFacility(f.id)
+                                            },
+                                                React.createElement('div', null,
+                                                    React.createElement('div', { style: { fontWeight: 600, fontSize: '14px' } },
+                                                        f.facility_name || (cat ? cat.category_name : '未命名设施')
+                                                    ),
+                                                    React.createElement('div', { style: { fontSize: '12px', color: '#6b7280', marginTop: '2px' } },
+                                                        (cat ? cat.category_name : '未知类别') + (f.location_description ? ' · ' + f.location_description : '')
+                                                    )
+                                                ),
+                                                React.createElement('button', {
+                                                    className: 'btn btn-sm btn-danger',
+                                                    onClick: (e) => { e.stopPropagation(); handleDeleteFacility(f.id); }
+                                                }, '删除')
+                                            );
+                                        })
+                                    );
+                                })
+                        )
+                    ),
+
+                    React.createElement('div', { className: 'card' },
+                        React.createElement('div', { className: 'card-title' },
+                            '设施评分',
+                            normalized !== null && React.createElement('span', {
+                                className: 'tag ' + (parseFloat(normalized) >= 6 ? 'tag-green' : 'tag-orange')
+                            }, `设施得分 ${normalized}/10`)
+                        ),
+                        !selectedFacility
+                            ? React.createElement('div', { style: { textAlign: 'center', padding: '40px', color: '#9ca3af' } },
+                                '请从左侧选择设施进行评分'
+                            )
+                            : scoreItems.length === 0
+                                ? React.createElement(EmptyState, { icon: '📝', title: '暂无评分项', description: '该设施尚未生成评分项' })
+                                : React.createElement('div', { style: { overflowX: 'auto' } },
+                                    React.createElement('table', { className: 'table' },
+                                        React.createElement('thead', null,
+                                            React.createElement('tr', null,
+                                                React.createElement('th', { style: { width: '45%' } }, '评分条文'),
+                                                React.createElement('th', null, '满分'),
+                                                React.createElement('th', null, '得分'),
+                                                React.createElement('th', null, '参评')
+                                            )
+                                        ),
+                                        React.createElement('tbody', null,
+                                            scoreItems.map(item => React.createElement('tr', {
+                                                key: item.id,
+                                                style: item.is_applicable ? {} : { opacity: 0.45 }
+                                            },
+                                                React.createElement('td', null,
+                                                    React.createElement('div', { style: { fontSize: '11px', fontWeight: 600, color: '#6b7280' } }, item.clause_id),
+                                                    item.description && React.createElement('div', { style: { fontSize: '13px', color: '#374151', marginTop: '2px', lineHeight: '1.5' } }, item.description)
+                                                ),
+                                                React.createElement('td', { style: { whiteSpace: 'nowrap' } }, item.max_score),
+                                                React.createElement('td', null,
+                                                    renderScoreSelect(item, (v) => updateScoreItem(item.id, 'actual_score', String(v)), !item.is_applicable)
+                                                ),
+                                                React.createElement('td', null,
+                                                    React.createElement('select', {
+                                                        value: String(item.is_applicable),
+                                                        onChange: (e) => updateScoreItem(item.id, 'is_applicable', e.target.value),
+                                                        style: { padding: '4px 6px', fontSize: '13px', border: '1px solid #d1d5db', borderRadius: '4px' }
+                                                    },
+                                                        React.createElement('option', { value: 'true' }, '参评'),
+                                                        React.createElement('option', { value: 'false' }, '不参评')
+                                                    )
+                                                )
+                                            ))
+                                        )
+                                    )
+                                )
+                    )
+                )
+            );
+        }
+
+        // ============ 章节评价模式 ============
+
+        // 标准章节树（按 T/CNAEC 1304—2022 章节顺序）
+        const CHAPTER_TREE = [
+            { num: '5.1',  name: '无障碍通行 控制项',           kind: 'control',  chapter: 'Q1' },
+            { num: '5.2',  name: '无障碍通行系统评分 (S1)',     kind: 'system',   chapter: 'Q1' },
+            { num: '5.3',  name: '无障碍通行设施评分 (F1)',     kind: 'facility', chapter: 'Q1' },
+            { num: '6.1',  name: '公共无障碍服务 控制项',        kind: 'control',  chapter: 'Q2' },
+            { num: '6.2',  name: '公共无障碍服务系统评分 (S2)', kind: 'system',   chapter: 'Q2' },
+            { num: '6.3',  name: '公共无障碍服务设施评分 (F2)', kind: 'facility', chapter: 'Q2' },
+            { num: '7.1',  name: '无障碍住宿 控制项',            kind: 'control',  chapter: 'Q3' },
+            { num: '7.2',  name: '无障碍住宿系统评分 (S3)',     kind: 'system',   chapter: 'Q3' },
+            { num: '7.3',  name: '无障碍住宿设施评分 (F3)',     kind: 'facility', chapter: 'Q3' },
+            { num: '8.1',  name: '信息交流与智慧服务 控制项',    kind: 'control',  chapter: 'Q4' },
+            { num: '8.2',  name: '信息交流与智慧服务评分 (Q4)', kind: 'system',   chapter: 'Q4' },
+            { num: '9.1',  name: '施工与验收 控制项',            kind: 'control',  chapter: 'construction' },
+            { num: '9.2',  name: '施工与验收评分',              kind: 'system',   chapter: 'construction' },
+            { num: '10.1', name: '运行与维护 控制项',            kind: 'control',  chapter: 'maintenance' },
+            { num: '10.2', name: '运行与维护评分',              kind: 'system',   chapter: 'maintenance' },
+            { num: '11',   name: '创新与提升 (Q5)',             kind: 'system',   chapter: 'Q5' },
+        ];
+
+        function ChapterModePanel({ building, applicableChapters, withinOneYear, buildingType, onEvaluated }) {
+            const buildingId = building.id;
+            const [controlItems, setControlItems] = useState([]);
+            const [systemScores, setSystemScores] = useState([]);
+            const [facilities, setFacilities] = useState([]);
+            const [categories, setCategories] = useState([]);
+            const [selected, setSelected] = useState(null);
+            const [expandedFacility, setExpandedFacility] = useState(null);
+            const [facilityItems, setFacilityItems] = useState([]);
+            const [generating, setGenerating] = useState(false);
+            const [showAddFacility, setShowAddFacility] = useState(false);
+
+            // 按建筑类型和完工时间过滤章节树
+            const visibleChapters = CHAPTER_TREE.filter(c => {
+                if (c.chapter === 'construction') return withinOneYear;
+                if (c.chapter === 'maintenance') return true;
+                return applicableChapters.includes(c.chapter);
+            });
+
+            useEffect(() => { loadAll(); }, [buildingId]);
+            useEffect(() => {
+                if (!selected && visibleChapters.length > 0) setSelected(visibleChapters[0].num);
+            }, [visibleChapters.length]);
+            useEffect(() => {
+                if (expandedFacility) loadFacilityItems(expandedFacility);
+            }, [expandedFacility]);
+
+            const loadAll = async () => {
+                try {
+                    const [ci, ss, fa, ca] = await Promise.all([
+                        scoringApi.getControlItems(buildingId),
+                        scoringApi.getSystemScores(buildingId),
+                        scoringApi.getFacilities(buildingId),
+                        templatesApi.getFacilityCategories(),
+                    ]);
+                    setControlItems(ci.data);
+                    setSystemScores(ss.data);
+                    setFacilities(fa.data);
+                    setCategories(ca.data);
+                } catch (error) {}
+            };
+
+            const loadFacilityItems = async (facilityId) => {
+                try {
+                    const res = await scoringApi.getFacilityScores(facilityId);
+                    setFacilityItems(res.data);
+                } catch (error) {}
+            };
+
+            const handleGenerateAll = async () => {
+                setGenerating(true);
+                try {
+                    const r1 = await templatesApi.generateControlItems(buildingId);
+                    const r2 = await templatesApi.generateSystemScores(buildingId);
+                    window.showMessage('success', r1.data.message + '；' + r2.data.message);
+                    loadAll();
+                } catch (error) {
+                    window.showMessage('error', '生成失败');
+                }
+                setGenerating(false);
+            };
+
+            // 条文号前缀匹配（如 5.2.1.1 属于章节 5.2；11.1.1.1 属于 11）
+            const matchClause = (clauseNumber, num) => {
+                if (!clauseNumber) return false;
+                return clauseNumber.startsWith(num + '.');
+            };
+
+            const byClause = (a, b) => (a.clause_number || '').localeCompare(b.clause_number || '', 'zh-CN', { numeric: true });
+
+            const chapterItems = (ch) => {
+                if (ch.kind === 'control') {
+                    return controlItems.filter(i =>
+                        (matchClause(i.clause_number, ch.num) || (!i.clause_number && i.chapter === ch.chapter))
+                        && clauseAppliesTo(i, buildingType)
+                    ).sort(byClause);
+                }
+                if (ch.kind === 'system') {
+                    return systemScores.filter(i =>
+                        (matchClause(i.clause_number, ch.num) || (!i.clause_number && i.chapter === ch.chapter))
+                        && clauseAppliesTo(i, buildingType)
+                    ).sort(byClause);
+                }
+                // facility：该Q章节的设施
+                return facilities.filter(f => {
+                    const cat = categories.find(c => c.id === f.category_id);
+                    return cat && cat.chapter === ch.chapter;
+                });
+            };
+
+            const chapterProgress = (ch) => {
+                const items = chapterItems(ch);
+                if (ch.kind === 'control') {
+                    const done = items.filter(i => i.is_compliant !== null).length;
+                    return { done, total: items.length };
+                }
+                if (ch.kind === 'system') {
+                    const done = items.filter(i => !i.is_applicable || i.is_scored).length;
+                    return { done, total: items.length };
+                }
+                return { done: items.length, total: null };
+            };
+
+            // ===== 更新处理 =====
+            const updateControl = async (itemId, value) => {
+                const isCompliant = value === '' ? null : value === 'true';
+                try {
+                    await scoringApi.updateControlItem(itemId, { is_compliant: isCompliant });
+                    loadAll();
+                } catch (error) { window.showMessage('error', '更新失败'); }
+            };
+
+            const updateSystem = async (scoreId, field, value) => {
+                const data = {};
+                if (field === 'actual_score') data.actual_score = parseFloat(value) || 0;
+                else if (field === 'is_applicable') data.is_applicable = value === 'true';
+                try {
+                    await scoringApi.updateSystemScore(scoreId, data);
+                    loadAll();
+                } catch (error) {
+                    window.showMessage('error', error.response?.data?.detail || '更新失败');
+                }
+            };
+
+            const updateFacilityItem = async (scoreId, field, value) => {
+                const data = {};
+                if (field === 'actual_score') data.actual_score = parseFloat(value) || 0;
+                else if (field === 'is_applicable') data.is_applicable = value === 'true';
+                try {
+                    await scoringApi.updateFacilityScore(scoreId, data);
+                    loadFacilityItems(expandedFacility);
+                } catch (error) {
+                    window.showMessage('error', error.response?.data?.detail || '更新失败');
+                }
+            };
+
+            const handleAddFacility = async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                try {
+                    const res = await scoringApi.createFacility(buildingId, {
+                        category_id: form.category_id.value,
+                        facility_name: form.facility_name.value,
+                        location_description: form.location_description.value
+                    });
+                    await templatesApi.generateFacilityScores(res.data.id);
+                    window.showMessage('success', '设施添加成功，评分项已生成');
+                    form.reset();
+                    setShowAddFacility(false);
+                    loadAll();
+                    setExpandedFacility(res.data.id);
+                } catch (error) { window.showMessage('error', '添加失败'); }
+            };
+
+            const handleDeleteFacility = async (facilityId) => {
+                if (!confirm('确定删除此设施及其全部评分项？')) return;
+                try {
+                    await scoringApi.deleteFacility(facilityId);
+                    if (expandedFacility === facilityId) setExpandedFacility(null);
+                    loadAll();
+                } catch (error) {}
+            };
+
+            // ===== 渲染：控制项章节 =====
+            const renderControlChapter = (ch, items) => React.createElement('div', null,
+                items.length === 0
+                    ? React.createElement(EmptyState, { icon: '✓', title: '暂无控制项', description: '点击上方"自动生成评价项"' })
+                    : items.map(item => React.createElement('div', {
+                        key: item.id,
+                        className: 'control-item ' + (item.is_compliant === true ? 'passed' : item.is_compliant === false ? 'failed' : 'pending'),
+                        style: { border: '1px solid #e5e7eb', borderRadius: '10px', padding: '14px 16px', marginBottom: '10px',
+                                 borderLeft: '4px solid ' + (item.is_compliant === true ? '#10b981' : item.is_compliant === false ? '#ef4444' : '#d1d5db'),
+                                 background: item.is_compliant === true ? '#f0fdf4' : item.is_compliant === false ? '#fef2f2' : 'white' }
+                    },
+                        React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'flex-start' } },
+                            item.clause_number && React.createElement('span', {
+                                style: { fontSize: '11px', fontWeight: 600, color: '#6b7280', background: '#f3f4f6', padding: '2px 8px', borderRadius: '4px', whiteSpace: 'nowrap' }
+                            }, item.clause_number),
+                            React.createElement('div', { style: { flex: 1, fontSize: '13px', lineHeight: '1.6', color: '#374151' } },
+                                item.description || '无描述')
+                        ),
+                        React.createElement('div', { style: { display: 'flex', gap: '8px', marginTop: '10px', paddingTop: '10px', borderTop: '1px solid #f3f4f6' } },
+                            [['true', '✓ 达标'], ['false', '✗ 不达标'], ['', '⏳ 待核查']].map(([val, label]) =>
+                                React.createElement('button', {
+                                    key: val,
+                                    className: 'btn btn-sm',
+                                    style: {
+                                        fontSize: '12px', padding: '5px 12px',
+                                        background: (item.is_compliant === null ? '' : String(item.is_compliant)) === val
+                                            ? (val === 'true' ? '#10b981' : val === 'false' ? '#ef4444' : '#6b7280') : '#f3f4f6',
+                                        color: (item.is_compliant === null ? '' : String(item.is_compliant)) === val ? 'white' : '#374151'
+                                    },
+                                    onClick: () => updateControl(item.id, val)
+                                }, label)
+                            )
+                        )
+                    ))
+            );
+
+            // ===== 渲染：系统评分章节（按小节分组） =====
+            const renderSystemChapter = (ch, items) => {
+                if (items.length === 0) {
+                    return React.createElement(EmptyState, { icon: '📝', title: '暂无评分项', description: '点击上方"自动生成评价项"' });
+                }
+                // 按小节分组（条文号前三段，如 5.2.1）
+                const sections = {};
+                items.forEach(i => {
+                    const sec = (i.clause_number || '').split('.').slice(0, 3).join('.') || '其他';
+                    if (!sections[sec]) sections[sec] = [];
+                    sections[sec].push(i);
+                });
+                return Object.entries(sections).sort((a, b) => a[0].localeCompare(b[0], 'zh-CN', { numeric: true })).map(([sec, secItems]) =>
+                    React.createElement('div', { key: sec, style: { marginBottom: '16px' } },
+                        React.createElement('div', { className: 'section-header' }, sec + ' 节'),
+                        secItems.map(item => {
+                            const rate = parseFloat(item.max_score) > 0 ? ((parseFloat(item.actual_score) / parseFloat(item.max_score)) * 100).toFixed(0) : '0';
+                            return React.createElement('div', {
+                                key: item.id,
+                                style: { border: '1px solid #e5e7eb', borderRadius: '10px', padding: '12px 16px', marginBottom: '8px',
+                                         borderLeft: '4px solid ' + (!item.is_applicable ? '#9ca3af' : parseFloat(item.actual_score) > 0 ? '#3b82f6' : '#d1d5db'),
+                                         background: item.is_applicable ? 'white' : '#f9fafb', opacity: item.is_applicable ? 1 : 0.6 }
+                            },
+                                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'flex-start' } },
+                                    item.clause_number && React.createElement('span', {
+                                        style: { fontSize: '11px', fontWeight: 600, color: '#6b7280', background: '#f3f4f6', padding: '2px 8px', borderRadius: '4px', whiteSpace: 'nowrap' }
+                                    }, item.clause_number),
+                                    React.createElement('div', { style: { flex: 1, fontSize: '13px', lineHeight: '1.6', color: '#374151' } },
+                                        item.description || '无描述')
+                                ),
+                                React.createElement('div', { style: { marginTop: '4px', paddingTop: '10px', borderTop: '1px solid #f3f4f6' } },
+                                    React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: '12px' } },
+                                        React.createElement('span', { style: { fontSize: '12px', color: '#9ca3af' } }, '满分 ' + item.max_score),
+                                        React.createElement('label', { style: { display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: '#6b7280', cursor: 'pointer' } },
+                                            React.createElement('input', {
+                                                type: 'checkbox', checked: !item.is_applicable,
+                                                onChange: (e) => updateSystem(item.id, 'is_applicable', e.target.checked ? 'false' : 'true'),
+                                                style: { width: '16px', height: '16px' }
+                                            }),
+                                            '不参评（该条文不适用此建筑）'
+                                        )
+                                    ),
+                                    renderScoreChoice(item, (v) => updateSystem(item.id, 'actual_score', String(v)), !item.is_applicable)
+                                )
+                            );
+                        })
+                    )
+                );
+            };
+
+            // ===== 渲染：设施章节 =====
+            const renderFacilityChapter = (ch, items) => {
+                const chapterCategories = categories.filter(c => c.chapter === ch.chapter);
+                return React.createElement('div', null,
+                    React.createElement('div', { style: { marginBottom: '12px' } },
+                        React.createElement('button', { className: 'btn btn-primary btn-sm', onClick: () => setShowAddFacility(!showAddFacility) },
+                            showAddFacility ? '- 收起' : '+ 添加设施'
+                        )
+                    ),
+                    showAddFacility && React.createElement('div', { className: 'card', style: { marginBottom: '12px', padding: '16px' } },
+                        React.createElement('form', { onSubmit: handleAddFacility },
+                            React.createElement('div', { className: 'grid-3' },
+                                React.createElement('div', { className: 'form-group' },
+                                    React.createElement('label', null, '设施类别 *'),
+                                    React.createElement('select', { name: 'category_id', required: true },
+                                        React.createElement('option', { value: '' }, '请选择'),
+                                        chapterCategories.map(c =>
+                                            React.createElement('option', { key: c.id, value: c.id }, c.category_name)
+                                        )
+                                    )
+                                ),
+                                React.createElement('div', { className: 'form-group' },
+                                    React.createElement('label', null, '设施名称'),
+                                    React.createElement('input', { name: 'facility_name', placeholder: '如：1#轮椅坡道' })
+                                ),
+                                React.createElement('div', { className: 'form-group' },
+                                    React.createElement('label', null, '位置描述'),
+                                    React.createElement('input', { name: 'location_description', placeholder: '如：1层大厅入口处' })
+                                )
+                            ),
+                            React.createElement('button', { type: 'submit', className: 'btn btn-primary' }, '添加并生成评分项')
+                        )
+                    ),
+                    items.length === 0
+                        ? React.createElement(EmptyState, { icon: '🏗️', title: '暂无设施', description: '点击"添加设施"，系统将自动生成评分项' })
+                        : items.map(f => {
+                            const cat = categories.find(c => c.id === f.category_id);
+                            const isOpen = expandedFacility === f.id;
+                            const applicable = facilityItems.filter(i => i.is_applicable);
+                            const fMax = applicable.reduce((sum, i) => sum + parseFloat(i.max_score), 0);
+                            const fActual = applicable.reduce((sum, i) => sum + parseFloat(i.actual_score), 0);
+                            const fScore = isOpen && fMax > 0 ? ((fActual / fMax) * 10).toFixed(2) : null;
+                            return React.createElement('div', {
+                                key: f.id,
+                                style: { border: '1px solid ' + (isOpen ? '#3b82f6' : '#e5e7eb'), borderRadius: '10px', marginBottom: '10px', overflow: 'hidden' }
+                            },
+                                React.createElement('div', {
+                                    style: { padding: '12px 16px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                                             background: isOpen ? '#eff6ff' : 'white' },
+                                    onClick: () => setExpandedFacility(isOpen ? null : f.id)
+                                },
+                                    React.createElement('div', null,
+                                        React.createElement('div', { style: { fontWeight: 600, fontSize: '14px' } },
+                                            (isOpen ? '▾ ' : '▸ ') + (f.facility_name || (cat ? cat.category_name : '未命名设施'))),
+                                        React.createElement('div', { style: { fontSize: '12px', color: '#6b7280', marginTop: '2px' } },
+                                            (cat ? cat.category_name : '') + (f.location_description ? ' · ' + f.location_description : ''))
+                                    ),
+                                    React.createElement('button', {
+                                        className: 'btn btn-sm btn-danger',
+                                        onClick: (e) => { e.stopPropagation(); handleDeleteFacility(f.id); }
+                                    }, '删除')
+                                ),
+                                isOpen && React.createElement('div', { style: { padding: '12px 16px', borderTop: '1px solid #e5e7eb', background: '#f8faff' } },
+                                    fScore !== null && React.createElement('div', { style: { fontSize: '13px', fontWeight: 600, color: '#1d4ed8', marginBottom: '10px' } },
+                                        '设施得分：' + fScore + ' / 10'),
+                                    facilityItems.length === 0
+                                        ? React.createElement('div', { style: { color: '#9ca3af', fontSize: '13px' } }, '暂无评分项')
+                                        : facilityItems.map(item => React.createElement('div', {
+                                            key: item.id,
+                                            style: { padding: '10px 0', borderBottom: '1px solid #e5e7eb',
+                                                     opacity: item.is_applicable ? 1 : 0.5 }
+                                        },
+                                            React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'flex-start', flexWrap: 'wrap' } },
+                                                React.createElement('div', { style: { flex: 1, minWidth: '200px' } },
+                                                    React.createElement('span', { style: { fontSize: '11px', fontWeight: 600, color: '#6b7280', background: '#f3f4f6', padding: '1px 6px', borderRadius: '4px' } }, item.clause_id),
+                                                    item.description && React.createElement('div', { style: { fontSize: '13px', color: '#374151', marginTop: '3px', lineHeight: '1.5' } }, item.description)
+                                                ),
+                                                React.createElement('span', { style: { fontSize: '12px', color: '#9ca3af', whiteSpace: 'nowrap' } }, '满分 ' + item.max_score),
+                                                React.createElement('label', { style: { display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#6b7280', cursor: 'pointer' } },
+                                                    React.createElement('input', {
+                                                        type: 'checkbox', checked: !item.is_applicable,
+                                                        onChange: (e) => updateFacilityItem(item.id, 'is_applicable', e.target.checked ? 'false' : 'true')
+                                                    }),
+                                                    '不参评'
+                                                )
+                                            ),
+                                            renderScoreChoice(item, (v) => updateFacilityItem(item.id, 'actual_score', String(v)), !item.is_applicable)
+                                        ))
+                                )
+                            );
+                        })
+                );
+            };
+
+            const selectedChapter = visibleChapters.find(c => c.num === selected);
+            const totalEmpty = controlItems.length === 0 && systemScores.length === 0;
+
+            return React.createElement('div', null,
+                totalEmpty && React.createElement('div', { className: 'info-box info-box-blue', style: { marginBottom: '16px' } },
+                    React.createElement('strong', null, '快速开始：'),
+                    '尚未生成评价项，',
+                    React.createElement('button', {
+                        className: 'btn btn-primary btn-sm', style: { marginLeft: '8px' },
+                        onClick: handleGenerateAll, disabled: generating
+                    }, generating ? '生成中...' : '⚡ 自动生成全部评价项')
+                ),
+                React.createElement('div', { className: 'chapter-layout' },
+                    // 左侧章节导航
+                    React.createElement('div', { className: 'chapter-nav' },
+                        React.createElement('div', { className: 'card', style: { padding: '12px' } },
+                            visibleChapters.map(ch => {
+                                const prog = chapterProgress(ch);
+                                const isDone = prog.total !== null && prog.total > 0 && prog.done === prog.total;
+                                return React.createElement('div', {
+                                    key: ch.num,
+                                    className: 'chapter-nav-item' + (selected === ch.num ? ' active' : '') + (isDone ? ' done' : ''),
+                                    onClick: () => setSelected(ch.num)
+                                },
+                                    React.createElement('span', { className: 'chapter-num' }, ch.num),
+                                    React.createElement('span', { className: 'chapter-name' }, ch.name),
+                                    React.createElement('span', { className: 'chapter-prog' },
+                                        prog.total === null ? `${prog.done}个` : `${prog.done}/${prog.total}`)
+                                );
+                            })
+                        )
+                    ),
+                    // 右侧内容区
+                    React.createElement('div', { className: 'chapter-content' },
+                        selectedChapter && React.createElement('div', { className: 'card' },
+                            React.createElement('div', { className: 'card-title' },
+                                selectedChapter.num + ' ' + selectedChapter.name
+                            ),
+                            selectedChapter.kind === 'control' && renderControlChapter(selectedChapter, chapterItems(selectedChapter)),
+                            selectedChapter.kind === 'system' && renderSystemChapter(selectedChapter, chapterItems(selectedChapter)),
+                            selectedChapter.kind === 'facility' && renderFacilityChapter(selectedChapter, chapterItems(selectedChapter))
+                        )
+                    )
+                )
+            );
+        }
+
+        // ============ 章节得分明细表 ============
+
+        function ChapterScoreTable({ controlItems, systemScores, facilities, categories, applicableChapters, withinOneYear, latestResult }) {
+            const visibleChapters = CHAPTER_TREE.filter(c => {
+                if (c.chapter === 'construction') return withinOneYear;
+                if (c.chapter === 'maintenance') return true;
+                return applicableChapters.includes(c.chapter);
+            });
+
+            const matchClause = (clauseNumber, num) => clauseNumber && clauseNumber.startsWith(num + '.');
+
+            const rows = visibleChapters.map(ch => {
+                if (ch.kind === 'control') {
+                    const items = controlItems.filter(i =>
+                        matchClause(i.clause_number, ch.num) || (!i.clause_number && i.chapter === ch.chapter));
+                    const passed = items.filter(i => i.is_compliant === true).length;
+                    const failed = items.filter(i => i.is_compliant === false).length;
+                    return {
+                        num: ch.num, name: ch.name, kind: '控制项',
+                        score: items.length === 0 ? '-' : `${passed}/${items.length} 达标`,
+                        rate: items.length === 0 ? null : (failed > 0 ? 'fail' : passed === items.length ? 'pass' : 'pending')
+                    };
+                }
+                if (ch.kind === 'system') {
+                    const items = systemScores.filter(i =>
+                        matchClause(i.clause_number, ch.num) || (!i.clause_number && i.chapter === ch.chapter));
+                    const applicable = items.filter(i => i.is_applicable);
+                    const actual = applicable.reduce((sum, i) => sum + parseFloat(i.actual_score), 0);
+                    const max = applicable.reduce((sum, i) => sum + parseFloat(i.max_score), 0);
+                    const na = items.length - applicable.length;
+                    return {
+                        num: ch.num, name: ch.name, kind: '系统评分',
+                        score: items.length === 0 ? '-' : `${actual.toFixed(1)} / ${max.toFixed(1)}` + (na > 0 ? ` (${na}项不参评)` : ''),
+                        rate: max > 0 ? actual / max * 100 : null
+                    };
+                }
+                // facility：F分取自评价结果（引擎按 设施归一化→类别平均→章平均 计算）
+                const chCats = categories.filter(c => c.chapter === ch.chapter);
+                const chFacilities = facilities.filter(f => chCats.some(c => c.id === f.category_id));
+                const fKey = { Q1: 'q1', Q2: 'q2', Q3: 'q3' }[ch.chapter];
+                const fScore = fKey && latestResult ? latestResult[fKey + '_facility_score'] : null;
+                if (chFacilities.length === 0) {
+                    return { num: ch.num, name: ch.name, kind: '设施评分', score: '-', rate: null };
+                }
+                return {
+                    num: ch.num, name: ch.name, kind: '设施评分',
+                    score: (fScore !== null && fScore !== undefined ? `F = ${fScore} / 10，` : '') + `${chFacilities.length} 个设施`,
+                    rate: fScore !== null && fScore !== undefined ? parseFloat(fScore) * 10 : null
+                };
+            });
+
+            const rateTag = (rate) => {
+                if (rate === null) return null;
+                if (rate === 'pass') return React.createElement('span', { className: 'tag tag-green' }, '全部达标');
+                if (rate === 'fail') return React.createElement('span', { className: 'tag tag-red' }, '存在不达标');
+                if (rate === 'pending') return React.createElement('span', { className: 'tag tag-orange' }, '核查中');
+                const cls = rate >= 80 ? 'tag-green' : rate >= 60 ? 'tag-blue' : rate >= 40 ? 'tag-orange' : 'tag-red';
+                return React.createElement('span', { className: 'tag ' + cls }, rate.toFixed(1) + '%');
+            };
+
+            return React.createElement('div', { style: { marginTop: '24px' } },
+                React.createElement('h4', { style: { marginBottom: '12px', color: '#374151' } }, '各章节得分明细'),
+                React.createElement('div', { style: { overflowX: 'auto' } },
+                    React.createElement('table', { className: 'table' },
+                        React.createElement('thead', null,
+                            React.createElement('tr', null,
+                                React.createElement('th', { style: { width: '70px' } }, '章节'),
+                                React.createElement('th', null, '内容'),
+                                React.createElement('th', null, '类别'),
+                                React.createElement('th', null, '得分 / 完成情况'),
+                                React.createElement('th', null, '得分率')
+                            )
+                        ),
+                        React.createElement('tbody', null,
+                            rows.map(r => React.createElement('tr', { key: r.num },
+                                React.createElement('td', null, React.createElement('strong', null, r.num)),
+                                React.createElement('td', null, r.name),
+                                React.createElement('td', null,
+                                    React.createElement('span', {
+                                        className: 'tag ' + (r.kind === '控制项' ? 'tag-orange' : r.kind === '系统评分' ? 'tag-blue' : 'tag-gray')
+                                    }, r.kind)
+                                ),
+                                React.createElement('td', null, r.score),
+                                React.createElement('td', null, rateTag(r.rate))
+                            ))
+                        )
+                    )
+                )
+            );
+        }
+
+        // ============ 结果面板 ============
+        
+        function ResultPanel({ latestResult, applicableChapters, building, withinOneYear }) {
+            const [controlItems, setControlItems] = useState([]);
+            const [systemScores, setSystemScores] = useState([]);
+            const [facilities, setFacilities] = useState([]);
+            const [categories, setCategories] = useState([]);
+            const [suggestions, setSuggestions] = useState([]);
+            const [sgAnalysis, setSgAnalysis] = useState(null);
+
+            useEffect(() => {
+                if (!building) return;
+                (async () => {
+                    try {
+                        const [ci, ss, fa, ca] = await Promise.all([
+                            scoringApi.getControlItems(building.id),
+                            scoringApi.getSystemScores(building.id),
+                            scoringApi.getFacilities(building.id),
+                            templatesApi.getFacilityCategories(),
+                        ]);
+                        setControlItems(ci.data);
+                        setSystemScores(ss.data);
+                        setFacilities(fa.data);
+                        setCategories(ca.data);
+                    } catch (error) {}
+                    try {
+                        const sg = await reportApi.getSuggestions(building.id);
+                        setSuggestions(sg.data.suggestions || []);
+                        setSgAnalysis(sg.data.analysis || null);
+                    } catch (error) {}
+                })();
+            }, [building && building.id, latestResult && latestResult.id]);
+
+            if (!latestResult) {
+                return React.createElement('div', { className: 'card' },
+                    React.createElement(EmptyState, {
+                        icon: '📊',
+                        title: '暂无评价结果',
+                        description: '请完成控制项检查、系统评分和设施评分后，点击"执行评价计算"按钮'
+                    })
+                );
+            }
+            
+            const gradeColors = {
+                'three_star': '#f59e0b',
+                'two_star': '#3b82f6',
+                'one_star': '#10b981',
+                'none': '#ef4444'
+            };
+            
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'card' },
+                    React.createElement('div', { className: 'card-title card-title-success' },
+                        '评价结果总览',
+                        React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center' } },
+                            React.createElement('a', {
+                                className: 'btn btn-primary btn-sm',
+                                href: reportApi.getPdfUrl(building.id),
+                                target: '_blank'
+                            }, '📄 下载PDF报告'),
+                            React.createElement('span', {
+                                className: 'tag',
+                                style: {
+                                    background: gradeColors[latestResult.determined_grade] + '20',
+                                    color: gradeColors[latestResult.determined_grade],
+                                    fontSize: '16px',
+                                    padding: '6px 16px'
+                                }
+                            }, gradeMap[latestResult.determined_grade])
+                        )
+                    ),
+                    
+                    (latestResult.determined_grade === 'none' || !latestResult.determined_grade) && latestResult.breakdown && latestResult.breakdown.reason &&
+                        React.createElement('div', { className: 'info-box info-box-red', style: { marginBottom: '16px' } },
+                            React.createElement('strong', null, '✗ 未达标原因：'),
+                            latestResult.breakdown.reason +
+                            (latestResult.breakdown.site_inspection_passed === false || latestResult.breakdown.site_inspection_passed === null
+                                ? '（请在建筑信息中登记现场检测结果）' : '')
+                        ),
+                    React.createElement('div', { style: { textAlign: 'center', padding: '24px 0' } },
+                        React.createElement('div', { style: { fontSize: '64px', fontWeight: 800, color: '#3b82f6' } },
+                            latestResult.total_score_q
+                        ),
+                        React.createElement('div', { style: { fontSize: '18px', color: '#6b7280', marginTop: '8px' } },
+                            '总体评分 Q'
+                        )
+                    ),
+                    
+                    React.createElement('div', { className: 'stats-grid' },
+                        applicableChapters.includes('Q1') && React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, latestResult.q1_score || '-'),
+                            React.createElement('div', { className: 'stat-label' }, 'Q1 无障碍通行')
+                        ),
+                        applicableChapters.includes('Q2') && React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, latestResult.q2_score || '-'),
+                            React.createElement('div', { className: 'stat-label' }, 'Q2 公共无障碍服务')
+                        ),
+                        applicableChapters.includes('Q3') && React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, latestResult.q3_score || '-'),
+                            React.createElement('div', { className: 'stat-label' }, 'Q3 无障碍住宿')
+                        ),
+                        React.createElement('div', { className: 'stat-card primary' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#3b82f6' } }, latestResult.q4_score || '-'),
+                            React.createElement('div', { className: 'stat-label' }, 'Q4 信息交流')
+                        ),
+                        React.createElement('div', { className: 'stat-card warning' },
+                            React.createElement('div', { className: 'stat-value', style: { color: '#f59e0b' } }, latestResult.q5_score || '0'),
+                            React.createElement('div', { className: 'stat-label' }, 'Q5 创新提升 (上限20分)')
+                        )
+                    ),
+                    
+                    React.createElement('div', { style: { marginTop: '24px', padding: '20px', background: '#f8fafc', borderRadius: '12px' } },
+                        React.createElement('h4', { style: { marginBottom: '16px', color: '#374151' } }, '评分详情'),
+                        React.createElement('div', { className: 'grid-2' },
+                            React.createElement('div', null,
+                                React.createElement('div', { style: { marginBottom: '12px' } },
+                                    React.createElement('span', { style: { color: '#6b7280' } }, '施工验收评分：'),
+                                    React.createElement('strong', null,
+                                        latestResult.construction_score !== null && latestResult.construction_score !== undefined
+                                            ? latestResult.construction_score : '不参评（竣工一年后）')
+                                ),
+                                React.createElement('div', null,
+                                    React.createElement('span', { style: { color: '#6b7280' } }, '运行维护评分：'),
+                                    React.createElement('strong', null, latestResult.maintenance_score || '-')
+                                )
+                            ),
+                            React.createElement('div', null,
+                                React.createElement('div', { style: { marginBottom: '12px' } },
+                                    React.createElement('span', { style: { color: '#6b7280' } }, '评价时间：'),
+                                    React.createElement('strong', null, new Date(latestResult.calculated_at).toLocaleString())
+                                ),
+                                React.createElement('div', null,
+                                    React.createElement('span', { style: { color: '#6b7280' } }, '计算版本：'),
+                                    React.createElement('strong', null, '第' + latestResult.calculation_version + '版')
+                                )
+                            )
+                        )
+                    ),
+                    
+                    React.createElement('div', { style: { marginTop: '24px' } },
+                        React.createElement('h4', { style: { marginBottom: '12px', color: '#374151' } }, '维度得分构成（Q = S × F/10）'),
+                        React.createElement('div', { style: { overflowX: 'auto' } },
+                            React.createElement('table', { className: 'table' },
+                                React.createElement('thead', null,
+                                    React.createElement('tr', null,
+                                        React.createElement('th', null, '维度'),
+                                        React.createElement('th', null, '系统分 S (百分制)'),
+                                        React.createElement('th', null, '设施分 F (10分制)'),
+                                        React.createElement('th', null, '维度分 Q')
+                                    )
+                                ),
+                                React.createElement('tbody', null,
+                                    [['Q1 无障碍通行', 'q1'], ['Q2 公共无障碍服务', 'q2'], ['Q3 无障碍住宿', 'q3']]
+                                        .filter(([_, k]) => latestResult[k + '_score'] !== null && latestResult[k + '_score'] !== undefined)
+                                        .map(([label, k]) => React.createElement('tr', { key: k },
+                                            React.createElement('td', null, label),
+                                            React.createElement('td', null, latestResult[k + '_system_score'] ?? '-'),
+                                            React.createElement('td', null, latestResult[k + '_facility_score'] ?? '-'),
+                                            React.createElement('td', null, React.createElement('strong', null, latestResult[k + '_score']))
+                                        )),
+                                    React.createElement('tr', null,
+                                        React.createElement('td', null, 'Q4 信息交流与智慧服务'),
+                                        React.createElement('td', { colSpan: 2, style: { color: '#9ca3af' } }, '直接评分（无设施分）'),
+                                        React.createElement('td', null, React.createElement('strong', null, latestResult.q4_score))
+                                    ),
+                                    React.createElement('tr', null,
+                                        React.createElement('td', null, 'Q5 创新与提升'),
+                                        React.createElement('td', { colSpan: 2, style: { color: '#9ca3af' } }, '加分项（上限20分）'),
+                                        React.createElement('td', null, React.createElement('strong', null, latestResult.q5_score))
+                                    )
+                                )
+                            )
+                        )
+                    ),
+
+                    React.createElement(ChapterScoreTable, {
+                        controlItems, systemScores, facilities, categories, applicableChapters, withinOneYear, latestResult
+                    }),
+
+                    latestResult.determined_grade !== 'three_star' && suggestions.length > 0 && React.createElement('div', { style: { marginTop: '24px' } },
+                        React.createElement('h4', { style: { marginBottom: '12px', color: '#374151' } }, '短板改善建议'),
+
+                        sgAnalysis && sgAnalysis.target_grade && React.createElement('div', {
+                            className: 'info-box info-box-yellow', style: { marginBottom: '16px' }
+                        },
+                            React.createElement('strong', null,
+                                `升星目标：${sgAnalysis.current_grade_label || '未达标'} → ${sgAnalysis.target_grade_label}`),
+                            sgAnalysis.blocking.length > 0 && React.createElement('div', { style: { marginTop: '8px' } },
+                                '升星短板：',
+                                sgAnalysis.blocking.map(b =>
+                                    React.createElement('span', {
+                                        key: b.dimension, className: 'tag tag-red', style: { marginLeft: '6px' }
+                                    }, `${b.label} ${b.current}分（需≥${b.required}分，差${b.gap.toFixed(1)}分）`)
+                                )
+                            ),
+                            sgAnalysis.total_q_gap && React.createElement('div', { style: { marginTop: '6px' } },
+                                `总体Q：${sgAnalysis.total_q_gap.current}分（需≥${sgAnalysis.total_q_gap.required}分，差${sgAnalysis.total_q_gap.gap.toFixed(1)}分）`
+                            )
+                        ),
+
+                        React.createElement('div', { style: { overflowX: 'auto' } },
+                            React.createElement('table', { className: 'table' },
+                                React.createElement('thead', null,
+                                    React.createElement('tr', null,
+                                        React.createElement('th', null, '目标'),
+                                        React.createElement('th', { style: { width: '80px' } }, '难度'),
+                                        React.createElement('th', null, '改造类别'),
+                                        React.createElement('th', null, '改造内容'),
+                                        React.createElement('th', null, '条文号'),
+                                        React.createElement('th', null, '现状'),
+                                        React.createElement('th', null, '失分')
+                                    )
+                                ),
+                                React.createElement('tbody', null,
+                                    suggestions.map((sg, idx) => React.createElement('tr', {
+                                        key: idx,
+                                        style: sg.is_key ? { background: '#fef2f2' } : {}
+                                    },
+                                        React.createElement('td', null,
+                                            sg.is_key
+                                                ? React.createElement('span', { className: 'tag tag-red' }, '升星关键')
+                                                : React.createElement('span', { className: 'tag tag-gray' }, '提升总分')
+                                        ),
+                                        React.createElement('td', null,
+                                            React.createElement('span', {
+                                                style: { color: sg.stars >= 4 ? '#dc2626' : sg.stars === 3 ? '#d97706' : '#6b7280', letterSpacing: '1px' }
+                                            }, '★'.repeat(sg.stars))
+                                        ),
+                                        React.createElement('td', { style: { fontSize: '13px' } }, sg.category),
+                                        React.createElement('td', { style: { fontSize: '13px' } },
+                                            sg.content,
+                                            sg.dimension_label && React.createElement('div', { style: { fontSize: '11px', color: '#9ca3af' } }, sg.dimension_label)
+                                        ),
+                                        React.createElement('td', { style: { fontSize: '13px', whiteSpace: 'nowrap' } }, sg.clause_number),
+                                        React.createElement('td', { style: { fontSize: '13px' } }, sg.status),
+                                        React.createElement('td', null, sg.lost_score !== null ? sg.lost_score : '—')
+                                    ))
+                                )
+                            )
+                        )
+                    ),
+
+                    React.createElement('div', { className: 'info-box info-box-green', style: { marginTop: '20px' } },
+                        React.createElement('strong', null, '等级说明：'),
+                        ' 一星级（Q≥40）、二星级（Q≥60）、三星级（Q≥80）。',
+                        React.createElement('br', null),
+                        '控制项全部达标且各维度最低分满足要求方可评定相应等级。'
+                    )
+                )
+            );
+        }
+        
+        // ============ 主应用 ============
+        
+        function App() {
+            const [currentPage, setCurrentPage] = useState('projects');
+            
+            return React.createElement('div', { className: 'app' },
+                React.createElement('header', { className: 'header' },
+                    React.createElement('div', { className: 'header-left' },
+                        React.createElement('div',
+                            React.createElement('h1', null, '无障碍设施评价系统'),
+                            React.createElement('div', { className: 'header-subtitle' }, 'T/CNAEC 1304—2022 民用建筑无障碍设施评价标准')
+                        ),
+                        React.createElement('nav', { className: 'nav-menu' },
+                            React.createElement('div', {
+                                className: 'nav-item ' + (currentPage === 'projects' ? 'active' : ''),
+                                onClick: () => setCurrentPage('projects')
+                            }, '项目管理'),
+                            React.createElement('div', {
+                                className: 'nav-item ' + (currentPage === 'standards' ? 'active' : ''),
+                                onClick: () => setCurrentPage('standards')
+                            }, '标准条文')
+                        )
+                    )
+                ),
+                React.createElement('main', { className: 'content' },
+                    currentPage === 'projects' && React.createElement(ProjectList),
+                    currentPage === 'standards' && React.createElement(StandardsPage)
+                ),
+                React.createElement('footer', { className: 'footer' },
+                    '无障碍设施评价系统 ©2026 | 依据 T/CNAEC 1304—2022《民用建筑无障碍设施评价标准》'
+                )
+            );
+        }
+        
+        // ============ 标准条文页面 ============
+        
+        function StandardsPage() {
+            const [clauses, setClauses] = useState([]);
+            const [loading, setLoading] = useState(false);
+            const [filterChapter, setFilterChapter] = useState('');
+            
+            useEffect(() => {
+                loadClauses();
+            }, []);
+            
+            const loadClauses = async () => {
+                setLoading(true);
+                try {
+                    const res = await clauseApi.getAll();
+                    setClauses(res.data);
+                } catch (error) {
+                    window.showMessage('error', '加载标准条文失败');
+                }
+                setLoading(false);
+            };
+            
+            const filteredClauses = filterChapter
+                ? clauses.filter(c => c.chapter === filterChapter)
+                : clauses;
+            
+            const chapters = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'construction', 'maintenance', 'control'];
+            
+            return React.createElement('div', null,
+                React.createElement('div', { className: 'page-header' },
+                    React.createElement('div',
+                        React.createElement('h1', { className: 'page-title' }, '标准条文库'),
+                        React.createElement('p', { className: 'page-subtitle' }, 'T/CNAEC 1304—2022 标准条文查阅')
+                    ),
+                    React.createElement('select', {
+                        className: 'btn',
+                        style: { padding: '10px 16px' },
+                        value: filterChapter,
+                        onChange: (e) => setFilterChapter(e.target.value)
+                    },
+                        React.createElement('option', { value: '' }, '全部章节'),
+                        chapters.map(ch =>
+                            React.createElement('option', { key: ch, value: ch }, chapterLabels[ch])
+                        )
+                    )
+                ),
+                
+                loading
+                    ? React.createElement('div', { className: 'loading' }, React.createElement('div', { className: 'spinner' }))
+                    : React.createElement('div', null,
+                        filteredClauses.map(clause => React.createElement('div', {
+                            key: clause.id,
+                            className: 'standard-clause-item'
+                        },
+                            React.createElement('div', { className: 'clause-number' }, clause.clause_number),
+                            React.createElement('div', { className: 'clause-description' }, clause.description),
+                            React.createElement('div', { className: 'clause-meta' },
+                                React.createElement('span', { className: 'tag tag-blue' }, chapterLabels[clause.chapter]),
+                                clause.clause_type && React.createElement('span', { className: 'tag tag-gray' }, clause.clause_type),
+                                clause.max_score > 0 && React.createElement('span', { className: 'tag tag-green' }, `满分 ${clause.max_score} 分`)
+                            )
+                        ))
+                    )
+            );
+        }
+        
+        // 渲染
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+    </script>
+</body>
+</html>
