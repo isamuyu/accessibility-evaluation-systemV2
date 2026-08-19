@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "your-secret-key-change-in-production"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 1天
     # 是否强制所有业务接口需要 JWT 认证（开发环境默认关闭，生产环境应开启）
-    AUTH_REQUIRED: bool = False
+    AUTH_REQUIRED: bool = True
     # 允许的跨域来源（不要用 "*" 配 allow_credentials=True）
     CORS_ORIGINS: str = "http://localhost:8001,http://127.0.0.1:8001"
     

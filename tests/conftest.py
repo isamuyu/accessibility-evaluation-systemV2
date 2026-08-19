@@ -34,6 +34,10 @@ client = TestClient(app)
 @pytest.fixture(scope="function")
 def setup_db():
     Base.metadata.create_all(bind=engine)
+    # 认证已默认开启：每个测试用例内注册并登录，给共享 client 带上令牌
+    client.post("/auth/register", json={"username": "testadmin", "password": "test123456"})
+    token = client.post("/auth/login", json={"username": "testadmin", "password": "test123456"}).json()["access_token"]
+    client.headers["Authorization"] = f"Bearer {token}"
     yield
     Base.metadata.drop_all(bind=engine)
 

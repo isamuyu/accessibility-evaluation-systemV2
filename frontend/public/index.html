@@ -353,6 +353,20 @@
         /* 移动端适配 */
         @media (max-width: 768px) {
             .content { padding: 12px; }
+            /* 表格容器全部可横滑 */
+            .card > .table, .card table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .card > .table tbody, .card table tbody, .card > .table thead, .card table thead { display: table; width: 100%; min-width: 540px; }
+            /* 弹窗近全屏 */
+            .modal { width: 96vw !important; margin: 8px auto !important; max-height: 94vh; overflow-y: auto; }
+            /* 消息提示靠下不遮挡 */
+            .message { top: auto !important; bottom: 16px !important; right: 12px !important; left: 12px; max-width: none !important; }
+            /* 页面头部 */
+            .page-header { flex-wrap: wrap; gap: 8px; }
+            .page-title { font-size: 18px !important; }
+            /* 评价大字号 */
+            .stat-card .stat-value { font-size: 20px !important; }
+            /* 选项卡片更易点 */
+            .opt, .bools .bbtn2 { min-height: 40px; }
             .header h1 { font-size: 17px; }
             .header-subtitle { font-size: 11px; }
             .nav-menu { display: flex; flex-wrap: wrap; }
@@ -547,6 +561,23 @@
         
         const API_BASE = '';
         const api = axios.create({ baseURL: API_BASE, headers: { 'Content-Type': 'application/json' }});
+
+        // 认证：请求自动带令牌；401 时回登录页
+        api.interceptors.request.use(config => {
+            const token = localStorage.getItem('token');
+            if (token) config.headers.Authorization = 'Bearer ' + token;
+            return config;
+        });
+        api.interceptors.response.use(
+            resp => resp,
+            error => {
+                if (error.response && error.response.status === 401) {
+                    localStorage.removeItem('token');
+                    window.dispatchEvent(new Event('auth-required'));
+                }
+                return Promise.reject(error);
+            }
+        );
         
         const projectApi = {
             getAll: () => api.get('/projects/'),
@@ -838,10 +869,18 @@
                                             new Date(project.created_at).toLocaleDateString()
                                         ),
                                         React.createElement('td', null,
-                                            React.createElement('button', {
-                                                className: 'btn btn-primary btn-sm',
-                                                onClick: () => { setSelectedProject(project); setCurrentView('detail'); }
-                                            }, '查看详情')
+                                            React.createElement('div', { style: { display: 'flex', gap: '6px' } },
+                                                React.createElement('button', {
+                                                    className: 'btn btn-primary btn-sm',
+                                                    onClick: () => { setSelectedProject(project); setCurrentView('detail'); }
+                                                }, '查看详情'),
+                                                React.createElement('a', {
+                                                    className: 'btn btn-sm',
+                                                    style: { background: '#eef2ff', color: '#4f46e5', border: '1px solid #c7d2fe', textDecoration: 'none' },
+                                                    href: '/static/facility-mode.html?project_id=' + project.id,
+                                                    target: '_blank'
+                                                }, '🧩 设施评价')
+                                            )
                                         )
                                     ))
                                 )
@@ -2354,13 +2393,19 @@
             const totalEmpty = controlItems.length === 0 && systemScores.length === 0;
 
             return React.createElement('div', null,
-                totalEmpty && React.createElement('div', { className: 'info-box info-box-blue', style: { marginBottom: '16px' } },
-                    React.createElement('strong', null, '快速开始：'),
-                    '尚未生成评价项，',
+                React.createElement('div', {
+                    className: 'info-box ' + (totalEmpty ? 'info-box-blue' : 'info-box-yellow'),
+                    style: { marginBottom: '16px', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }
+                },
+                    totalEmpty
+                        ? React.createElement('span', null, React.createElement('strong', null, '快速开始：'), '尚未生成评价项')
+                        : React.createElement('span', null, '部分章节还没有评价项（设施模式只覆盖设施相关条款）'),
                     React.createElement('button', {
-                        className: 'btn btn-primary btn-sm', style: { marginLeft: '8px' },
+                        className: 'btn btn-primary btn-sm',
                         onClick: handleGenerateAll, disabled: generating
-                    }, generating ? '生成中...' : '⚡ 自动生成全部评价项')
+                    }, generating ? '生成中...' : totalEmpty ? '⚡ 自动生成全部评价项' : '↻ 生成/补齐评价项'),
+                    !totalEmpty && React.createElement('span', { style: { fontSize: '12px', color: '#6b7280' } },
+                        '只补充缺失项，已录入的分数不受影响')
                 ),
                 React.createElement('div', { className: 'chapter-layout' },
                     // 左侧章节导航
@@ -2740,11 +2785,76 @@
             );
         }
         
+        // ============ 登录页 ============
+
+        function LoginPage({ onLogin }) {
+            const [error, setError] = useState('');
+            const [loading, setLoading] = useState(false);
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setLoading(true);
+                setError('');
+                try {
+                    const res = await api.post('/auth/login', {
+                        username: e.target.username.value,
+                        password: e.target.password.value
+                    });
+                    localStorage.setItem('token', res.data.access_token);
+                    onLogin();
+                } catch (err) {
+                    setError(err.response?.data?.detail || '登录失败');
+                }
+                setLoading(false);
+            };
+
+            return React.createElement('div', {
+                style: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                         background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' }
+            },
+                React.createElement('div', { className: 'card', style: { width: '380px', maxWidth: '92vw', padding: '36px' } },
+                    React.createElement('div', { style: { textAlign: 'center', marginBottom: '24px' } },
+                        React.createElement('div', { style: { fontSize: '36px', marginBottom: '8px' } }, '♿'),
+                        React.createElement('h2', { style: { fontSize: '20px', color: '#1f2937' } }, '无障碍设施评价系统'),
+                        React.createElement('p', { style: { fontSize: '13px', color: '#6b7280', marginTop: '4px' } }, 'T/CNAEC 1304—2022 评价认证平台')
+                    ),
+                    error && React.createElement('div', { className: 'info-box info-box-red', style: { marginBottom: '16px' } }, error),
+                    React.createElement('form', { onSubmit: handleSubmit },
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '用户名'),
+                            React.createElement('input', { name: 'username', required: true, placeholder: 'admin', autoFocus: true })
+                        ),
+                        React.createElement('div', { className: 'form-group' },
+                            React.createElement('label', null, '密码'),
+                            React.createElement('input', { name: 'password', type: 'password', required: true, placeholder: '••••••' })
+                        ),
+                        React.createElement('button', {
+                            type: 'submit', className: 'btn btn-primary',
+                            style: { width: '100%', padding: '12px' }, disabled: loading
+                        }, loading ? '登录中...' : '登 录')
+                    ),
+                    React.createElement('p', { style: { textAlign: 'center', marginTop: '16px', fontSize: '12px', color: '#9ca3af' } },
+                        '默认账号 admin / admin123（请登录后尽快修改）')
+                )
+            );
+        }
+
         // ============ 主应用 ============
         
         function App() {
             const [currentPage, setCurrentPage] = useState('projects');
-            
+            const [authed, setAuthed] = useState(!!localStorage.getItem('token'));
+
+            useEffect(() => {
+                const onAuthRequired = () => setAuthed(false);
+                window.addEventListener('auth-required', onAuthRequired);
+                return () => window.removeEventListener('auth-required', onAuthRequired);
+            }, []);
+
+            if (!authed) {
+                return React.createElement(LoginPage, { onLogin: () => setAuthed(true) });
+            }
+
             return React.createElement('div', { className: 'app' },
                 React.createElement('header', { className: 'header' },
                     React.createElement('div', { className: 'header-left' },
@@ -2760,7 +2870,12 @@
                             React.createElement('div', {
                                 className: 'nav-item ' + (currentPage === 'standards' ? 'active' : ''),
                                 onClick: () => setCurrentPage('standards')
-                            }, '标准条文')
+                            }, '标准条文'),
+                            React.createElement('div', {
+                                className: 'nav-item',
+                                style: { marginLeft: 'auto' },
+                                onClick: () => { localStorage.removeItem('token'); setAuthed(false); }
+                            }, '退出登录')
                         )
                     )
                 ),

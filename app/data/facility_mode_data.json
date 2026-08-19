@@ -1,0 +1,4296 @@
+{
+ "categories": [
+  {
+   "category_code": "landscaping",
+   "category_name": "绿化景观和活动场地",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "tactile_path",
+   "category_name": "盲道",
+   "facility_category_code": "盲道"
+  },
+  {
+   "category_code": "curb_ramp",
+   "category_name": "缘石坡道",
+   "facility_category_code": "其他通行设施"
+  },
+  {
+   "category_code": "handrail",
+   "category_name": "扶手",
+   "facility_category_code": "其他通行设施"
+  },
+  {
+   "category_code": "residential_road",
+   "category_name": "居住区道路",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "residential_green",
+   "category_name": "居住区绿地和活动场地",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "accessible_parking",
+   "category_name": "无障碍停车",
+   "facility_category_code": "其他通行设施"
+  },
+  {
+   "category_code": "accessible_circulation",
+   "category_name": "无障碍流线",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "access_passage",
+   "category_name": "无障碍通道",
+   "facility_category_code": "通道"
+  },
+  {
+   "category_code": "wheelchair_ramp",
+   "category_name": "轮椅坡道",
+   "facility_category_code": "坡道"
+  },
+  {
+   "category_code": "entrance_ratio",
+   "category_name": "无障碍出入口设置比例",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "access_entrance",
+   "category_name": "无障碍出入口1",
+   "facility_category_code": "出入口"
+  },
+  {
+   "category_code": "door_config",
+   "category_name": "门配置",
+   "facility_category_code": "门"
+  },
+  {
+   "category_code": "door_main",
+   "category_name": "门",
+   "facility_category_code": "门"
+  },
+  {
+   "category_code": "public_rest_area",
+   "category_name": "公共休息服务区",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "wheelchair_seat",
+   "category_name": "轮椅席位",
+   "facility_category_code": "轮椅席位"
+  },
+  {
+   "category_code": "low_service",
+   "category_name": "低位服务设施",
+   "facility_category_code": "轮椅席位"
+  },
+  {
+   "category_code": "elevator_basic",
+   "category_name": "无障碍电梯基础项",
+   "facility_category_code": "电梯"
+  },
+  {
+   "category_code": "elevator_detail",
+   "category_name": "无障碍电梯1",
+   "facility_category_code": "电梯"
+  },
+  {
+   "category_code": "stairs_steps",
+   "category_name": "楼梯和台阶",
+   "facility_category_code": "其他通行设施"
+  },
+  {
+   "category_code": "sanitary_facility",
+   "category_name": "卫生设施",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "public_toilet",
+   "category_name": "满足无障碍要求的公共卫生间",
+   "facility_category_code": "公共卫生间"
+  },
+  {
+   "category_code": "toilet_stall",
+   "category_name": "满足无障碍要求的公共卫生间（无障碍厕位）",
+   "facility_category_code": "公共卫生间"
+  },
+  {
+   "category_code": "toilet_basin",
+   "category_name": "满足无障碍要求的公共卫生间 （无障碍洗手盆）",
+   "facility_category_code": "公共卫生间"
+  },
+  {
+   "category_code": "toilet_urinal",
+   "category_name": "满足无障碍要求的公共卫生间 （无障碍小便器）",
+   "facility_category_code": "公共卫生间"
+  },
+  {
+   "category_code": "accessible_toilet_1",
+   "category_name": "无障碍厕所1",
+   "facility_category_code": "无障碍厕所"
+  },
+  {
+   "category_code": "nursing_room",
+   "category_name": "母婴室",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "family_toilet",
+   "category_name": "家庭卫生间",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "public_bathroom",
+   "category_name": "公共浴室和更衣室",
+   "facility_category_code": "公共浴室"
+  },
+  {
+   "category_code": "info_service",
+   "category_name": "无障碍信息交流和智慧服务",
+   "facility_category_code": null
+  },
+  {
+   "category_code": "accessible_accommodation",
+   "category_name": "无障碍住宿",
+   "facility_category_code": "居室"
+  }
+ ],
+ "clauses": [
+  {
+   "clause_number": "landscaping-5.2.1.5",
+   "standard_clause_number": "5.2.1.5",
+   "category_code": "landscaping",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "绿地出入口",
+   "content": "【绿地出入口】 绿化景观及活动场地的具体要求，评价总分值为8分，按下列规则分别评分并累计：a） 设有 2个及以上无障碍出入口。 ○是（+2分）○否○不参评b）【无障碍游览流线】绿化景观及活动场地设有无障碍游览流线。 ○是（+2分）○否○不参评c）【无障碍连接】无障碍游览流线与其附近的休憩设施(包括休息处 、茶室 、亭 、廊 、花架等)以无障碍通行设施连接 。 ○是（+2分）○否○不参评d）【植物】儿童活动场地便于成人对儿童进行目光监护 ,  且周围的绿化没有选用硬质叶片的丛生植物。 ○是（+1分）○否○不参评e）【位置】设有无障碍住房和宿舍的居住建筑相对场地内大部分其他建筑更靠近场地内的绿化景观 ,  并可通过无障碍通行流线到达。○是（+1分）○否○不参评",
+   "max_score": 8.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "设有2个及以上无障碍出入口。",
+      "score": 2.0
+     },
+     {
+      "label": "无障碍游览流线",
+      "score": 2.0
+     },
+     {
+      "label": "无障碍连接",
+      "score": 2.0
+     },
+     {
+      "label": "植物",
+      "score": 1.0
+     },
+     {
+      "label": "位置",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 1
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "盲道材质",
+   "content": "【盲道材质】 （GB55019，2.1.4 ） 无障碍通行设施（行进盲道）的地面应坚固、平整、防滑、不积水。○是（+1分）○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "盲道颜色、材质",
+   "content": "【盲道颜色、材质】 （GB55019，2. 11. 4） 盲道应与相邻人行道铺面的颜色或材质形成差异。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.3",
+   "standard_clause_number": "5.3.6.3",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "盲道颜色、材质",
+   "content": "【盲道颜色、材质】 盲道采用中黄色。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2d",
+   "standard_clause_number": "5.3.6.2d",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "宽度",
+   "content": "【宽度】 （5.3.6.2， d） 行进盲道的宽度为 250mm~400mm。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "行进盲道的宽度为250mm~400mm。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 4
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2e",
+   "standard_clause_number": "5.3.6.2e",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "位置",
+   "content": "【位置】 （5.3.6.2， e） 行进盲道设置于距围墙 、花台 、绿化带 250mm~600mm处或距树池边缘 250mm~600mm处 , 无树池时 ,  如行进盲道与路缘石上沿在同一水平面 ,  其距路缘石不小于 500mm ,  如行进盲道比路缘石上沿低 ,  其距路缘石不小于 250mm。○是（+0.5分）○否○不参评",
+   "max_score": 0.5,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "安全",
+   "content": "【安全】 （GB55019，2.11.1） 盲道的铺设应保证视觉障碍者安全行走和辨别方向。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2a",
+   "standard_clause_number": "5.3.6.2a",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "安全",
+   "content": "【安全】 （5.3.6.2， a） 盲道上空没有低于 2m的障碍物。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "盲道上空没有低于2m的障碍物。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 7
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "安全",
+   "content": "【安全】 （GB55019，2.11.2 ） 盲道铺设应避开障碍物，任何设施不得占用盲道。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2b",
+   "standard_clause_number": "5.3.6.2b",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "安全",
+   "content": "【安全】 （5.3.6.2， b） 非机动车停放的位置不侵占盲道。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "非机动车停放的位置不侵占盲道。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 9
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "提示盲道",
+   "content": "【提示盲道】 （GB55019，2.11.3 ） 需要安全警示和提示处应设置提示盲道，其长度应与需安全警示和提示的范围相对应。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2c",
+   "standard_clause_number": "5.3.6.2c",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "提示盲道",
+   "content": "【提示盲道】 （5.3.6.2， c） 设于安全警示和提示处的提示盲道长度不小于 500mm ,  且与需安全警示和提示的范围相对应。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "设于安全警示和提示处的提示盲道长度不小于500mm,且与需安",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 11
+  },
+  {
+   "clause_number": "tactile_path-5.1.1.5~6",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "提示盲道",
+   "content": "【提示盲道】 （GB55019，2.11.3 ） 行进盲道的起点、终点、转弯处，应设置提示盲道，其宽度不应小于300mm，且不应小于行进盲道的宽度。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.1",
+   "standard_clause_number": "5.3.6.1",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "连续性",
+   "content": "【连续性】 设置行进盲道时 ,  行进盲道的设置与人行道的走向一致 ,  避免连续小于 135°的折线。○是（+3分）○否（存在小于135°的拐弯）○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "tactile_path-5.3.6.2f",
+   "standard_clause_number": "5.3.6.2f",
+   "category_code": "tactile_path",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "连续性",
+   "content": "【连续性】 （5.3.6.2，f） 在行进盲道小于 135°的转弯处设有提示盲道。○是（+0.5分）○否（未设置提示盲道）○不参评（盲道无小于135°的拐弯）",
+   "max_score": 0.5,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "在行进盲道小于135°的转弯处设有提示盲道。",
+      "score": 0.5
+     }
+    ]
+   },
+   "sort_order": 14
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB55019，2. 10. 1） 各种路口、出入口和人行横道处，有高差时应设置缘石坡道。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（缘石坡道）的地面应坚固、平整、防滑、不积水。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "高差",
+   "content": "【高差】 （GB55019，2. 10. 2） 缘石坡道的坡口与车行道之间应无高差。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "提示盲道",
+   "content": "【提示盲道】 （GB55019，2. 10. 3） 缘石坡道距坡道下口路缘石250mm～300mm处应设置提示盲道，提示盲道的长度应与缘石坡道的宽度相对应。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "过渡空间",
+   "content": "【过渡空间】 （GB55019，2. 10. 6） 缘石坡道顶端处应留有过渡空间，过渡空间的宽度不应小于900mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "curb_ramp-5.3.7.6",
+   "standard_clause_number": "5.3.7.6",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "形式",
+   "content": "【形式】 缘石坡道不侵占非机动车道和机动车道  。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~6",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "箅子和阻车桩",
+   "content": "【箅子和阻车桩】 （GB55019，2. 10. 7） 缘石坡道上下坡处不应设置雨水箅子。设置阻车桩时，阻车桩的净间距不应小于900mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~7",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "形式",
+   "content": "【形式】 （GB55019，2. 10. 4） 缘石坡道的坡度应符合下列规定：1 全宽式单面坡缘石坡道的坡度不应大于1：20；2 其他形式缘石坡道的正面和侧面的坡度不应大于1：12。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "curb_ramp-5.3.7.5",
+   "standard_clause_number": "5.3.7.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "缘石坡道",
+   "content": "采用坡度小于 1:20 的全宽式单面坡缘石坡道 ,  或坡度小于 1:14 的三面坡缘石坡道 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "curb_ramp-5.1.1.5~8",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "curb_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "宽度",
+   "content": "【宽度】 （GB55019，2. 10. 5） 缘石坡道的宽度应符合下列规定： 1 全宽式单面坡缘石坡道的坡道宽度应与人行道宽度相同； 2 三面坡缘石坡道的正面坡道宽度不应小于1.20m； 3 其他形式的缘石坡道的坡口宽度均不应小于1.50m。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "handrail-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "扶手高度",
+   "content": "【扶手高度】 （GB55019，2.8.1） 满足无障碍要求的单层扶手的高度应为850mm～900mm；设置双层扶手时，上层扶手高度应为850mm～900mm，下层扶手高度应为650mm～700mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "handrail-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "连贯性",
+   "content": "【连贯性】 （GB55019，2.8.2） 行动障碍者和视觉障碍者主要使用的楼梯、台阶和轮椅坡道的扶手应在全长范围内保持连贯。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "handrail-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "延伸长度",
+   "content": "【延伸长度】 （GB55019，2.8.3） 行动障碍者和视觉障碍者主要使用的楼梯和台阶、轮椅坡道的扶手起点和终点处应水平延伸，延伸长度不应小于300mm；扶手末端应向墙面或向下延伸，延伸长度不应小于100mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "handrail-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "距墙距离",
+   "content": "【距墙距离】 （GB55019，2.8.4） 扶手应固定且安装牢固，形状和截面尺寸应易于抓握，截面的内侧边缘与墙面的净距离不应小于40mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "handrail-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "扶手",
+   "content": "（GB55019，2.8.5）扶手应与背景有明显的颜色或亮度对比。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "handrail-5.3.7.3",
+   "standard_clause_number": "5.3.7.3",
+   "category_code": "handrail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "扶手",
+   "content": "室外扶手不采用不锈钢等不防滑 、热惰性指标较差的金属材料 ,  评价分值为 2分。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "handrail-11.1.1.1",
+   "standard_clause_number": "11.1.1.1",
+   "category_code": "handrail",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "扶手",
+   "content": "【扶手】 面向公众的公共建筑的公共通道两侧均设置符合 GB55019 中的 2.8要求的扶手 ,  评价分值 为 1 分。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "residential_road-5.1.1.2",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_road",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "范围",
+   "content": "【范围】 （GB50763，7.1.1） 居住区道路进行无障碍设计的范围应包括居住区路、小区路、组团路、宅间小路的人行道。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "residential_road-5.1.1.2~2",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_road",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "缘石坡道",
+   "content": "【缘石坡道】 （GB50763，7.1.1）（GB50763，4.2.1） 人行道处缘石坡道设计应符合下列规定 ：1 人行道在各种路口、各种出入口位置必须设置缘石坡道；2 人行横道两端必须设置缘石坡道。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "residential_road-5.1.1.2~3",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_road",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "人行道服务设施",
+   "content": "【人行道服务设施】 （GB50763，7.1.1）（GB50763，4.2.4） 人行道处服务设施设置应符合下列规定：1 服务设施的设置应为残障人士提供方便；2 宜为视觉障碍者提供触摸及音响一体化信息服务设施；3 设置屏幕信息服务设施，宜为听觉障碍者提供屏幕手语及字幕信息服务；4 低位服务设施的设置，应方便乘轮椅者使用；5 设置休息座椅时，应设置轮椅停留空间。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "范围",
+   "content": "【范围】 （GB50763，7.2.1，1 ） 居住绿地的无障碍设计应符合下列规定： 居住绿地内进行无障碍设计的范围及建筑物类型包括：出入口、游步道、休憩设施、儿童游乐场、休闲广场、健身运动场、公共厕所等。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~2",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB50763，7.2.1，2） 基地地坪坡度不大于5%的居住区的居住绿地均应满足无障碍要求，地坪坡度大于5%的居住区，应至少设置1个满足无障碍要求的居住绿地。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~3",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB50763，7.2.1，3） 满足无障碍要求的居住绿地，宜靠近设有无障碍住房和宿舍的居住建筑设置，并通过无障碍通道到达。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "residential_green-5.2.1.5e",
+   "standard_clause_number": "5.2.1.5e",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "位置",
+   "content": "【位置】 （5.2.1.5， e） 设有无障碍住房和宿舍的居住建筑相对场地内大部分其他建筑更靠近场地内的绿化景观 ,  并可通过无障碍通行流线到达。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "设有无障碍住房和宿舍的居住建筑相对场地内大部分其他建筑更靠近",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 4
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~4",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "绿地出入口",
+   "content": "【绿地出入口】 （GB50763，7.2.2，1） 居住绿地的主要出入口应设置为无障碍出入口；有3个以上出入口时，无障碍出入口不应少于2个。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "residential_green-5.2.1.5a",
+   "standard_clause_number": "5.2.1.5a",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "绿地出入口",
+   "content": "【绿地出入口】 （5.2.1.5， a） 设有 2个及以上无障碍出入口。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "设有2个及以上无障碍出入口。",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 6
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~5",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "绿地活动广场出入口",
+   "content": "【绿地活动广场出入口】 （GB50763，7.2.2，2） 居住绿地内主要活动广场与相接的地面或路面高差□＜300mm；□＞300mm。 □小于300mm时，所有出入口均应为无障碍出入口。 ○是○否○不参评 □大于300mm时，当出入口少于3个，所有出入口均应为无障碍出入口，当出入口为3个或3个以上，应至少设置2个无障碍出入口。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~6",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "出入口提示盲道",
+   "content": "【出入口提示盲道】 （GB50763，7.2.2，3） 组团绿地、开放式宅间绿地、儿童活动场、健身运动场出入口应设提示盲道。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~7",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "提示盲道",
+   "content": "【提示盲道】 （GB50763，7.2.3，2） 居住绿地内的游步道及园林建筑、园林小品如亭、廊、花架等休憩设施不宜设置高于450mm的台明或台阶；必须设置时，应同时设置轮椅坡道并在休憩设施入口处设提示盲道。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~8",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "游步道",
+   "content": "【游步道】 （GB50763，7.2.3，1） 居住绿地内的游步道应为无障碍通道，轮椅园路纵坡不应大于4%；轮椅专用道不应大于8%。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~9",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "轮椅休息区",
+   "content": "【轮椅休息区】 （GB50763，7.2.3，3） 绿地及广场设置休息座椅时，应留有轮椅停留空间。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~10",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "林下空间",
+   "content": "【林下空间】 （GB50763，7.2.4，1） 林下铺装活动场地，以种植乔木为主，林下净空不得低于2.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "residential_green-5.1.1.2~11",
+   "standard_clause_number": "5.1.1.2",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "植物",
+   "content": "【植物】 （GB50763，7.2.4，2） 儿童活动场地周围不宜种植遮挡视线的树木，保持较好的可通视性，且不宜选用硬质叶片的丛生植物。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "residential_green-5.2.1.5d",
+   "standard_clause_number": "5.2.1.5d",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "植物",
+   "content": "【植物】 （5.2.1.5， d） 儿童活动场地便于成人对儿童进行目光监护 ,  且周围的绿化没有选用硬质叶片的丛生植物。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "儿童活动场地便于成人对儿童进行目光监护,且周围的绿化没有选用",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 14
+  },
+  {
+   "clause_number": "residential_green-5.2.1.5b",
+   "standard_clause_number": "5.2.1.5b",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "无障碍游览流线",
+   "content": "【无障碍游览流线】 （5.2.1.5， b） 绿化景观及活动场地设有无障碍游览流线。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "绿化景观及活动场地设有无障碍游览流线。",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 15
+  },
+  {
+   "clause_number": "residential_green-5.2.1.5c",
+   "standard_clause_number": "5.2.1.5c",
+   "category_code": "residential_green",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "无障碍连接",
+   "content": "【无障碍连接】 （5.2.1.5， c） 无障碍游览流线与其附近的休憩设施(包括休息处 、茶室 、亭 、廊 、花架等)以无障碍通行设施连接 。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍游览流线与其附近的休憩设施(包括休息处、茶室、亭、廊、",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 16
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.3",
+   "standard_clause_number": "5.1.1.3",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "数量",
+   "content": "【数量】 （GB55019，2.9.5） 总停车数在100辆以下时应至少设置1个无障碍机动车停车位，100辆以上时应设置不少于总停车数1%的无障碍机动车停车位；城市广场、公共绿地、城市道路等场所的停车位应设置不少于总停车数2%的无障碍机动车停车位。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "accessible_parking-5.2.2.1",
+   "standard_clause_number": "5.2.2.1",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "数量",
+   "content": "【数量】 建筑基地内无障碍机动车停车位设置比例 ,  评价总分值为 12分 :●总停车数在50辆以下时设有不少于 1 个无障碍机动车停车位 ;  在100辆以下时设有不少于2个无障碍机动车停车位 ;  在 100辆以上时设有不少于总停车数2%的无障碍机动车停车位。（+12分）○总停车数在100辆以下时设有不少于1个无障碍机动车停车位 ;  在100辆以上时设有不少于总停车数1%的无障碍机动车停车位。（+8分）○以上均不满足 ○不参评",
+   "max_score": 12.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "总停车数在50辆以下时设有不少于1个无障碍机动车停车位;在100辆以下时设有不少于2个无障碍机动车停车位;在100辆以上时设有不少于总停车数2%的无障碍机动车停车位。",
+      "score": 12.0
+     },
+     {
+      "label": "总停车数在100辆以下时设有不少于1个无障碍机动车停车位;在100辆以上时设有不少于总停车数1%的无障碍机动车停车位。",
+      "score": 8.0
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "accessible_parking-5.2.2.5",
+   "standard_clause_number": "5.2.2.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "数量",
+   "content": "【数量】 当设有地上停车位时 ,  按不小于项目的无障碍机动车停车位设置比例设置地上无障碍机动车停车位 ,  评价分值为 1 分。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.3~2",
+   "standard_clause_number": "5.1.1.3",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB55019，2.9.1） 应将通行方便、路线短的停车位设为无障碍机动车停车位。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "accessible_parking-11.1.1.6",
+   "standard_clause_number": "11.1.1.6",
+   "category_code": "accessible_parking",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "轮椅通道",
+   "content": "【轮椅通道】 50%的无障碍机动车停车位在两侧均设有轮椅通道。○是（+1分）●否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "accessible_parking-5.2.2.3",
+   "standard_clause_number": "5.2.2.3",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "充电桩",
+   "content": "【充电桩】 配置充电桩的停车场和车库至少有 1个无障碍机动车停车位安装充电桩。○是（+2分）○否●不参评（无充电桩车位）",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（机动车停车场库）的地面应坚固、平整、防滑、不积水。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "坡度",
+   "content": "【坡度】 （GB55019，2. 9. 3） 无障碍机动车停车位的地面坡度不应大于1：50。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "轮椅通道",
+   "content": "【轮椅通道】 （GB55019，2. 9. 2） 无障碍机动车停车位一侧，应设宽度不小于1.20m的轮椅通道。轮椅通道与其所服务的停车位不应有高差，和人行通道有高差处应设置缘石坡道，且应与无障碍通道衔接。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，2. 9. 4） 无障碍机动车停车位的地面应设置停车线、轮椅通道线和无障碍标志，并应设置引导标识。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "accessible_parking-5.2.2.2",
+   "standard_clause_number": "5.2.2.2",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "引导标识",
+   "content": "【引导标识】 停车场(库)入口及内部设有连续的无障碍机动车停车位导向标识 。 ○是（+ 3分）○否●不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "accessible_parking-5.3.7.4",
+   "standard_clause_number": "5.3.7.4",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "遮雨措施",
+   "content": "【遮雨措施】 室外无障碍机动车停车位轮椅通道上方设有遮雨措施 。 ●是（+ 1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "accessible_parking-5.2.2.4",
+   "standard_clause_number": "5.2.2.4",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "残疾人代步车专用车位",
+   "content": "【残疾人代步车专用车位】 提供公共服务的建筑设置符合地方法规的残疾人代步车专用车位 。  ○是（车位尺寸2.6mX14m，+ 2分）●否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "accessible_parking-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_parking",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "上客和落客区",
+   "content": "【上客和落客区】 （GB55019，2. 9. 6） 上下车无障碍小汽（客）车上客和落客区的尺寸不应小于2.40m×7.00m，和人行通道有高差处应设置缘石坡道，且应与无障碍通道衔接。○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 14
+  },
+  {
+   "clause_number": "accessible_circulation-5.1.1.1",
+   "standard_clause_number": "5.1.1.1",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "流线连贯",
+   "content": "【流线连贯】 场地主要人行出入口与周边人行道应无障碍衔接，建筑场地 、停车场 、无障碍出入口 、建筑内部有无障碍需求的空间及无障碍设施之间应形成连贯的无障碍通行流线 ,  建筑群中的单体建筑之间以无障碍通行流线连接 。（GB55019，2.1.1）城市开敞空间、建筑场地、建筑内部及其之间应提供连贯的无障碍通行流线。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "accessible_circulation-5.1.1.1~2",
+   "standard_clause_number": "5.1.1.1",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "通道流畅度",
+   "content": "【通道流畅度】 （GB55019，2.1.2） 无障碍通行流线上的标识物、垃圾桶、座椅、灯柱、隔离墩、地灯和地面布线(线槽)等设施均不应妨碍行动障碍者的独立通行。固定在无障碍通道、轮椅坡道、楼梯的墙或柱面上的物体，突出部分大于100mm且底面距地面高度小于2.00m时，其底面距地面高度不应大于600mm，且应保证有效通行净宽。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "accessible_circulation-5.1.1.1~3",
+   "standard_clause_number": "5.1.1.1",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "安全防护",
+   "content": "【安全防护】 （GB55019，2.1.3） 无障碍通行流线在临近地形险要地段处应设置安全防护设施，必要时应同时设置安全警示线。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.2",
+   "standard_clause_number": "5.2.1.2",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "流线一致性",
+   "content": "【流线一致性】 无障碍通行流线与主要人行流线路径的一致性，评价总分值为8分：○一致（+8分）●不一致 ,  但不存在绕行（+6分）○不一致 ,  因合理原因存在一定的绕行 ,  绕行不超过30%（+4分） ○不一致，绕行超过30%",
+   "max_score": 8.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "一致",
+      "score": 8.0
+     },
+     {
+      "label": "不一致,但不存在绕行",
+      "score": 6.0
+     },
+     {
+      "label": "不一致,因合理原因存在一定的绕行,绕行不超过30%",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 4
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.3",
+   "standard_clause_number": "5.2.1.3",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "人车分流",
+   "content": "【人车分流】 含有面向公众的单栋建筑面积 20000㎡ 以上大型公共建筑的项目 ,  其场地内的主要人行流线通过设置人行道 、划线 、设隔离带等方式达到人车分流 ,  如人车混流 ,  则场地内机动车应限速。○全部主要人行流线人车分流（+6分）○场地出入口到建筑无障碍入口人车分流（+4分）○人车混流 ,  场地内机动车限速 20km（+2分）○未考虑人车分流与限速措施 ●不参评",
+   "max_score": 6.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "全部主要人行流线人车分流",
+      "score": 6.0
+     },
+     {
+      "label": "场地出入口到建筑无障碍入口人车分流",
+      "score": 4.0
+     },
+     {
+      "label": "人车混流,场地内机动车限速20km",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 5
+  },
+  {
+   "clause_number": "accessible_circulation-11.1.1.4",
+   "standard_clause_number": "11.1.1.4",
+   "category_code": "accessible_circulation",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "盲道",
+   "content": "【盲道】 含有面向公众的单栋建筑面积 20000㎡以上大型公共建筑的项目 ,  建筑场地内人行流线上至少有一条连贯的盲道路径 ,  盲道路径连接场地的主要人行出入口及建筑无障碍出入口。  ○是（ + 1 分）○否●不参评（不属于上述建筑）",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.4",
+   "standard_clause_number": "5.2.1.4",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "盲道",
+   "content": "【盲道】 视觉障碍者集中使用的建筑(包括盲人学校 、福利工厂 、残疾人综合服务设施 、残疾人托养中 心 、残疾人体训中心等),  其场地内人行流线上至少设有一条连贯的盲道路径 ,  盲道路径连接场地的主要人行出入口及建筑无障碍出入口。○是（+ 4分）○否 ●不参评（不属于上述建筑）",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.6a",
+   "standard_clause_number": "5.2.1.6a",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "休息座椅",
+   "content": "【休息座椅】 （5.2.1.6， a） 场地内主要无障碍通行流线大于 50m时设有休息座椅 ,  流线上每不大于 50m设有一处休息座椅 ,  休息座椅设有靠背和扶手 ,  并在旁边设有轮椅停留空间 ,  座椅和轮椅停留空间未占用无障碍通道通行空间 。 ○是（+2分）○否 ●不参评（流线不大于50m）",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "场地内主要无障碍通行流线大于50m时设有休息座椅,流线上每不",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 8
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.6b",
+   "standard_clause_number": "5.2.1.6b",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "遮雨措施",
+   "content": "【遮雨措施】 （5.2.1.6， b） 场地入口与建筑无障碍出入口距离大于 50m时 ,  场地入口处设置遮雨措施。○是（+2分）○否●不参评（流线不大于50m）",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "场地入口与建筑无障碍出入口距离大于50m时,场地入口处设置遮",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 9
+  },
+  {
+   "clause_number": "accessible_circulation-5.2.1.6c",
+   "standard_clause_number": "5.2.1.6c",
+   "category_code": "accessible_circulation",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "夜间照明",
+   "content": "【夜间照明】 （5.2.1.6， c） 无障碍通行流线上提供连续的夜间照明。○是（+2分）●否○不参评",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍通行流线上提供连续的夜间照明。",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 10
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（无障碍通道）的地面应坚固、平整、防滑、不积水。 ●是 ○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "井盖、箅子",
+   "content": "【井盖、箅子】 （GB55019，2. 2. 4） 无障碍通道上有井盖、箅子时，井盖、箅子孔洞的宽度或直径不应大于13mm，条状孔洞应垂直于通行方向。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "access_passage-6.1.1.1",
+   "standard_clause_number": "6.1.1.1",
+   "category_code": "access_passage",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 通往公共无障碍服务设施的通道应为无障碍通道。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "高差处理方式",
+   "content": "【高差处理方式】 （GB55019，2.2.1） 无障碍通道上有地面高差时，应设置轮椅坡道或缘石坡道。 ●是 ○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "access_passage-5.2.3.4",
+   "standard_clause_number": "5.2.3.4",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "高差处理方式",
+   "content": "【高差处理方式】 无障碍通行流线上的高差处理：●全程无高差 ,  或存在高差处设有坡度不大于 1:14 的轮椅坡道 ,   当高差大于 300mm ,  同时设有台阶（+8分）○存在高差处 ,  设有坡度不大于 1:12 的轮椅坡道 ,   当高差大于 300mm ,  同时设有台阶（+6分）○存在高差处 ,  设有坡度不大于 1:12 的轮椅坡道（+4分）○以上均不满足 ○不参评",
+   "max_score": 8.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "全程无高差,或存在高差处设有坡度不大于1:14的轮椅坡道,当高差大于300mm,同时设有台阶",
+      "score": 8.0
+     },
+     {
+      "label": "存在高差处,设有坡度不大于1:12的轮椅坡道,当高差大于300mm,同时设有台阶",
+      "score": 6.0
+     },
+     {
+      "label": "存在高差处,设有坡度不大于1:12的轮椅坡道",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 5
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "通道净宽",
+   "content": "【通道净宽】 （GB55019，2. 2. 2） 无障碍通道的通行净宽不应小于1.20m，人员密集的公共场所的通行净宽不应小于1.80m。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "access_passage-5.3.1.3",
+   "standard_clause_number": "5.3.1.3",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "通道净宽",
+   "content": "【通道净宽】 （5.3.1.3 ） 无障碍通道通行净宽不小于 1. 5m ,  当小于 1. 50m时设有直径不小于 1. 5m且间距不大于50m 的轮椅避让空间。●是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "门洞净宽",
+   "content": "【门洞净宽】 （GB55019，2. 2. 3） 无障碍通道上的门洞口应满足轮椅通行，各类检票口、结算口等应设轮椅通道，通行净宽不应小于900mm。 ●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~6",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "门",
+   "content": "【门】 （GB55019，2.5.2） 在无障碍通道上不应使用旋转门。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "access_passage-5.1.1.5~7",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "自动扶梯、楼梯下部空间",
+   "content": "【自动扶梯、楼梯下部空间】 （GB55019，2. 2. 5） 自动扶梯、楼梯的下部和其他室内外低矮空间可以进入时，应在净高不大于2.00m处采取安全阻挡措施。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "access_passage-5.2.3.5",
+   "standard_clause_number": "5.2.3.5",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "特殊场所室内走道",
+   "content": "【特殊场所室内走道】 无障碍需求集中的公共场所（包括老年人建筑 、医疗建筑 、康复建筑等残疾人和老年人较多使用的建筑 ,  以及残疾人和老年人经常造访的公共服务型建筑）的室内公共走道的具体要求，评价总分值为4分（可多选）：○走道两侧安装扶手 ,  儿童较多的场所以及残疾人福利设施设有双层扶手（+ 1 分）○走道内的阳角采用了圆角或护角的防护措施 （+ 1 分）○走道两侧墙面设有护墙板或踢脚（+ 1 分）○室内公共走道两侧的玻璃隔断设有醒目的防撞提示措施（+ 1 分）○以上均未满足 ●不参评（非以上特殊公共场所）",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "access_passage-5.3.1.1",
+   "standard_clause_number": "5.3.1.1",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "建筑内部通道要求",
+   "content": "【建筑内部通道要求】 建筑内部无障碍通道的具体要求，评价总分值为4分（可多选）：●通道的地板 、墙面有颜色差异 （+1 分）●通道采光或照度均匀 ,  地面照度标准值不小于 100lx（+1 分）●通道地面未使用地毯 ,  或者使用地毯时使用绒毛高度小于 9mm的地毯或采用高密度闭绒地毯与地面进行固定 ,  且当地毯边缘高度超过 6mm时以斜面过渡 （+1 分）●通道地面未采用易引起视觉错觉认为地面有标高变化的图案 （+1 分）○以上均未满足 ○不参评",
+   "max_score": 4.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "通道的地板、墙面有颜色差异",
+      "score": 1.0
+     },
+     {
+      "label": "通道采光或照度均匀,地面照度标准值不小于100lx",
+      "score": 1.0
+     },
+     {
+      "label": "通道地面未使用地毯,或者使用地毯时使用绒毛高度小于9mm的地毯或采用高密度闭绒地毯与地面进行固定,且当地毯边缘高度超过6mm时以斜面过渡",
+      "score": 1.0
+     },
+     {
+      "label": "通道地面未采用易引起视觉错觉认为地面有标高变化的图案",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 12
+  },
+  {
+   "clause_number": "access_passage-5.3.1.2",
+   "standard_clause_number": "5.3.1.2",
+   "category_code": "access_passage",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "通道安全",
+   "content": "【通道安全】 室内外无障碍通道的安全性，评价总分值为4分（可多选） :●未设置井盖 、算子 ,  或者有足够的通行宽度可满足乘轮椅者通行不经过井盖 、算子 ,  且井盖、 算子和路面齐平（+1 分）●自动扶梯 、楼梯的梯段下部不作为人行主要通道 （+1 分）●靠近人体头部的安全阻挡设施采取了避免造成磕碰的防护措施 （+2分）○以上均未满足 ○不参评",
+   "max_score": 4.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "未设置井盖、算子,或者有足够的通行宽度可满足乘轮椅者通行不经过井盖、算子,且井盖、算子和路面齐平",
+      "score": 1.0
+     },
+     {
+      "label": "自动扶梯、楼梯的梯段下部不作为人行主要通道",
+      "score": 1.0
+     },
+     {
+      "label": "靠近人体头部的安全阻挡设施采取了避免造成磕碰的防护措施",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 13
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（轮椅坡道）的地面应坚固、平整、防滑、不积水。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.3",
+   "standard_clause_number": "5.3.2.3",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "地面色差",
+   "content": "【地面色差】 轮椅坡道坡面或坡道外缘与相邻墙壁和地面的颜色有明显差异 ,  评价分值为 1 分。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "坡度与提升高度",
+   "content": "【坡度与提升高度】 （GB55019，2.3.1） 轮椅坡道的坡度和坡段提升高度应符合下列规定： 1 横向坡度不应大于1：50，纵向坡度不应大于1：12，当条件受限且坡段起止点的高差不大于150mm时，纵向坡度不应大于1：10。 ○是○否○不参评 2 每段坡道的提升高度不应大于750mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "净宽",
+   "content": "【净宽】 （GB55019，2.3.2） 轮椅坡道的通行净宽不应小于1.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "平台",
+   "content": "【平台】 （GB55019，2.3.3） 轮椅坡道的起点终点和休息平台的通行净宽不应小于坡道的通行净宽，水平长度不应小于1.50m，门扇开启和物体不应占用此范围空间。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.7",
+   "standard_clause_number": "5.3.2.7",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "平台",
+   "content": "【平台】 当休息平台连接的轮椅坡道宽度发生变化时 ,  平台的宽度不小于与其连接的较宽坡道的宽度 ,  评价分值为 2 分。 ○是（+2分）○否○不参评（坡道宽度一致）",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "扶手",
+   "content": "【扶手】 （GB55019，2.3.4） 轮椅坡道的高度大于300mm且纵向坡度大于1：20时，应在两侧设置扶手，坡道与休息平台的扶手应保持连贯。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.6",
+   "standard_clause_number": "5.3.2.6",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "扶手",
+   "content": "【扶手】 轮椅坡道的提升高度大于100mm且纵向坡度大于 1:20 时 ,  至少于一侧设有扶手 ,  如有临空侧在临空侧设有扶手 ,  评价分值为 2 分 。 ○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.1.1.5~6",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "安全阻挡措施",
+   "content": "【安全阻挡措施】 （GB55019，2.3.5） 设置扶手的轮椅坡道的临空侧应采取安全阻挡措施。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.5",
+   "standard_clause_number": "5.3.2.5",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "安全阻挡措施",
+   "content": "【安全阻挡措施】 大于 1:20 的轮椅坡道的临空侧设有安全阻挡措施 ,  评价分值为 1 分。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.1",
+   "standard_clause_number": "5.3.2.1",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "坡道形式",
+   "content": "【坡道形式】 轮椅坡道设计成直线形 、直角形或折返形 ,  未采用曲线形 ,  评价分值为 1 分。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.2",
+   "standard_clause_number": "5.3.2.2",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "井盖和算子",
+   "content": "【井盖和算子】 轮椅坡道上下坡处未设置井盖和算子 ,  评价分值为 2 分。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "wheelchair_ramp-5.3.2.4",
+   "standard_clause_number": "5.3.2.4",
+   "category_code": "wheelchair_ramp",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "雨棚",
+   "content": "【雨棚】 无障碍出入口处的室外轮椅坡道设有遮雨措施  ,  评价分值为 1 分。 ○是（+1分）○否  ○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "entrance_ratio-5.2.3.1",
+   "standard_clause_number": "5.2.3.1",
+   "category_code": "entrance_ratio",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "设置比例",
+   "content": "【设置比例】 建筑无障碍出入口设置比例评价总分值为 8分:○所有建筑出入口均为无障碍出入口（+8分）●建筑主要出入口为无障碍出入口（+6分）○建筑主出入口确由于地形限制无法实现无障碍出入口 ,  设置有其他无障碍出入口 ,  并设有明确的引导标识（+4分） ○未设置无障碍出入口",
+   "max_score": 8.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "所有建筑出入口均为无障碍出入口",
+      "score": 8.0
+     },
+     {
+      "label": "建筑主要出入口为无障碍出入口",
+      "score": 6.0
+     },
+     {
+      "label": "建筑主出入口确由于地形限制无法实现无障碍出入口,设置有其他无障碍出入口,并设有明确的引导标识",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 1
+  },
+  {
+   "clause_number": "access_entrance-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（出入口）的地面应坚固、平整、防滑、不积水。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.2c",
+   "standard_clause_number": "5.3.3.2c",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "地面",
+   "content": "【地面】 （5.3.3.2， c） 出入口的地面平整 、防滑 ,  铺地材料固定牢固无卷边 ,  擦脚地垫和地面平齐。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "出入口的地面平整、防滑,铺地材料固定牢固无卷边,擦脚地垫和地",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "access_entrance-5.2.1.1",
+   "standard_clause_number": "5.2.1.1",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "场地与人行道衔接",
+   "content": "【场地与人行道衔接】 场地主要人行出入口与周边人行道的无障碍衔接方式 ,  评价总分值为 8 分：●地面采用坡度不大于 1:20 的平坡（+8分）○同时设有台阶和轮椅坡道 ,  轮椅坡道坡度不大于 1:14（+6分）○同时设有台阶和轮椅坡道 ,  轮椅坡道坡度不大于 1:12（+4分）○以上均不符合 ○不参评",
+   "max_score": 8.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "地面采用坡度不大于1:20的平坡",
+      "score": 8.0
+     },
+     {
+      "label": "同时设有台阶和轮椅坡道,轮椅坡道坡度不大于1:14",
+      "score": 6.0
+     },
+     {
+      "label": "同时设有台阶和轮椅坡道,轮椅坡道坡度不大于1:12",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 3
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.4",
+   "standard_clause_number": "5.3.3.4",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "场地车档",
+   "content": "【场地车档】 无障碍出入口设有车档时 ,  车档净间距不小于 900mm。○是（+1分）○否●不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.3",
+   "standard_clause_number": "5.3.3.3",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "上客和落客区",
+   "content": "【上客和落客区】 除人车分流的居住区内的住宅 、人车分流的园区中限制机动车到达的建筑外 ,  建筑无障碍出入口前设有无障碍小汽(客)车上客落客区。（GB55019，2. 9. 6）上下车无障碍小汽（客）车上客和落客区的尺寸不应小于2.40m×7.00m，和人行通道有高差处应设置缘石坡道，且应与无障碍通道衔接。 ○是（+1分）○否●不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "access_entrance-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "出入口形式",
+   "content": "【出入口形式】 （GB55019，2.4.1） 无障碍出入口应为下列3种出入口之一：1、地面坡度不大于1：20的平坡出入口；2、同时设置台阶和轮椅坡道的出入口；3、同时设置台阶和升降平台的出入口。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.1",
+   "standard_clause_number": "5.3.3.1",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "无障碍出入口1",
+   "content": "建筑的主要无障碍出入口形式 ,  评价总分值为 3分 :●地面坡度不大于1：20的平坡出入口（+3分）○同时设置台阶和轮椅坡道的出入口 ,  轮椅坡道坡度不大于 1:14 ,  宽度不小于 1. 2m（+2分）○同时设置台阶和轮椅坡道的出入口 ,  轮椅坡道坡度不大于 1:12 ,  宽度不小于 1. 2m（+1分）○以上均不满足 ○不参评",
+   "max_score": 3.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "地面坡度不大于1：20的平坡出入口",
+      "score": 3.0
+     },
+     {
+      "label": "同时设置台阶和轮椅坡道的出入口,轮椅坡道坡度不大于1:14,宽度不小于1.2m",
+      "score": 2.0
+     },
+     {
+      "label": "同时设置台阶和轮椅坡道的出入口,轮椅坡道坡度不大于1:12,宽度不小于1.2m",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 7
+  },
+  {
+   "clause_number": "access_entrance-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "平台及雨棚",
+   "content": "【平台及雨棚】 （GB55019，2. 4. 2） 除平坡出入口外，无障碍出入口的门前应设置平台；在门完全开启的状态下，平台的净深度不应小于1.50m；无障碍出入口的上方应设置雨篷。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.2d",
+   "standard_clause_number": "5.3.3.2d",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "雨棚",
+   "content": "【雨棚】 （5.3.3.2， d） 建筑出入口上方雨篷挑出长度不小于 1. 5m ,  任何结构支撑物都不影响无障碍通行净空间。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "建筑出入口上方雨篷挑出长度不小于1.5m,任何结构支撑物都不",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 9
+  },
+  {
+   "clause_number": "access_entrance-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "闸机",
+   "content": "【闸机】 （GB55019，2. 4. 3） 设置出入口闸机时，至少有一台开启后的通行净宽不应小于900mm，或者在紧邻闸机处设置供乘轮椅者通行的出入口，通行净宽不应小于900mm。○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.2a",
+   "standard_clause_number": "5.3.3.2a",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "无障碍出入口标识",
+   "content": "【无障碍出入口标识】 （5.3.3.2， a） 无障碍流线上在转折处或分岔处均设有指向无障碍出入口的标识。 ○是（+1 分）○否●不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍流线上在转折处或分岔处均设有指向无障碍出入口的标识。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 11
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.2b",
+   "standard_clause_number": "5.3.3.2b",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "采用自动门",
+   "content": "【采用自动门】 （5.3.3.2， b） 无障碍出入口的门采用了符合 GB55019 中的 2.5要求的自动门（1、开启后的通行净宽不应小于1.00m；2、当设置手动启闭装置时，可操作部件的中心距地面高度应为0.85m～1.00m）。○是（+1分）●否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍出入口的门采用了符合GB55019中的2.5要求的自动",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 12
+  },
+  {
+   "clause_number": "access_entrance-5.3.3.5",
+   "standard_clause_number": "5.3.3.5",
+   "category_code": "access_entrance",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "手动操作装置与提示盲道",
+   "content": "【手动操作装置与提示盲道】 当无障碍出入口前设有手动操作装置时 ,  可操作部件的中心距地面高度为 0. 85m~1m ,  手动操作装置前设有长度不小于 500mm的提示盲道 。 ○是（+1分）○否●不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "door_config-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_config",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "旋转门",
+   "content": "【旋转门】 （GB55019，2.5.2） 在无障碍通道上不应使用旋转门。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "door_config-5.2.3.6",
+   "standard_clause_number": "5.2.3.6",
+   "category_code": "door_config",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "门形式",
+   "content": "【门形式】 无障碍通行流线上门的设置,  评价总分值为 6分 :○除防火门外 ,  主要通道上的门及乘轮椅者使用频率较高的公共性功能空间的门采用符合 GB 55019 中的 2.5要求的自动门 ,  其他位置的门采用符合 GB55019  中的 2.5 要求的自动门 、非弹簧门及非全玻璃门的平开门。（+6分）○除防火门外 ,  均采用符合 GB55019 中的 2.5要求的非弹簧门及非全玻璃门的平开门。（+4分）●以上均不满足 ○不参评",
+   "max_score": 6.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "除防火门外,主要通道上的门及乘轮椅者使用频率较高的公共性功能空间的门采用符合GB55019中的2.5要求的自动门,其他位置的门采用符合GB55019中的2.5要求的自动门、非弹簧门及非全玻璃门的平开门。",
+      "score": 6.0
+     },
+     {
+      "label": "除防火门外,均采用符合GB55019中的2.5要求的非弹簧门及非全玻璃门的平开门。",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "door_main-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "多门间距",
+   "content": "【多门间距】 （GB55019，2.5.7） 连续设置多道门时，两道门之间的距离除去门扇摆动的空间后的净间距不应小于1.50m。○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "door_main-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "闭门器",
+   "content": "【闭门器】 （GB55019，2.5.8） 满足无障碍要求的安装有闭门器的门，从闭门器最大受控角度到完全关闭前10°的闭门时间不应小于3s。 ●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "door_main-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "双向门",
+   "content": "【双向门】 （GB55019，2.5.8） 满足无障碍要求的双向开启的门应在可视高度部分安装观察窗，通视部分的下沿距地面高度不应大于850mm。 ○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "door_main-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "识别性",
+   "content": "【识别性】 （GB55019，2.5.1） 满足无障碍要求的门应可以被清晰辨认，并应保证方便开关和安全通过。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "door_main-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "门槛",
+   "content": "【门槛】 （GB55019，2.5.3） 满足无障碍要求的门不应设挡块和门槛，门口有高差时，高度不应大于15mm，并应以斜面过渡，斜面的纵向坡度不应大于1：10。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "door_main-5.1.1.5~6",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "手动门",
+   "content": "【手动门】 （GB55019，2.5.4） 满足无障碍要求的手动门应符合下列规定： 1 新建和扩建建筑的门开启后的通行净宽不应小于900mm，既有建筑改造或改建的门开启后的通行净宽不应小于800mm。 ●是○否○不参评 2 平开门的门扇外侧和里侧均应设置扶手，扶手应保证单手握拳操作，操作部分距地面高度应为0.85m～1.00m。 ●是○否○不参评 3 除防火门外，门开启所需的力度不应大于25N。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "door_main-5.3.4.3",
+   "standard_clause_number": "5.3.4.3",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "手动门",
+   "content": "【手动门】 无障碍通行流线上的手动式推拉门及平开门的具体要求 ,  评价总分值为 3 分 ,  按下列规则分别评分并累计: a)  手动门门内外无高差和门槛 。 ●是（+1分）○否○不参评 b) 手动门推拉门执手外露 ,  采用杆状手柄 ,   门内外均设有执手 ;  平开门的门扇外侧和里侧均设置执手。 ●是（+1分）○否○不参评 c)  手动门门执手与门的饰面有亮度或颜色差异。 ●是（+0.5分）○否○不参评 d) 手动门安装闭门器的门 ,  从闭门器最大受控角度到完全关闭前 10。的闭门时间不小于 5s。●是（+0.5分）○否○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "door_main-5.3.4.1",
+   "standard_clause_number": "5.3.4.1",
+   "category_code": "door_main",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "门扇",
+   "content": "【门扇】 无障碍通行流线上的门扇具体要求 ,  评价总分值为 5 分 ,  按下列规则分别评分并累计（多选） : a)  门扇内外空间及门执手一侧墙面宽度符合 GB50763 中 3.5.3第 4款和第 5 款的规定（4 在门扇内外应留有直径不小于1.50m的轮椅回转空间；5 在单扇平开门、推拉门、折叠门的门把手一侧的墙面，应设宽度不小于400mm的墙面）。 ●是（+2分）○否○不参评 b)  门扇与周围墙面具有色彩或亮度差异 ,  或设置明显标识 。 ●是（+1分）○否○不参评 c)  无障碍通行流线上设置手动双扇门时 ,  其中一扇门开启后的通行净宽不小于 900mm。 ●是（+1分）○否  ○不参评 d)  无障碍通行流线上的平开门 、推拉门 、折叠门的门扇设有视线观察玻璃 。●是（+1分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "door_main-11.1.1.2",
+   "standard_clause_number": "11.1.1.2",
+   "category_code": "door_main",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "门扇",
+   "content": "【门扇】 无障碍通行流线上门扇的无障碍提升,  评价总分值为 1 分 ,  按下列规则分别评分并累计: a)  门扇下部安装有 350mm高的护门板 。 ○是（+ 0.5 分 ） ●否○不参评 b)  在门扇关门侧设有横向执手 。 ●是（+ 0.5 分 ）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "public_rest_area-6.2.1.1",
+   "standard_clause_number": "6.2.1.1",
+   "category_code": "public_rest_area",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "可达性与标识",
+   "content": "【可达性与标识】 公共接待 、休息区域与无障碍通行流线连接 ,  在无障碍出入口处设有公共接待 、休息区域的引导标识。●是（+ 5 分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_rest_area-6.2.1.2",
+   "standard_clause_number": "6.2.1.2",
+   "category_code": "public_rest_area",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "公共接待区",
+   "content": "【公共接待区】 设有公共接待区域时 ,  其服务接待处的具体要求 ,  评价总分值为 13分 ,  按下列规则分别评分并累计: a) 设有专门的低位无障碍服务台 ,  并设置无障碍标识 。 ●是（+ 4分） ○否○不参评 b) 提供易于行动障碍者 、视觉障碍者和听觉障碍者获取和使用的建筑物使用信息 。 ●是（+ 4分） ○否○不参评 c) 柜台 、售票处 、询问处 、服务台等设有依据 YD/T2099部署的助听辅助系统 。 ●是（+ 2分） ○否○不参评 d) 设有轮椅的暂存和租借处 。 ●是（+ 3分）○否○不参评",
+   "max_score": 13.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_rest_area-6.2.1.3",
+   "standard_clause_number": "6.2.1.3",
+   "category_code": "public_rest_area",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "轮椅电动车头",
+   "content": "【轮椅电动车头】 靠近无障碍出入口处 ,  提供保证消防安全的空间暂存轮椅电动车头 ,  提供电动轮椅电池充电设施。● 是（+ 3分）○否○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_rest_area-6.2.1.4",
+   "standard_clause_number": "6.2.1.4",
+   "category_code": "public_rest_area",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "休息区域",
+   "content": "【休息区域】 设有休息区域时的具体要求 ,  评价总分值为 10分 ,  按下列规则分别评分并累计: a) 有集中休息区域时 ,  设置无障碍休息区 ,  设有轮椅停驻位 ,   同时设有带靠背和扶手的座椅 ,  座椅高度在450mm~500mm之间。 ●是（+ 4分） ○否○不参评 b) 长度大于50m的公共走道内设有无障碍休息区 ,  且不会影响无障碍通道的通行净宽 。 ○是（+ 3分）否  ●不参评 c) 无障碍休息区内通过地垫 、软质铺装 、 固定牵引绳装置等设施单独划分服务犬休息的空间。 ●是（+ 3分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "wheelchair_seat-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB55019，3.5.1） 轮椅席位的观看视线不应受到遮挡，并不应遮挡他人视线。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "wheelchair_seat-6.1.1.5~2",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB55019，3.5.2） 轮椅席位应设置在便于疏散的位置，并不应设置在公共通道范围内。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "wheelchair_seat-6.1.1.3",
+   "standard_clause_number": "6.1.1.3",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB55019，3.5.3） 轮椅席位区应通过无障碍通行设施与疏散出口、公共服务、卫生间、讲台等必要的功能空间和设施连接。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "wheelchair_seat-6.1.1.5~3",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.5.4） 轮椅席位应符合下列规定： 1   每个轮椅席位的净尺寸深度不应小于1.30m，宽度不应小于800mm。 ○是○否○不参评 2   观众席为100座及以下时应至少设置1个轮椅席位；101座～400座时应至少设置2个轮椅席位；400座以上时，每增加200个座位应至少增设1个轮椅席位。○是○否○不参评 3   在轮椅席位旁或邻近的座席处应设置1：1的陪护席位。 ○是○否○不参评 4   轮椅席位的地面坡度不应大于1：50。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "wheelchair_seat-6.2.1.5",
+   "standard_clause_number": "6.2.1.5",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "席位比例",
+   "content": "【席位比例】 设有固定的观众席位时轮椅席位的比例 ,  评价总分值为 6 分:○观众席为 100座及以下时至少设有 1 个轮椅席位 ,  101 座 ~300 座时至少设有 2 个轮椅席位 ,   301 座~1000座时至少设有 3个轮椅席位 ,  1000座以上时不少于0.3%轮椅席位（+6分）○观众席为 300座及以下时至少设有 1个轮椅席位 ,  301 座~1000座时至少设有 2个轮椅席位 ,   1000 座以上时不少于0.2%轮椅席位（+3分）○以上均不满足 ○不参评",
+   "max_score": 6.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "观众席为100座及以下时至少设有1个轮椅席位,101座~300座时至少设有2个轮椅席位,301座~1000座时至少设有3个轮椅席位,1000座以上时不少于0.3%轮椅席位",
+      "score": 6.0
+     },
+     {
+      "label": "观众席为300座及以下时至少设有1个轮椅席位,301座~1000座时至少设有2个轮椅席位,1000座以上时不少于0.2%轮椅席位",
+      "score": 3.0
+     }
+    ]
+   },
+   "sort_order": 5
+  },
+  {
+   "clause_number": "wheelchair_seat-6.2.1.6",
+   "standard_clause_number": "6.2.1.6",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "席位通道",
+   "content": "【席位通道】 轮椅席位的前或后为不小于 1. 2m的无障碍通道,  评价总分值为3分。○是（+3分）○否○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "wheelchair_seat-6.3.4.1",
+   "standard_clause_number": "6.3.4.1",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "具体要求",
+   "content": "【具体要求】 轮椅席位的具体要求 ,  评价总分值为 4分 ,  按下列规则分别评分并累计: a) 轮椅席位净尺寸的宽度不小于 900mm 。 ○是（+1分）○否○不参评 b) 轮椅席位在边缘处安装有栏杆或栏板。 ○是（+1分）○否○不参评 c) 轮椅席位划出轮椅席位范围线 ,  并附有地面标识。 ○是（+1分）○否○不参评 d) 轮椅席位附近25m范围内设置直径不小于 1. 5m的轮椅回转空间。 ○是（+1分）○否 ○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "wheelchair_seat-6.3.4.2",
+   "standard_clause_number": "6.3.4.2",
+   "category_code": "wheelchair_seat",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "可拆卸座椅",
+   "content": "【可拆卸座椅】 按预期使用需求 ,  观众席装设有 1 排以上可拆卸座椅 ,   以便大量出席活动的乘轮椅者使用 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "low_service-6.1.1.4",
+   "standard_clause_number": "6.1.1.4",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB55019，3.6.1） 为公众提供服务的各类服务台均应设置低位服务设施，包括问询台、接待处、业务台、收银台、借阅台、行李托运台等。 ●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "low_service-6.1.1.4~2",
+   "standard_clause_number": "6.1.1.4",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB55019，3.6.2） 当设置饮水机、自动取款机、自动售票机、自动贩卖机等时，每个区域的不同类型设施应至少有1台为低位服务设施。 ●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "low_service-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "回转空间",
+   "content": "【回转空间】 （GB55019，3.6.3） 低位服务设施前应留有轮椅回转空间。●是○否",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "low_service-6.3.4.4",
+   "standard_clause_number": "6.3.4.4",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "回转空间",
+   "content": "【回转空间】 低位服务设施前设置的轮椅回转空间直径不小于 1. 5m 。  ●是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "low_service-6.1.1.5~2",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "台面高度、容膝尺寸",
+   "content": "【台面高度、容膝尺寸】 （GB55019，3.6.4） 低位服务设施的上表面距地面高度应为700mm~850mm，台面的下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "low_service-6.3.4.5",
+   "standard_clause_number": "6.3.4.5",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "容膝尺寸",
+   "content": "【容膝尺寸】 低位服务设施底部容膝容脚空间宽度大于 1m 。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "low_service-6.3.4.3",
+   "standard_clause_number": "6.3.4.3",
+   "category_code": "low_service",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "设施材质边缘",
+   "content": "【设施材质边缘】 低位服务设施不存在尖角 、锐利边缘及过于粗糙的表面 。 ●是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "elevator_basic-5.1.1.4",
+   "standard_clause_number": "5.1.1.4",
+   "category_code": "elevator_basic",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "数量",
+   "content": "【数量】 不同类型建筑内部的无障碍电梯设置应符合下列规定（根据前面所选项目类型决定弹出的要求）: a) 居住建筑应符合： （GB50763 ，7.4.2 第 2款）设置电梯的居住建筑，每居住单元至少应设置1部能直达户门层的无障碍电梯。 ○是○否 （GB50763 ，7.4.5）宿舍建筑中，男女宿舍应分别设置无障碍宿舍，每100套宿舍各应设置不少于1套无障碍宿舍；当无障碍宿舍设置在二层以上且宿舍建筑设置电梯时，应设置不少于1部无障碍电梯，无障碍电梯应与无障碍宿舍以无障碍通道连接。 ○是○否 b) 公共建筑应符合： （GB55019 ， 2.6.4）  公共建筑内设有电梯时，至少应设置1部无障碍电梯。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "elevator_basic-5.2.3.2a",
+   "standard_clause_number": "5.2.3.2a",
+   "category_code": "elevator_basic",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "数量",
+   "content": "【数量】 （5.2.3.2， a) 面向公众的单栋建筑面积 20000㎡以上的大型公共建筑 ,  每组公众使用的客梯至少包含 1 台无障碍电梯 ,  其他建筑每个设有电梯的人员使用的主要功能分区均有不少于 1 台无障碍电梯 。 ●是（+ 4 分）○否○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "elevator_basic-5.2.3.2b",
+   "standard_clause_number": "5.2.3.2b",
+   "category_code": "elevator_basic",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "位置",
+   "content": "【位置】 （5.2.3.2， b） 公共建筑无障碍电梯能够通过无障碍通道与主要公共空间和功能空间相连通。 ●是（+ 4 分）○否○不参评",
+   "max_score": 4.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "公共建筑无障碍电梯能够通过无障碍通道与主要公共空间和功能空间",
+      "score": 4.0
+     }
+    ]
+   },
+   "sort_order": 3
+  },
+  {
+   "clause_number": "elevator_basic-5.2.3.2c",
+   "standard_clause_number": "5.2.3.2c",
+   "category_code": "elevator_basic",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "控制",
+   "content": "【控制】 （5.2.3.2， c） 无障碍电梯能够单独控制。 ●是（+ 2 分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍电梯能够单独控制。",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 4
+  },
+  {
+   "clause_number": "elevator_detail-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "候梯厅",
+   "content": "【候梯厅】 （GB55019，2.6.1） 无障碍电梯的候梯厅应符合下列规定： 1 电梯门前应设直径不小于1.50m的轮椅回转空间，公共建筑的候梯厅深度不应小于1.80m。 ●是○否○不参评 2 呼叫按钮的中心距地面高度应为0.85m～1.10m，且距内转角处侧墙距离不应小于400mm，按钮应设置盲文标志。 ●是○否○不参评 3 呼叫按钮前应设置提示盲道。 ●是○否○不参评 4 应设置电梯运行显示装置和抵达音响。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "elevator_detail-11.1.1.3a",
+   "standard_clause_number": "11.1.1.3a",
+   "category_code": "elevator_detail",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "候梯厅",
+   "content": "【候梯厅】 （11.1.1.3， a） 电梯厅内设有可脚动呼叫无障碍电梯的装置。●是（+0.5分）●否○不参评",
+   "max_score": 0.5,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "电梯厅内设有可脚动呼叫无障碍电梯的装置。",
+      "score": 0.5
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "elevator_detail-5.3.5.4a",
+   "standard_clause_number": "5.3.5.4a",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "候梯厅",
+   "content": "【候梯厅】 （5.3.5.4， a） 电梯厅的呼叫按钮前提示盲道的长度不小于 500mm。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "电梯厅的呼叫按钮前提示盲道的长度不小于500mm。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 3
+  },
+  {
+   "clause_number": "elevator_detail-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "电梯门",
+   "content": "【电梯门】 （GB55019，2. 6. 3） 无障碍电梯的电梯门应符合下列规定： 1 应为水平滑动式门。 ●是○否○不参评 2 新建和扩建建筑的电梯门开启后的通行净宽不应小于900mm，既有建筑改造或改建的电梯门开启后的通行净宽不应小于800mm。 ●是○否○不参评 3 完全开启时间应保持不小于3s。●是○否○不参评> 标准标准分值：控制项",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "elevator_detail-5.3.5.3a",
+   "standard_clause_number": "5.3.5.3a",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "电梯门",
+   "content": "【电梯门】 （5.3.5.3， a） 无障碍电梯门与毗邻的墙面有亮度或颜色差异。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "无障碍电梯门与毗邻的墙面有亮度或颜色差异。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 5
+  },
+  {
+   "clause_number": "elevator_detail-5.3.5.3b",
+   "standard_clause_number": "5.3.5.3b",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "雨棚",
+   "content": "【雨棚】 （5.3.5.3，b) 室外无障碍电梯设有深度不小于 1. 2m 的雨篷。 ○是（+1分）○否 ●不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "elevator_detail-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（电梯）的地面应坚固、平整、防滑、不积水。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "elevator_detail-5.1.1.5~4",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "轿厢尺寸",
+   "content": "【轿厢尺寸】 （GB55019，2. 6. 2） 无障碍电梯的轿厢的规格应依据建筑类型和使用要求选用。满足乘轮椅者使用的最小轿厢规格，深度不应小于1.40m，宽度不应小于1.10m。同时满足乘轮椅者使用和容纳担架的轿厢，如采用宽轿厢，深度不应小于1.50m， 宽度不应小于1.60m；如采用深轿厢，深度不应小于2.10m，宽度不应小于1.10m。轿厢内部设施应满足无障碍要求。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "elevator_detail-5.3.5.2",
+   "standard_clause_number": "5.3.5.2",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "轿厢尺寸",
+   "content": "【轿厢尺寸】 无障碍电梯轿厢尺寸评价总分值为 3分 :○公共建筑每个主要功能分区 ,  居住建筑每个单元 ,  有一部无障碍电梯尺寸不小于 2. 1m×1 . 5m。（+3分）●公共建筑每个主要功能分区 ,  居住建筑每个单元 ,  有一部无障碍电梯尺寸不小于 1. 5m×1 . 6m或 2. 1m(深) ×1 . 1m(宽)。（+2分）○以上均未满足 ○不参评",
+   "max_score": 3.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "公共建筑每个主要功能分区,居住建筑每个单元,有一部无障碍电梯尺寸不小于2.1m×1.5m。",
+      "score": 3.0
+     }
+    ]
+   },
+   "sort_order": 9
+  },
+  {
+   "clause_number": "elevator_detail-5.1.1.5~5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "轿厢",
+   "content": "【轿厢】 （GB50763，3.7.2 第2~5款） 无障碍电梯的轿厢应符合下列规定： 2 在轿厢的侧壁上应设高0.90m～1.10m带盲文的选层按钮，盲文宜设置于按钮旁。 ●是○否○不参评 3 轿厢的三面壁上应设高850mm～900mm扶手，扶手应符合本规范第3.8节的相关规定： （GB50763，3.8.2） 扶手应保持连贯，靠墙面的扶手的起点和终点处应水平延伸不小于300mm的长度。 ●是○否○不参评 （GB50763，3.8.3） 扶手末端应向内拐到墙面或向下延伸不小于100mm，栏杆式扶手应向下成弧形或延伸到地面上固定。 ○●是○否○不参评 （GB50763，3.8.4） 扶手内侧与墙面的距离不应小于40mm。  ●是○否○不参评 （GB50763，3.8.5） 扶手应安装坚固，形状易于抓握。圆形扶手的直径应为35mm～50mm，矩形扶手的截面尺寸应为35mm～50mm。 ●是○否○不参评 4 轿厢内应设电梯运行显示装置和报层音响。 ●是○否○不参评 5 轿厢正面高900mm处至顶部应安装镜子或采用有镜面效果的材料。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "elevator_detail-11.1.1.3b",
+   "standard_clause_number": "11.1.1.3b",
+   "category_code": "elevator_detail",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "轿厢",
+   "content": "【轿厢】 （11.1.1.3，b) 无障碍电梯轿厢内在侧壁设有低位操控面板。●是（+0.5分）○否○不参评",
+   "max_score": 0.5,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "elevator_detail-5.3.5.4b",
+   "standard_clause_number": "5.3.5.4b",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "轿厢",
+   "content": "【轿厢】 （5.3.5.4，b) 当按钮设置盲文时 ,  盲文在按钮侧 ,  而不是设在按钮上。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "elevator_detail-55.3.5.1",
+   "standard_clause_number": "55.3.5.1",
+   "category_code": "elevator_detail",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "轿厢",
+   "content": "【轿厢】 无障碍电梯内部轿厢环境的具体要求 ,  评价总分值为 3分 ,  按下列规则分别评分并累计: a) 除轿厢正面外 ,  轿厢内采用无反光的哑光饰面 。 ●是（+1分）○否○不参评 b) 轿厢内具有与周边的走廊照度相同且无闪烁的照明 ,  照度不小于 100lx。 ●是（+1分）○否○不参评 c) 轿厢内未采用深色地板。●是（+1分）○否○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "stairs_steps-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "stairs_steps",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，2.1.4） 无障碍通行设施（楼梯和台阶）的地面应坚固、平整、防滑、不积水。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "stairs_steps-5.1.1.5~2",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "stairs_steps",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "特殊梯和台阶",
+   "content": "【特殊梯和台阶】 （GB55019，2.7.1） 视觉障碍者主要使用的楼梯和台阶应符合下列规定： 1 距踏步起点和终点250mm～300mm处应设置提示盲道，提示盲道的长度应与梯段的宽度相对应。 ○是○否○不参评 2 上行和下行的第一阶踏步应在颜色或材质上与平台有明显区别。 ○是○否○不参评 3 不应采用无踢面和直角形突缘的踏步；本款要求不包括带防滑、警示功能的成品踏步砖的表面凸起。 ○是○否○不参评 4 踏步防滑条、警示条等附着物均不应突出踏面。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "stairs_steps-5.1.1.5~3",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "stairs_steps",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "特殊梯和台阶",
+   "content": "【特殊梯和台阶】 （GB55019，2.7.2） 行动障碍者和视觉障碍者主要使用的三级及三级以上的台阶和楼梯应在两侧设置扶手。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "stairs_steps-5.2.3.3",
+   "standard_clause_number": "5.2.3.3",
+   "category_code": "stairs_steps",
+   "chapter": "Q1",
+   "clause_type": "system",
+   "title": "无障碍楼梯占比",
+   "content": "【无障碍楼梯占比】 楼梯及台阶的无障碍功能 ,  评价总分值为 4分：○内部不同功能区的主要楼梯及所有台阶均符合 GB55019 中 2.7 的要求（+4分）○未设电梯的功能区的主要楼梯及主要台阶 ,  均符合 GB55019 中 2.7 的要求（+2分）○以上均不满足 ○不参评",
+   "max_score": 4.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "内部不同功能区的主要楼梯及所有台阶均符合GB55019中2.7的要求",
+      "score": 4.0
+     },
+     {
+      "label": "未设电梯的功能区的主要楼梯及主要台阶,均符合GB55019中2.7的要求",
+      "score": 2.0
+     }
+    ]
+   },
+   "sort_order": 4
+  },
+  {
+   "clause_number": "stairs_steps-11.1.1.5",
+   "standard_clause_number": "11.1.1.5",
+   "category_code": "stairs_steps",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "无障碍楼梯占比",
+   "content": "【无障碍楼梯占比】 所有人员使用的楼梯/台阶满足 GB55019 中 2.7.1 的要求,  评价分值为 1 分 。 ○是（+ 1 分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "stairs_steps-5.3.7.1",
+   "standard_clause_number": "5.3.7.1",
+   "category_code": "stairs_steps",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "楼梯配置",
+   "content": "【楼梯配置】 人员主要使用的楼梯（当设有电梯时 ,  可不包括消防疏散楼梯）和台阶的具体要求,  评价总分值为 4分 ,  按下列规则分别评分并累计（多选） : a) 在楼梯和台阶两侧均设有扶手。 ○是（+ 1 分）  ○否○不参评 b) 室外的楼梯和台阶采取了相应的遮雨措施。  ○是（+ 1 分） ○否○不参评 c) 楼梯的栏杆下方设有安全阻挡措施。  ○是（+ 1 分） ○否○不参评 d) 楼梯扶手起止处设有可触摸数字 ,  指示所在的楼层层数 。 ○是（+ 1 分）○否○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "sanitary_facility-6.1.1.2",
+   "standard_clause_number": "6.1.1.2",
+   "category_code": "sanitary_facility",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB55019，3.2.4） 公共建筑中的男、女公共卫生间（厕所）每层应至少分别设置1个满足无障碍要求的公共卫生间（厕所），或在男、女公共卫生间（厕所）附近至少设置1个独立的无障碍厕所。●是，每层至少设置了1个满足无障碍要求的公共卫生间（厕所）○是，每层至少设置了1个独立的无障碍厕所○否，配置不足 ○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "sanitary_facility-6.2.2.1",
+   "standard_clause_number": "6.2.2.1",
+   "category_code": "sanitary_facility",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "配置",
+   "content": "【配置】 公共建筑内设置公共卫生间(厕所)的楼层 ,  配置符合无障碍要求的男 、女公共卫生间(厕所) 和无障碍厕所 ,  当需求明确时 ,  保证每 15个有需求的人不少于 1个无障碍坐便器和 1个无障碍小便器 , 评价总分值为 20分:●每组男 、女公共卫生间(厕所)附近均设有 1个独立的无障碍厕所（+20分）○符合 GB55019 中 3.2.4 的要求 ,  且每层同时设有至少 1个独立的无障碍厕所（+15分）○符合 GB55019 中 3.2.4 的要求 ,  且单栋建筑面积 20000㎡   以上大型公共建筑和面向公众的公共建筑在首层或主要楼层设置至少 1个独立的无障碍厕所（+10分）○以上均不满足 ○不参评",
+   "max_score": 20.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "符合GB55019中3.2.4的要求,且每层同时设有至少1个独立的无障碍厕所",
+      "score": 15.0
+     },
+     {
+      "label": "符合GB55019中3.2.4的要求,且单栋建筑面积20000㎡以上大型公共建筑和面向公众的公共建筑在首层或主要楼层设置至少1个独立的无障碍厕所",
+      "score": 10.0
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "sanitary_facility-6.2.2.2",
+   "standard_clause_number": "6.2.2.2",
+   "category_code": "sanitary_facility",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "位置",
+   "content": "【位置】 符合无障碍要求的公共卫生间(厕所)、 无障碍厕所的位置要求,  评价总分值为 32分 ,  按下列规则分别评分并累计（多选）：a）位置靠近建筑物的出入口和/或休息区域。 ●是（+8分）○否○不参评b）在多楼层建筑中 ,  每层服务半径不超过 50m ,  且在80%的楼层中位于相近位置 。 ○是（+8分）○否●不参评c）与主要的无障碍通行流线距离不超过 20m。 ●是（+8分）○否○不参评d）通向其位置的路径转弯处均设置清晰的引导标识。●是（+8分）○否○不参评",
+   "max_score": 32.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "位置靠近建筑物的出入口和/或休息区域。",
+      "score": 8.0
+     },
+     {
+      "label": "在多楼层建筑中,每层服务半径不超过50m,且在80%的楼层中",
+      "score": 8.0
+     },
+     {
+      "label": "与主要的无障碍通行流线距离不超过20m。",
+      "score": 8.0
+     },
+     {
+      "label": "通向其位置的路径转弯处均设置清晰的引导标识。",
+      "score": 8.0
+     }
+    ]
+   },
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "配置",
+   "content": "【配置】 （GB55019，3.2.1，1） 满足无障碍要求的公共卫生间： 女卫生间(厕所)应设置无障碍厕位和无障碍洗手盆。 ○是○否○不参评 男卫生间(厕所)应设置无障碍厕位、无障碍小便器和无障碍洗手盆。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_toilet-6.3.1.1",
+   "standard_clause_number": "6.3.1.1",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 内部设施的具体要求 ,  评价总分值为 5 分 ,  按下列规则分别评分并累计: a) 女卫生间(厕所)除设置无障碍厕位 、无障碍洗手盆外 ,  还设置婴儿打理台和低位洗手台 ,  男卫生间(厕所)除设置无障碍厕位 、无障碍小便器和无障碍洗手盆外 ,  还设置低位洗手台。  ○是（+3分）○否○不参评 b) 设有长度不小于 700mm ,  宽度不小于 400mm ,   高度为 550mm~650mm的多功能台。 ○是（+1分）○否  ○不参评 c)  内部设置紧急情况时报警的灯 ,  报警灯具有声光报警功能 。○是（+1分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_toilet-11.1.1.7",
+   "standard_clause_number": "11.1.1.7",
+   "category_code": "public_toilet",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "配置",
+   "content": "【配置】 满足无障碍要求的公共卫生间(厕所)的无障碍提升 ,  评价总分值为 1.5 分 ,  按下列规则分别评分并累计: a) 超过50%的公共卫生间(厕所)设有儿童座便器 、小便器 。 ○是（+0.5分）○否○不参评 b) 无障碍厕位内设有儿童座椅。 ○是（+0.5分）○否○不参评 c) 无障碍厕位内设有坐在座便器上可操控的手持喷头 ,  喷头软管长度不小于 1. 5m 。○是（+0.5分）○否○不参评",
+   "max_score": 1.5,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~2",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "轮椅回转",
+   "content": "【轮椅回转】 （GB55019，3.1.2） 具有内部使用空间的无障碍服务设施（公共卫生间）的入口和室内空间应方便乘轮椅者进入和使用，内部应设轮椅回转空间，轮椅需要通行的区域通行净宽不应小于900mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~3",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "轮椅回转",
+   "content": "【轮椅回转】 （GB55019，3.2.1，2） 满足无障碍要求的公共卫生间(厕所)内部应留有直径不小于1.50m的轮椅回转空间。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~4",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "门",
+   "content": "【门】 （GB55019，3.1.3） 具有内部使用空间的无障碍服务设施（公共卫生间）的门在紧急情况下应能从外面打开。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "救助呼叫",
+   "content": "【救助呼叫】 （GB55019，3.1.4） 具有内部使用空间的无障碍服务设施（公共卫生间）应设置易于识别和使用的救助呼叫装置。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~6",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，3.1.5） 无障碍服务设施（公共卫生间）的地面应坚固、平整、防滑、不积水。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~7",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "开关和调控面板",
+   "content": "【开关和调控面板】 （GB55019，3.1.6） 无障碍服务设施（公共卫生间）内供使用者操控的照明、设备、设施的开关和调控面板应易于识别，距地面高度应为0.85m～1.10m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "public_toilet-6.1.1.5~8",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_toilet",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "安装部件",
+   "content": "【安装部件】 （GB55019，3.1.7） 无障碍服务设施（公共卫生间）内安装的部件应符合下列规定： 1   应安装牢固。 ○是○否○不参评 2   安全抓杆直径应为30mm～40mm，内侧与墙面的净距离不应小于40mm。 ○是○否○不参评 3   低位挂衣钩、低位毛巾架、低位搁物架距地面高度不应大于1.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "toilet_stall-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "toilet_stall",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "尺寸与配置",
+   "content": "【尺寸与配置】 （GB55019，3.2.2） 无障碍厕位应符合下列规定： 1   应方便乘轮椅者到达和进出，尺寸不应小于1.80m×1.50m。 ○是○否○不参评 2   如采用向内开启的平开门，应在开启后厕位内留有直径不小于1.50m的轮椅回转空间，并应采用门外可紧急开启的门闩。 ○是○否○不参评 3   应设置无障碍坐便器。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "toilet_stall-6.3.1.2",
+   "standard_clause_number": "6.3.1.2",
+   "category_code": "toilet_stall",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 无障碍厕位的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计: a) 设有距离地面高度为 1. 1m~1 . 2m的低位挂衣钩。 ○是（+0.5分）○否○不参评 b) 坐便器冲水装置为感应式自动冲水装置。 ○是（+0.5分）○否○不参评 c) 取纸器竖向中心线位于坐便器前端不超过 250mm处 。 ○是（+0.5分）○否  ○不参评 d) 设有坐姿高度和倒地高度两处紧急呼叫按钮 ,  或设置位置便于坐姿高度和倒地均可求助的紧急呼叫拉绳。○是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "toilet_stall-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "toilet_stall",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "无障碍坐便器",
+   "content": "【无障碍坐便器】 （GB55019，3.1.8） 无障碍坐便器应符合下列规定： 1   无障碍坐便器两侧应设置安全抓杆，轮椅接近坐便器一侧应设置可垂直或水平90°旋转的水平抓杆，另一侧应设置L形抓杆。 ○是○否○不参评 2   轮椅接近无障碍坐便器一侧设置的可垂直或水平90°旋转的水平安全抓杆距坐便器的上沿高度应为250mm～350mm,长度不应小于700mm。 ○是○否○不参评 3   无障碍坐便器另一侧设置的L形安全抓杆，其水平部分距坐便器的上沿高度应为250mm～350mm，水平部分长度不应小于700mm；其竖向部分应设置在坐便器前端150mm~250mm,竖向部分顶部距地面高度应为1.40m～1.60m。 ○是○否○不参评 4   坐便器水箱控制装置应位于易于触及的位置，应可自动操作或单手操作。 ○是○否○不参评 5   取纸器应设在坐便器的侧前方。 ○是○否○不参评 6   在坐便器附近应设置救助呼叫装置，并应满足坐在坐便器上和跌倒在地面的人均能够使用。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "toilet_stall-6.3.2.3",
+   "standard_clause_number": "6.3.2.3",
+   "category_code": "toilet_stall",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "无障碍坐便器",
+   "content": "【无障碍坐便器】 无障碍坐便器的具体要求 ,  评价总分值为 3分 ,  按下列规则分别评分并累计: a) 两侧安全抓杆的间距为 700mm~750mm 。 ○是（+0.5分）○否○不参评 b) 坐便器冲水装置为感应式自动冲水装置 。 ○是（+0.5分）○否  ○不参评 c) 轮椅靠近一侧有不小于 700mm宽的移动空间 。 ○是（+0.5分）○否  ○不参评 d) 取纸器竖向中心线位于坐便器前端不超过 250mm处 。 ○是（+0.5分）○否○不参评 e) 设有坐姿高度和倒地高度两处紧急呼叫按钮 ,  或设置位置便于坐姿高度和倒地均可求助的紧急 呼叫拉绳。 ○是（+1分）○否 ○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "toilet_basin-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "toilet_basin",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.10） 无障碍洗手盆应符合下列规定： 1   台面距地面高度不应大于800mm，水嘴中心距侧墙不应小于550mm，其下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。 ○是○否○不参评 2    应在洗手盆上方安装镜子，镜子反光面的底端距地面的高度不应大于1.00m。 ○是○否○不参评 3    出水龙头应采用杠杆式水龙头或感应式自动出水方式。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "toilet_basin-6.3.1.3",
+   "standard_clause_number": "6.3.1.3",
+   "category_code": "toilet_basin",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 无障碍洗手盆的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计： a) 设有便于使用的安全抓杆。 ○是（+1分）○否○不参评 b) 洗手盆一侧易于触及的位置配有置物台。 ○是（+0.5分）○否○不参评 c) 洗手盆下的供水和排水管道绝热或配备其他设施防止接触 ,  没有尖锐和粗糙的表面 。○是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "toilet_urinal-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "toilet_urinal",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.9） 无障碍小便器应符合下列规定： 1   小便器下口距地面高度不应大于400mm。 ○是○否○不参评 2   应在小便器两侧设置长度为550mm的水平安全抓杆，距地面高度应为900mm；应在小便器上部设置支撑安全抓杆，距地面高度应为1.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "toilet_urinal-6.3.1.4",
+   "standard_clause_number": "6.3.1.4",
+   "category_code": "toilet_urinal",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "满足无障碍要求的公共卫生间 （无障碍小便器）",
+   "content": "女卫生间出入口处设有落地镜，男卫生间内无障碍小便器的支撑安全抓杆与小便器下口前缘距墙距离一致，评价分值为1分。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.2.3） 无障碍厕所应符合下列规定： 1   位置应靠近公共卫生间（厕所），面积不应小于4.00m²，内部应留有直径不小于1.50m的轮椅回转空间。 ●是○否○不参评 2   内部应设置无障碍坐便器、无障碍洗手盆、多功能台、低位挂衣钩和救助呼叫装置。 ●是○否○不参评 3   应设置水平滑动式门或向外开启的平开门。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.3.2.1",
+   "standard_clause_number": "6.3.2.1",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 无障碍厕所配置的具体要求 ,  评价总分值为 4分 ,  按下列规则分别评分并累计: a)  采用推拉门。 ●是（+1分）○否○不参评 b)  内部设置婴儿打理台和儿童安全座椅。 ●是（+1分）○否○不参评 c)  内部设置长度不小于 1. 5m ,  宽度不小于 600mm ,  高度为 400mm~450mm 的多功能床。 ○是（+1分）●否○不参评 d)  内部设置紧急情况时报警的灯 ,  报警灯具有声光报警功能。●是（+1分）○否○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "accessible_toilet_1-11.1.1.8",
+   "standard_clause_number": "11.1.1.8",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "配置",
+   "content": "【配置】 无障碍厕所的无障碍提升 ,  评价总分值为 2.5 分 ,  按下列规则分别评分并累计: a) 采用自动推拉门 ,  得 1 分 。 ●是（+1分）○否○不参评 b) 无障碍坐便器一侧的 L形抓杆提升为 U形抓杆 ,  得 0.5 分 。 ○是（+0.5分）●否○不参评 c) 无障碍坐便器不设马桶盖 ,  设靠背 ,  得 0.5 分。 ●是（+0.5分）○否○不参评 d)  内部设置可供冲洗造瘘器等医疗用具的清洗盆 ,  得 0.5 分。●是（+0.5分）○否○不参评",
+   "max_score": 2.5,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.3.2.2",
+   "standard_clause_number": "6.3.2.2",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "门口",
+   "content": "【门口】 门口无高差和门槛 ,  评价分值为 1 分。●是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5~2",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "门",
+   "content": "【门】 （GB55019，3.1.3） 具有内部使用空间的无障碍服务设施（无障碍厕所）的门在紧急情况下应能从外面打开。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5~3",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，3.1.5） 无障碍服务设施（公共卫生间）的地面应坚固、平整、防滑、不积水。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5~4",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "开关和调控面板",
+   "content": "【开关和调控面板】 （GB55019，3.1.6） 无障碍服务设施（公共卫生间）内供使用者操控的照明、设备、设施的开关和调控面板应易于识别，距地面高度应为0.85m～1.10m。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5~5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "安装部件",
+   "content": "【安装部件】 （GB55019，3.1.7） 无障碍服务设施（公共卫生间）内安装的部件应符合下列规定： 1   应安装牢固。 ●是○否○不参评 2   安全抓杆直径应为30mm～40mm，内侧与墙面的净距离不应小于40mm。 ●是○否○不参评 3   低位挂衣钩、低位毛巾架、低位搁物架距地面高度不应大于1.20m。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "accessible_toilet_1-5.1.1.5",
+   "standard_clause_number": "5.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q1",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.8） 无障碍坐便器应符合下列规定： 1   无障碍坐便器两侧应设置安全抓杆，轮椅接近坐便器一侧应设置可垂直或水平90°旋转的水平抓杆，另一侧应设置L形抓杆。 ●是○否○不参评 2   轮椅接近无障碍坐便器一侧设置的可垂直或水平90°旋转的水平安全抓杆距坐便器的上沿高度应为250mm～350mm,长度不应小于700mm。 ●是○否○不参评 3   无障碍坐便器另一侧设置的L形安全抓杆，其水平部分距坐便器的上沿高度应为250mm～350mm，水平部分长度不应小于700mm；其竖向部分应设置在坐便器前端150mm~250mm,竖向部分顶部距地面高度应为1.40m～1.60m。 ●是○否○不参评 4   坐便器水箱控制装置应位于易于触及的位置，应可自动操作或单手操作。 ●是○否○不参评 5   取纸器应设在坐便器的侧前方。 ●是○否○不参评 6   在坐便器附近应设置救助呼叫装置，并应满足坐在坐便器上和跌倒在地面的人均能够使用。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.3.2.3",
+   "standard_clause_number": "6.3.2.3",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "无障碍坐便器",
+   "content": "【无障碍坐便器】 无障碍坐便器的具体要求 ,  评价总分值为 3分 ,  按下列规则分别评分并累计: a) 两侧安全抓杆的间距为 700mm~750mm 。 ●是（+0.5分）○否○不参评 b) 坐便器冲水装置为感应式自动冲水装置 。 ●是（+0.5分）○否  ○不参评 c) 轮椅靠近一侧有不小于 700mm宽的移动空间 。 ●是（+0.5分）○否  ○不参评 d) 取纸器竖向中心线位于坐便器前端不超过 250mm处 。 ●是（+0.5分）○否○不参评 e) 设有坐姿高度和倒地高度两处紧急呼叫按钮 ,  或设置位置便于坐姿高度和倒地均可求助的紧急呼叫拉绳。●是（+1分）○否○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.1.1.5~6",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.10） 无障碍洗手盆应符合下列规定： 1   台面距地面高度不应大于800mm，水嘴中心距侧墙不应小于550mm，其下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。 ●是○否○不参评 2    应在洗手盆上方安装镜子，镜子反光面的底端距地面的高度不应大于1.00m。 ●是○否○不参评 3    出水龙头应采用杠杆式水龙头或感应式自动出水方式。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "accessible_toilet_1-6.3.2.4",
+   "standard_clause_number": "6.3.2.4",
+   "category_code": "accessible_toilet_1",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "无障碍洗手盆",
+   "content": "【无障碍洗手盆】 无障碍洗手盆的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计: a) 设有便于使用的安全抓杆。 ●是（+1分）○否○不参评 b) 洗手盆一侧易于触及的位置配有置物台。 ○是（+0.5分）●否○不参评 c) 洗手盆下的供水和排水管道绝热或配备其他设施防止接触 ,  没有尖锐和粗糙的表面 。●是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "nursing_room-6.2.2.3",
+   "standard_clause_number": "6.2.2.3",
+   "category_code": "nursing_room",
+   "chapter": "Q2",
+   "clause_type": "system",
+   "title": "母婴室",
+   "content": "【母婴室】 有母婴使用需求的公共建筑内配置独立的母婴室 ,  并符合下列具体要求 ,  评价总分值为 8分 , 按下列规则分别评分并累计： a) 位置靠近建筑物的出入口和/或休息区域 ,  通往母婴室的通道为无障碍通道  。 ○是（+ 4分） ○否○不参评 b) 设有能够保护隐私的独立出入口 ,  不与公共卫生间出入口正对。 ○是（+ 4分）○否○不参评",
+   "max_score": 8.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "family_toilet-11.1.1.9",
+   "standard_clause_number": "11.1.1.9",
+   "category_code": "family_toilet",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "家庭卫生间",
+   "content": "【家庭卫生间】 公共建筑首层或主要楼层设置方便协助老 、幼及行动不便者使用的家庭卫生间。家庭卫生间的面积不小于 6. 5㎡。内部设无障碍坐便器 、无障碍洗手盆 、多功能台 、多功能床 、低位挂衣钩 、儿童座便器 、儿童安全座椅和救助呼叫装置等设施。 ○以上均满足（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "以上均满足",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "轮椅回转",
+   "content": "【轮椅回转】 （GB55019，3.1.2） 具有内部使用空间的无障碍服务设施（公共浴室和更衣室）的入口和室内空间应方便乘轮椅者进入和使用，内部应设轮椅回转空间，轮椅需要通行的区域通行净宽不应小于900mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~2",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "门",
+   "content": "【门】 （GB55019，3.1.3） 具有内部使用空间的无障碍服务设施（公共浴室和更衣室）的门在紧急情况下应能从外面打开。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~3",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "救助呼叫",
+   "content": "【救助呼叫】 （GB55019，3.1.4） 具有内部使用空间的无障碍服务设施（公共浴室和更衣室）应设置易于识别和使用的救助呼叫装置。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~4",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "地面",
+   "content": "【地面】 （GB55019，3.1.5） 无障碍服务设施（公共浴室和更衣室）的地面应坚固、平整、防滑、不积水。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~5",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "开关和调控面板",
+   "content": "【开关和调控面板】 （GB55019，3.1.6） 无障碍服务设施（公共浴室和更衣室）内供使用者操控的照明、设备、设施的开关和调控面板应易于识别，距地面高度应为0.85m～1.10m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~6",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "安装部件",
+   "content": "【安装部件】 （GB55019，3.1.7） 无障碍服务设施（公共浴室和更衣室）内安装的部件应符合下列规定： 1   应安装牢固。 ○是○否○不参评 2   安全抓杆直径应为30mm～40mm，内侧与墙面的净距离不应小于40mm。 ○是○否○不参评 3   低位挂衣钩、低位毛巾架、低位搁物架距地面高度不应大于1.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~7",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.3.1，1） 满足无障碍要求的公共浴室应符合下列规定：    应设置至少1个无障碍淋浴间或盆浴间和1个无障碍洗手盆；○是，设置至少1个无障碍淋浴间和1个无障碍洗手盆○是，设置至少1个无障碍盆浴间和1个无障碍洗手盆○是，同时设置了无障碍淋浴间、盆浴间和1个无障碍洗手盆○否，未设置满足以上要求的内容（若选这项，可不弹出无障碍洗手盆审查，直接判定控制项不合格） ○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.1",
+   "standard_clause_number": "6.3.3.1",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 满足无障碍要求的公共浴室和更衣室设置无障碍厕所或厕位情况 ,  评价总分值为 3 分:○男女区分别设置无障碍厕所（+3分）（若勾选这项，则应弹出无障碍厕所审查内容，对应数量）○男女区分别设置无障碍厕位（+2分）（若勾选这项，则应弹出无障碍厕位审查内容，对应数量）○在公共区设置无障碍厕所（+1分）（若勾选这项，则应弹出无障碍厕所审查内容，对应数量） ○以上均不满足",
+   "max_score": 3.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "男女区分别设置无障碍厕所",
+      "score": 3.0
+     },
+     {
+      "label": "男女区分别设置无障碍厕位",
+      "score": 2.0
+     },
+     {
+      "label": "在公共区设置无障碍厕所",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~8",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.10） 无障碍洗手盆应符合下列规定： 1   台面距地面高度不应大于800mm，水嘴中心距侧墙不应小于550mm，其下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。 ○是○否○不参评 2    应在洗手盆上方安装镜子，镜子反光面的底端距地面的高度不应大于1.00m。 ○是○否○不参评 3    出水龙头应采用杠杆式水龙头或感应式自动出水方式。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.3.2.4",
+   "standard_clause_number": "6.3.2.4",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "设施配置",
+   "content": "【设施配置】 无障碍洗手盆的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计: a) 设有便于使用的安全抓杆。 ○是（+1分）○否○不参评 b) 洗手盆一侧易于触及的位置配有置物台。 ○是（+0.5分）○否○不参评 c) 洗手盆下的供水和排水管道绝热或配备其他设施防止接触 ,  没有尖锐和粗糙的表面 。○是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~9",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.11） 无障碍淋浴间应符合下列规定： 1   内部空间应方便乘轮椅者进出和使用。 ○是○否○不参评 2   淋浴间前应设便于乘轮椅者通行和转动的净空间。 ○是○否○不参评 3   淋浴间坐台应安装牢固，高度应为400mm～450mm，深度应为400mm～500mm，宽度应为500mm～550mm。 ○是○否○不参评 4   应设置L形安全抓杆，其水平部分距地面高度应为700mm～750mm，长度不应小于700mm，其垂直部分应设置在淋浴间坐台前端，顶部距地面高度应为1.40m～1.60m。 ○是○否○不参评 5   控制淋浴的开关距地面高度不应大于1.00m；应设置一个手持的喷头，其支架高度距地面高度不应大于1.20m，淋浴软管长度不应小于1.50m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~10",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.3.1，2） 无障碍淋浴间的短边宽度不应小于1.50m，淋浴间前应设一块不小于1500mm×800mm的净空间，和淋浴间入口平行的一边的长度不应小于1.50m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~11",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.3.1，3） 淋浴间入口应采用活动门帘。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.3",
+   "standard_clause_number": "6.3.3.3",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 无障碍淋浴间的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计: a) 设有固定在地面或墙面的座椅 ,  座椅有靠背和圆滑的边缘。 ○是（+1分）○否○不参评 b) 淋浴间内留有护理者操作空间 。 ○是（+0.5分）○否  ○不参评 c) 控制开关为便于操作的杠杆型 ,  配有恒温器 ,  且在适宜温度的区域画有容易识别的记号。○是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~12",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，3.1.12） 无障碍盆浴间应符合下列规定： 1   浴盆侧面应设不小于1500mm×800mm的净空间，和浴盆平行的一边的长度不应小于1.50m。 ○是○否○不参评 2   浴盆距地面高度不应大于450mm；在浴盆一端设置方便进入和使用的坐台。 ○是○否○不参评 3   应沿浴盆长边和洗浴坐台旁设置安全抓杆。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.4",
+   "standard_clause_number": "6.3.3.4",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "配置",
+   "content": "【配置】 无障碍盆浴间的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计： a) 浴盆内侧设高 600mm和 900mm的两层水平抓杆 ,  洗浴坐台一侧的墙上设水平部分高 900mm 的 L形安全抓杆 ,  竖杆位于浴盆外沿前端 100mm~300mm 。○是（+1分）○否○不参评 b) 控制开关为便于操作的杠杆型 ,  配有恒温器 ,  且在适宜温度的区域画有容易识别的记号。○是（+1分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.2a",
+   "standard_clause_number": "6.3.3.2a",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "轮椅回转",
+   "content": "【轮椅回转】 （6.3.3.2， a） 乘轮椅者使用的储物柜前应设直径不小于1.50m的轮椅回转空间。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "乘轮椅者使用的储物柜前应设直径不小于1.50m的轮椅回转空间",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 1
+  },
+  {
+   "clause_number": "public_bathroom-6.1.1.5~13",
+   "standard_clause_number": "6.1.1.5",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "control",
+   "title": "座椅",
+   "content": "【座椅】 （GB55019，3.3.2，2） 乘轮椅者使用的座椅的高度应为400mm～450mm。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.2c",
+   "standard_clause_number": "6.3.3.2c",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "座椅",
+   "content": "【座椅】 （6.3.3.2， c） 更衣室内长椅高度为 400mm~450mm ,  下方提供300mm高的开放空间 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "更衣室内长椅高度为400mm~450mm,下方提供300mm",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 3
+  },
+  {
+   "clause_number": "public_bathroom-6.3.3.2b",
+   "standard_clause_number": "6.3.3.2b",
+   "category_code": "public_bathroom",
+   "chapter": "Q2",
+   "clause_type": "facility",
+   "title": "储物柜",
+   "content": "【储物柜】 （6.3.3.2，b) 乘轮椅者使用的储物柜开关装置距地面高度为 0. 85m~1 . 2m 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "info_service-8.1.1.3",
+   "standard_clause_number": "8.1.1.3",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，4.0.7） 公共场所中的网络通信设备部件应符合下列规定： 1   低位电话、低位个人自助终端和低位台面计算机的上表面距地面高度应为700mm~850mm，台面的下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。 ●是○否○不参评 2   每1组公用电话中，应至少设1部低位电话，听筒线长度不应小于600mm；应至少设1部电话具备免提对话、音量放大和助听耦合的功能。 ○是○否●不参评 3   每1组个人自助终端中，应至少设1部低位个人自助终端；应至少设1部具备视觉和听觉两种信息传递方式的个人自助终端。 ●是○否○不参评 4   供公众使用的计算机中，应至少提供1台低位台面计算机；应至少提供1台具备读屏软件和支持屏幕放大功能的计算机；应至少提供1台具备语音输入功能的计算机；支持可替换键盘的计算机不应少于20%。○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "info_service-8.1.1.3~2",
+   "standard_clause_number": "8.1.1.3",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019， 4.0.5） 语音信息密集的公共场所和以声音为主要传播手段的公共服务应提供文字信息的辅助服务。○是○否●不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "info_service-8.1.1.2",
+   "standard_clause_number": "8.1.1.2",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019， 4.0.6） 在以视觉信息为主的公共服务中，应提供听觉信息的辅助服务。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "info_service-8.2.2.1",
+   "standard_clause_number": "8.2.2.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "安全应急信息",
+   "content": "【安全应急信息】 安全应急信息同时提供视觉和听觉(或触觉)信息。●是（+5分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "info_service-8.2.2.4",
+   "standard_clause_number": "8.2.2.4",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "建筑平面总览图",
+   "content": "【建筑平面总览图】 小区和园区出入口 、公共建筑物出入口设建筑平面总览图 ,  配置大字体文字和盲文标识位置信息 ,  采用凹凸标记标出当前位置。 ○是（+4分）●否○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "info_service-8.2.2.5",
+   "standard_clause_number": "8.2.2.5",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "盲文",
+   "content": "【盲文】 盲文辅助信息的触摸表面光滑无刺 。 ●是（+2分）○否 ○不参评（无盲文辅助信息）",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 6
+  },
+  {
+   "clause_number": "info_service-8.2.3.1",
+   "standard_clause_number": "8.2.3.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "刷卡或门禁",
+   "content": "【刷卡或门禁】 园区或建筑设有需刷卡或刷脸的门禁时 ,  设置中心距地面高度 0. 85m~1m 的低位刷卡或刷脸处。 ○是（+5分）○否●不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "info_service-8.2.3.2",
+   "standard_clause_number": "8.2.3.2",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "门禁",
+   "content": "【门禁】 园区或建筑设置门禁时 ,  门禁前地面设置长度不小于 500mm提示盲道。 ○是（+5分）○否●不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "info_service-8.2.3.3",
+   "standard_clause_number": "8.2.3.3",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "操控面板",
+   "content": "【操控面板】 建筑室内空间设置智能灯具 、智能操控面板等智能化硬件设施时 ,  易于不同障碍类别的人员识别和使用。 ●是（+5分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "info_service-8.2.3.4",
+   "standard_clause_number": "8.2.3.4",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "操控面板",
+   "content": "【操控面板】 建筑室内空间设置的操作面板 、电话 、闹钟等设有大字号 、高对比度显示屏。 ○是（+5分）○否●不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "info_service-11.1.1.12",
+   "standard_clause_number": "11.1.1.12",
+   "category_code": "info_service",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "智能化管理平台",
+   "content": "【智能化管理平台】 含有面向公众的单栋建筑面积 20000㎡以上大型公共建筑的项目 ,  其设置的智能化管理平台包括无障碍服务的相关内容 ,  评价总分值为 2分 ,  按下列规则分别评分并累计: a) 体现公共建筑内的无障碍设施的名称 、位置和数量 ,  并可通过智能终端进行查询和服务 。  ○是（+0.5分）○否○●不参评 b) 智能终端具备语音 、文字 、图示等方便视觉障碍者和听觉障碍者的导航模式  。  ○是（+0.5分）○否○●不参评 c) 具备与城市管理或服务信息同步的功能 ,  可以提供线上查询  。  ○是（+0.5分）○否○●不参评 d) 具备火警 、匪警 、医疗急救等紧急呼叫功能 ,  提供文字信息报警 、呼叫功能  。 ○是（+0.5分）○否●不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "info_service-11.1.1.13",
+   "standard_clause_number": "11.1.1.13",
+   "category_code": "info_service",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "新技术产品",
+   "content": "【新技术产品】 增设本文件提及之外的新技术或产品 ,  并对有无障碍需要人士提供有效帮助 ,  每一项得 1 分 ,  最多评价分值不超过3分。○无（0分）   ○1项（+1分） ●2项（+2分）○≥3项（+3分）○不参评",
+   "max_score": 3.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "无",
+      "score": 0.0
+     },
+     {
+      "label": "1项",
+      "score": 1.0
+     },
+     {
+      "label": "2项",
+      "score": 2.0
+     },
+     {
+      "label": "≥3项",
+      "score": 3.0
+     }
+    ]
+   },
+   "sort_order": 12
+  },
+  {
+   "clause_number": "info_service-8.1.1",
+   "standard_clause_number": "8.1.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，4.0.1） 无障碍标识应纳入室内外环境的标识系统，应连续并清楚地指明无障碍设施的位置和方向。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "info_service-8.1.1~2",
+   "standard_clause_number": "8.1.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，4.0.2） 无障碍标志的安装位置和高度应保证从站立和座位的视觉角度都能够看见，并且不应被其他任何物品遮挡。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 14
+  },
+  {
+   "clause_number": "info_service-8.1.1~3",
+   "standard_clause_number": "8.1.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，4.0.3） 无障碍设施处均应设置无障碍标识。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 15
+  },
+  {
+   "clause_number": "info_service-8.1.1~4",
+   "standard_clause_number": "8.1.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "control",
+   "title": "合规性",
+   "content": "【合规性】 （GB55019，4.0.4） 对需要安全警示处，应同时提供包括视觉标识和听觉标识的警示标识。●是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 16
+  },
+  {
+   "clause_number": "info_service-8.2.1.1",
+   "standard_clause_number": "8.2.1.1",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "符号",
+   "content": "【符号】 标识正确使用 GB/T10001. 9 中规定的符号 ,  或采用国际通用的符号。 ●是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 17
+  },
+  {
+   "clause_number": "info_service-8.2.1.2",
+   "standard_clause_number": "8.2.1.2",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "符号",
+   "content": "【符号】 标识符合 GB/T20501. 1 和 GB/T20501. 2 的规定。 ●是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 18
+  },
+  {
+   "clause_number": "info_service-8.2.1.3",
+   "standard_clause_number": "8.2.1.3",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "标识专篇",
+   "content": "【标识专篇】 系统设置无障碍标识 ,  出具“无障碍标识系统专篇说明”并实施 。 ●是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 19
+  },
+  {
+   "clause_number": "info_service-8.2.1.4",
+   "standard_clause_number": "8.2.1.4",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "识别性",
+   "content": "【识别性】 公共建筑及居住建筑公共区的室内外的视觉信息标识按照 GB/T51223设置 ,  在正常使用的视距范围内保证80%以上有出行需要的人获得必要信息(进行满意度调查 ,  或根据有效规范标准确定)。 ●是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 20
+  },
+  {
+   "clause_number": "info_service-8.2.1.5",
+   "standard_clause_number": "8.2.1.5",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "引导标识",
+   "content": "【引导标识】 在无障碍流线上设有完整和连续的无障碍设施导向标识 ,  保证每个无障碍设施的位置均可被方便引导。 ●是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 21
+  },
+  {
+   "clause_number": "info_service-8.2.1.6",
+   "standard_clause_number": "8.2.1.6",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "标识照明",
+   "content": "【标识照明】 无障碍标志设置夜间照明或内置光源。 ○是（+5分）●否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 22
+  },
+  {
+   "clause_number": "info_service-8.2.1.7",
+   "standard_clause_number": "8.2.1.7",
+   "category_code": "info_service",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "引导标识",
+   "content": "【引导标识】 如果有两条以上人行流线时 ,  设置标识标明无障碍通道 ,  非无障碍通道入口的信息提示标识中指示出无障碍通道的方向 。 ○是（+5分）○否●不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 23
+  },
+  {
+   "clause_number": "info_service-5.3.7.2",
+   "standard_clause_number": "5.3.7.2",
+   "category_code": "info_service",
+   "chapter": "Q1",
+   "clause_type": "facility",
+   "title": "触摸标识",
+   "content": "【触摸标识】 在无障碍设施处通过盲文或其他可触摸标记提供设施信息 。 ○是（+1分）●否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 24
+  },
+  {
+   "clause_number": "info_service-11.1.1.11",
+   "standard_clause_number": "11.1.1.11",
+   "category_code": "info_service",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "标识内容",
+   "content": "【标识内容】 无障碍标识内容包含目的地距离 、名称 、提供的服务等关键信息 ,  并同时提供包含相同内容的触觉或听觉信息。 ○是（+1分）●否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 25
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.6",
+   "standard_clause_number": "7.1.1.6",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "无障碍设施",
+   "content": "【无障碍设施】 宿舍建筑的无障碍设施应符合 GB55025 中 2.0.6 、3.1.4 的规定 ;  旅馆建筑的无障碍设施应符合 GB55025 中 2.0.6 、4.2.2 的规定。  □宿舍建筑：（GB55025，2.0.6） 宿舍、旅馆项目的无障碍建设应符合下列规定: 1 主要出入口应为无障碍出入口；当条件受限时，应至少设置1处无障碍出人口，并应在主要出人口设置引导标识。 ○是○否○不参评 2 当设置电梯时，应至少设置1台无障碍电梯。 ○是○否○不参评 3 当设置楼梯时，应至少设置1部方便视觉障碍者使用的楼梯。 ○是○否○不参评 4 应在无障碍出入口前设置无障碍上客、落客区。 ○是○否○不参评 GB55025，3.1.4 宿舍中，男女宿舍应分别设置无障碍居室，且无障碍居室应与无障碍出入口以无障碍通行流线连接，其数量应符合下列规定: 1 100套居室以下的宿舍项目，至少应设置1套无障碍居室; 2 大于100套居室的宿舍项目，每100套居室至少应设置1套无障碍居室。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 1
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.6~2",
+   "standard_clause_number": "7.1.1.6",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "无障碍设施",
+   "content": "【无障碍设施】 宿舍建筑的无障碍设施应符合 GB55025 中 2.0.6 、3.1.4 的规定 ;  旅馆建筑的无障碍设施应符合 GB55025 中 2.0.6 、4.2.2 的规定。 □旅馆建筑：（GB55025，2.0.6） 宿舍、旅馆项目的无障碍建设应符合下列规定: 1 主要出入口应为无障碍出入口；当条件受限时，应至少设置1处无障碍出人口，并应在主要出人口设置引导标识。 ○是○否○不参评 2 当设置电梯时，应至少设置1台无障碍电梯。 ○是○否○不参评 3 当设置楼梯时，应至少设置1部方便视觉障碍者使用的楼梯。 ○是○否○不参评 4 应在无障碍出入口前设置无障碍上客、落客区。 ○是○否○不参评 GB55025，4.2.2旅馆项目应设置无障碍客房，无障碍客房应与无障碍出入口以无障碍通行流线连接，其数量应符合下列规定: 1 30间~100间，至少应设置1间无障碍客房; 2 101间~200间，至少应设置2间无障碍客房 3 201间~300间，至少应设置3间无障碍客房; 4 301间以上，至少应设置4间无障碍客房。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 2
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.1",
+   "standard_clause_number": "7.2.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "无障碍住房数量",
+   "content": "【无障碍住房数量】 □住宅总套数             套，无障碍住房             套（得分：自动计算） 规则：每100套住房设置不少于2套无障碍住房，得40分 □宿舍             间，无障碍宿舍             间（得分：自动计算） 规则：男女宿舍应分别设置无障碍居室，且无碍居室应与无障碍出人口以无障碍通行流线连接，100套居室以下的宿舍项目，至少应设置1套无碍居室;大于100套居室的宿舍项目，每100套居室至少应设置1套无障碍居室，得20分。无障碍宿舍总套数每增加 10%得 5 分 ,  最高评价分 值不超过40分。 □旅馆             间，无障碍客房             间（得分：自动计算） 规则：30间~100间，至少应设置1间无障碍客房；101间~200间，至少应设置2间无障碍客房；201间~300间，至少应设置3间无障碍客房；301间以上，至少应设置4间无障碍客房，得20分 。 无障碍客房总间数每增加 10% 得 5 分 ,  最高评价分值不超过40分 。 如项目中同时存在上述两种或三种类型无障碍住宿 ,  分别打分后取平均",
+   "max_score": 40.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 3
+  },
+  {
+   "clause_number": "accessible_accommodation-11.1.1.10",
+   "standard_clause_number": "11.1.1.10",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q5",
+   "clause_type": "system",
+   "title": "无障碍住房数量",
+   "content": "【无障碍住房数量】 住宅在按照 GB50763 中 7.4.3“居住建筑应按每 100 套住房设置不少于 2 套无障碍住房。” 配置要求的基础上 ,  无障碍住房总套数每增加 10%得 1 分 ,  最多评价分值不超过3分。○0分○1分○2分○3分○不参评",
+   "max_score": 3.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 4
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.1",
+   "standard_clause_number": "7.1.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "位置",
+   "content": "【位置】 （GB55019，3.4.1） 无障碍客房和无障碍住房、居室应设于底层或无障碍电梯可达的楼层，应设在便于到达、疏散和进出的位置，并应与无障碍通道连接。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 5
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.2",
+   "standard_clause_number": "7.2.1.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "位置",
+   "content": "【位置】 无障碍住宿(住宅 、宿舍 、居室 、客房)的设置 ,  评价总分值为 30 分：○至少1套无障碍住宿设于底层并靠近无障碍出入口 ,  有其他无障碍住宿设在二层及以上时邻近无 障碍电梯设置（+30分）○无障碍住宿设在二层及以上时 ,  设置无障碍电梯 ,  无障碍住宿与无障碍电梯以无障碍通道连接（+20分）○以上均不满足 ○不参评",
+   "max_score": 30.0,
+   "score_type": "single_choice",
+   "score_options": {
+    "options": [
+     {
+      "label": "至少1套无障碍住宿设于底层并靠近无障碍出入口,有其他无障碍住宿设在二层及以上时邻近无障碍电梯设置",
+      "score": 30.0
+     },
+     {
+      "label": "无障碍住宿设在二层及以上时,设置无障碍电梯,无障碍住宿与无障碍电梯以无障碍通道连接",
+      "score": 20.0
+     }
+    ]
+   },
+   "sort_order": 6
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.1~2",
+   "standard_clause_number": "7.1.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "内部空间",
+   "content": "【内部空间】 （GB55019，3.4.2） 人员活动空间应保证轮椅进出，内部应设轮椅回转空间。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 7
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.3",
+   "standard_clause_number": "7.2.1.3",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "内部通道",
+   "content": "【内部通道】 无障碍住宿户内的入口门厅 、起居室(厅)、 卧室(至少一间)、 无障碍厨房 、无障碍卫生间及阳台之间的通道均为宽度不小于 1. 2m的无障碍通道 。○是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 8
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.1~3",
+   "standard_clause_number": "7.1.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "救助呼叫",
+   "content": "【救助呼叫】 （GB55019，3.4.3） 主要人员活动空间应设置救助呼叫装置。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 9
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.4",
+   "standard_clause_number": "7.2.1.4",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "救助呼叫",
+   "content": "【救助呼叫】 无障碍住宿户内的起居室(厅)、 卧室(至少一间)、 无障碍厨房 、无障碍卫生间等主要人员活动空间设置救助呼叫装置 ,  无障碍客房 、宿舍的救助呼叫装置易于不同障碍类别的人员识别和使用 ,  无障碍住宅的救助呼叫装置易于实际居住者识别和使用 。 ○是（+10分）○否○不参评",
+   "max_score": 10.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 10
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.6",
+   "standard_clause_number": "7.2.1.6",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "照明",
+   "content": "【照明】 无障碍住宿户内的入口门厅 、起居室(厅)、 卧室(至少一间)、 无障碍厨房 、无障碍卫生间的照明采用照度标准范围中的高标准 。 ○是（+5分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 11
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.4b",
+   "standard_clause_number": "7.1.1.4b",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "门禁门铃",
+   "content": "【门禁门铃】 （7.1.1.4，b) 无障碍住房的门禁和无障碍客房的门铃应同时满足听觉障碍者、视觉障碍者和言语障碍者使用。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 12
+  },
+  {
+   "clause_number": "accessible_accommodation-8.2.2.2",
+   "standard_clause_number": "8.2.2.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "门铃",
+   "content": "【门铃】 无障碍住宿设置门铃(或有门铃功能的对讲装置)时设置方便听觉障碍者和视觉障碍者的闪光声音功能 ,  有实际居住者的住宅根据居住者情况设置,  评价分值为4分。○是（+4分）○否○不参评",
+   "max_score": 4.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 13
+  },
+  {
+   "clause_number": "accessible_accommodation-8.2.2.3",
+   "standard_clause_number": "8.2.2.3",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q4",
+   "clause_type": "system",
+   "title": "疏散路线图",
+   "content": "【疏散路线图】 无障碍客房 、无障碍宿舍及其他服务于视觉障碍者的房间内贴有对比度明显的安全疏散线路信息 ,  并采用凹凸标记标出疏散路线,  评价分值为5分。○是（+5分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 14
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.2",
+   "standard_clause_number": "7.1.1.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "公共服务设施",
+   "content": "【公共服务设施】 住宅公共部分如有公共无障碍服务设施时 ,  应符合本文件 6.1 的规定。涉及以下那些内容：（勾选后弹出审查内容） ○不参评○满足无障碍要求的公共卫生间（厕所）○独立无障碍厕所○满足无障碍要求的公共浴室和更衣室○轮椅席位○低位服务设施",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 15
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.4a",
+   "standard_clause_number": "7.1.1.4a",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "调控面板",
+   "content": "【调控面板】 （7.1.1.4， a） 无障碍服务设施内供使用者操控的照明、设备、设施的开关和调控面板应易于识别，距地面高度应为0.85m～1.10m。 ○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 16
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.1",
+   "standard_clause_number": "7.3.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "入口门厅",
+   "content": "【入口门厅】 住宅的入口门厅设有扶手和坐凳 ,  且空间满足乘轮椅者通行。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 17
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.2",
+   "standard_clause_number": "7.3.1.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "轮椅回转",
+   "content": "【轮椅回转】 起居室(厅)、 卧室(至少一间)均设置直径不小于 1. 5m的轮椅回转空间 。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 18
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.6",
+   "standard_clause_number": "7.3.1.6",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "地面",
+   "content": "【地面】 地面未使用地毯 ,  或者使用地毯时 ,  使用绒毛高度小于 9mm 的地毯或采用高密度闭绒地毯与地面进行固定 ,  且当地毯边缘高度超过6mm时以斜面过渡 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 19
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.1~4",
+   "standard_clause_number": "7.1.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "厨房",
+   "content": "【厨房】 （GB55019，3.4.5） 无障碍客房和无障碍住房设置厨房时应为无障碍厨房。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 20
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.5",
+   "standard_clause_number": "7.1.1.5",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "厨房",
+   "content": "【厨房】 （GB55019，3.1.13） 厨房的灶具采用电灶具 ,  或明火灶具配备自动熄火 、报警等装置以及便于开闭的阀门开关。且应符合下列规定： 1   厨房设施和电器应方便乘轮椅者靠近和使用。 ○是○否○不参评 2   操作台面距地面高度应为700mm～850mm，其下部应留出不小于宽750mm、高650mm、距地面高度250mm范围内进深不小于450mm、其他部分进深不小于250mm的容膝容脚空间。 ○是○否○不参评 3   水槽应与工作台底部的操作空间隔开。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 21
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.3",
+   "standard_clause_number": "7.1.1.3",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "窗",
+   "content": "【窗】 窗户可开启扇的执手或启闭开关距地面高度应为0.85m～1.00m，手动开关窗户操作所需的力度不应大于25N。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 22
+  },
+  {
+   "clause_number": "accessible_accommodation-7.2.1.5",
+   "standard_clause_number": "7.2.1.5",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "system",
+   "title": "窗前空间",
+   "content": "【窗前空间】 无障碍客房 、宿舍及乘轮椅者的住宅 、居室 ,  家具的安排不妨碍轮椅使用者使用窗户和窗帘 , 或设置遥控装置控制窗户和窗帘启闭 。 ○是（+5分）○否○不参评",
+   "max_score": 5.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 23
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.3",
+   "standard_clause_number": "7.3.1.3",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "窗前空间",
+   "content": "【窗前空间】 起居室(厅)、 卧室(至少一间)窗前通道的宽度大于 800mm 。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 24
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.4c",
+   "standard_clause_number": "7.1.1.4c",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "床旁空间",
+   "content": "【床旁空间】 （7.1.1.4， c） 乘轮椅者上下床用的床侧通道宽度不应小于1.20m。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 25
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.4",
+   "standard_clause_number": "7.3.1.4",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "床及床旁空间",
+   "content": "【床及床旁空间】 床的具体要求 ,  评价总分值为 2分 ,  按下列规则分别评分并累计（多选）: a) 至少一张床的两侧均留出 1. 2m宽的通道。 ○是（+0.5分）○否○不参评 b) 床垫顶面高度为 400mm~450mm 。 ○是（+1分）○否○不参评 c) 床/床架和地板之间留出容脚空间 ,  深度和高度均不小于 250mm 。○是（+0.5分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 26
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.5a",
+   "standard_clause_number": "7.3.1.5a",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "家具",
+   "content": "【家具】 （7.3.1.5， a） 家具位置 、高度和容膝容脚空间的设置方便乘轮椅者靠近和使用。○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "家具位置、高度和容膝容脚空间的设置方便乘轮椅者靠近和使用。",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 27
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.5b",
+   "standard_clause_number": "7.3.1.5b",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "家具",
+   "content": "【家具】 （7.3.1.5， b） 家具无锋利棱角 ○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "家具无锋利棱角",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 28
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.1.5c",
+   "standard_clause_number": "7.3.1.5c",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "衣橱",
+   "content": "【衣橱】 （7.3.1.5， c） 衣橱内设有低位挂衣杆 ,  其距地面的高度不大于 1. 2m ,   内部安装照明装置 ○是（+1分）○否○不参评",
+   "max_score": 1.0,
+   "score_type": "multiple",
+   "score_options": {
+    "sub_items": [
+     {
+      "label": "衣橱内设有低位挂衣杆,其距地面的高度不大于1.2m,内部安装",
+      "score": 1.0
+     }
+    ]
+   },
+   "sort_order": 29
+  },
+  {
+   "clause_number": "accessible_accommodation-7.1.1.1~5",
+   "standard_clause_number": "7.1.1.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "control",
+   "title": "卫生间",
+   "content": "【卫生间】 （GB55019，3.4.4） 无障碍客房和无障碍住房、居室内应设置无障碍卫生间，并符合下列规定： 1   应保证轮椅进出，内部应设轮椅回转空间。 ○是○否○不参评 2   内部应设置无障碍坐便器、无障碍洗手盆、无障碍淋浴间 或盆浴间、低位挂衣钩、低位毛巾架、低位搁物架和救助呼叫装置。 ○是○否 3   应设置水平滑动式门或向外开启的平开门。○是○否○不参评",
+   "max_score": 0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 30
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.2.1",
+   "standard_clause_number": "7.3.2.1",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "位置",
+   "content": "【位置】 与无障碍卧室相邻布置 ,  或在卧室中独立设置 。○是（+2分）○否○不参评",
+   "max_score": 2.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 31
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.2.2",
+   "standard_clause_number": "7.3.2.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "无障碍卫生间",
+   "content": "【无障碍卫生间】 无障碍卫生间的具体要求 ,  评价总分值为 8分 。 □住宅（已入住），无障碍住宅的无障碍卫生间内部按照使用者的实际情况设置由住户打分，   8   分",
+   "max_score": 8.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 32
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.2.2~2",
+   "standard_clause_number": "7.3.2.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "无障碍卫生间",
+   "content": "【无障碍卫生间】 无障碍卫生间的具体要求 ,  评价总分值为 8分 。 □不参评 □住宅（未入住），还未有住户的卫生间符合以下规定，可直接得分。 1   应保证轮椅进出，内部应设轮椅回转空间。 ○是○否○不参评 2   内部应设置无障碍坐便器、无障碍洗手盆、无障碍淋浴间或盆浴间、低位挂衣钩、低位毛巾架、低位搁物架和救助呼叫装置。 ○是○否○不参评 3  应设置水平滑动式门或向外开启的平开门。○是○否○不参评",
+   "max_score": 8.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 33
+  },
+  {
+   "clause_number": "accessible_accommodation-7.3.2.2~3",
+   "standard_clause_number": "7.3.2.2",
+   "category_code": "accessible_accommodation",
+   "chapter": "Q3",
+   "clause_type": "facility",
+   "title": "无障碍卫生间",
+   "content": "【无障碍卫生间】 无障碍卫生间的具体要求 ,  评价总分值为 8分 。 □其他无障碍住宿，无障碍卫生间按下列规则分别评分并累计: a)  内部设置直径不小于 1. 5m的轮椅回转空间 。 ○是（+2分）○否○不参评 b)  内部设置的无障碍坐便器的具体要求，得2分（累计得分）  ① 两侧安全抓杆的间距为 700mm~750mm 。 ○是（+0.5分）○否○不参评 ②坐便器冲水装置为感应式自动冲水装置 。 ○是（+0.5分）○否○不参评  ③轮椅靠近一侧有不小于 700mm宽的移动空间 。 ○是（+0.5分）○否○不参评  ④取纸器竖向中心线位于坐便器前端不超过 250mm处 。 ○是（+0.5分）○否○不参评 ⑤设有坐姿高度和倒地高度两处紧急呼叫按钮 ,  或设置位置便于坐姿高度和倒地均可求助的紧急呼叫拉绳。 ○是（+1分）○否○不参评 c)  内部设置的无障碍洗手盆的具体要求，得2分 （累计得分） ①设有便于使用的安全抓杆。 ○是（+1分）○否○不参评 ②洗手盆一侧易于触及的位置配有置物台。 ○是（+0.5分）○否○不参评 ③洗手盆下的供水和排水管道绝热或配备其他设施防止接触 ,  ",
+   "max_score": 8.0,
+   "score_type": "boolean",
+   "score_options": null,
+   "sort_order": 34
+  }
+ ]
+}

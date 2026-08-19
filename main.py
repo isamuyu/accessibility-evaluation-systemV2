@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import os
 from app.core.config import settings
-from app.api import projects, buildings, scoring, standard_clauses, templates, auth, reports, uploads
+from app.api import projects, buildings, scoring, standard_clauses, templates, auth, reports, uploads, facility_mode
 from app.core.database import engine, Base
 from app.core.security import get_current_user
 
@@ -38,6 +38,7 @@ app.include_router(standard_clauses.router, dependencies=protected_dependencies)
 app.include_router(templates.router, dependencies=protected_dependencies)
 app.include_router(reports.router, dependencies=protected_dependencies)
 app.include_router(uploads.router, dependencies=protected_dependencies)
+app.include_router(facility_mode.router, dependencies=protected_dependencies)
 
 # 静态文件服务 - 前端文件
 frontend_path = os.path.join(os.path.dirname(__file__), "frontend", "public")

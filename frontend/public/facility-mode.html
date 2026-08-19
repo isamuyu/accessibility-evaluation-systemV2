@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设施评价模式 - 无障碍设施评价系统</title>
+<script src="https://unpkg.com/axios@1.6.2/dist/axios.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f3f4f6; color: #1f2937; }
+.header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 14px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.header h1 { font-size: 17px; }
+.header a { color: #bfdbfe; text-decoration: none; font-size: 13px; }
+.header a:hover { color: white; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+.card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.bselector { display: flex; gap: 8px; flex-wrap: wrap; }
+.bbtn { padding: 8px 16px; border-radius: 8px; border: 2px solid #e5e7eb; background: white; cursor: pointer; font-size: 13px; font-weight: 500; }
+.bbtn.active { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+.layout { display: flex; gap: 16px; align-items: flex-start; }
+.catnav { width: 240px; flex-shrink: 0; }
+.cat-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 4px; font-size: 13px; border: 1px solid transparent; }
+.cat-item:hover { background: #f3f4f6; }
+.cat-item.active { background: #eff6ff; border-color: #3b82f6; }
+.cat-item .cnt { font-size: 11px; color: #9ca3af; }
+.content { flex: 1; min-width: 0; }
+.inst { border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+.inst-head { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: white; }
+.inst-head:hover { background: #f9fafb; }
+.inst-head.open { background: #eff6ff; }
+.inst-body { border-top: 1px solid #e5e7eb; padding: 12px 16px; background: #fafbff; }
+.clause { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 8px; background: white; }
+.clause .chead { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+.cnum { font-size: 11px; font-weight: 600; color: #6b7280; background: #f3f4f6; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+.ctext { font-size: 13px; line-height: 1.6; color: #374151; flex: 1; }
+.opt { display: flex; align-items: flex-start; gap: 8px; padding: 6px 10px; border-radius: 6px; border: 1px solid #e5e7eb; margin-bottom: 4px; cursor: pointer; font-size: 13px; background: white; }
+.opt.sel { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+.opt .sc { font-weight: 700; margin-left: auto; white-space: nowrap; }
+.bools { display: flex; gap: 8px; flex-wrap: wrap; }
+.bbtn2 { padding: 6px 14px; border-radius: 6px; border: 1px solid #d1d5db; background: white; cursor: pointer; font-size: 12px; }
+.bbtn2.sel-pass { background: #10b981; color: white; border-color: #10b981; }
+.bbtn2.sel-fail { background: #ef4444; color: white; border-color: #ef4444; }
+.bbtn2.sel-na { background: #6b7280; color: white; border-color: #6b7280; }
+.btn { padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer; font-size: 13px; font-weight: 500; background: #3b82f6; color: white; }
+.btn:hover { background: #2563eb; }
+.btn-sec { background: #f3f4f6; color: #374151; border: 1px solid #e5e7eb; }
+.btn-danger { background: #ef4444; }
+.btn-sm { padding: 5px 12px; font-size: 12px; }
+.progress { height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.progress > div { height: 100%; background: #3b82f6; border-radius: 4px; transition: width 0.3s; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #f3f4f6; color: #6b7280; }
+.toast { position: fixed; top: 20px; right: 20px; z-index: 99; background: white; border-radius: 10px; padding: 12px 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); border-left: 4px solid #10b981; font-size: 14px; display: none; }
+.toast.show { display: block; }
+.toast.error { border-left-color: #ef4444; }
+.modal-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center; z-index: 50; }
+.modal-mask.show { display: flex; }
+.modal { background: white; border-radius: 12px; padding: 24px; width: 420px; max-width: 92vw; }
+.modal h3 { margin-bottom: 16px; font-size: 16px; }
+.modal input { width: 100%; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+.empty { text-align: center; color: #9ca3af; padding: 40px; font-size: 14px; }
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .catnav { width: 100%; max-height: 200px; overflow-y: auto; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="/">← 返回项目管理</a>
+  <h1>🧩 设施评价模式</h1>
+  <span style="font-size:12px;opacity:0.8">按设施逐项核查，保存后自动计入 Q 维度评分</span>
+</div>
+<div class="container">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">选择建筑</div>
+        <div class="bselector" id="buildingSelector"></div>
+      </div>
+      <div style="min-width:180px;">
+        <div style="font-size:12px;color:#6b7280;margin-bottom:4px;" id="progressText">总进度 -</div>
+        <div class="progress"><div id="progressFill" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="coverageCard" style="display:none;border-left:4px solid #f59e0b;"></div>
+
+  <div class="layout" id="mainLayout" style="display:none;">
+    <div class="card catnav" id="catList"></div>
+    <div class="content">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <strong id="catTitle">请选择类别</strong>
+          <button class="btn btn-sm" id="addInstBtn" style="display:none;" onclick="showAddModal()">+ 添加设施</button>
+        </div>
+        <div id="instList"><div class="empty">请选择左侧设施类别</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="addModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h3>添加设施</h3>
+    <input id="instName" placeholder="设施名称，如：1#轮椅坡道">
+    <input id="instLoc" placeholder="位置描述，如：南门入口">
+    <div style="display:flex;gap:10px;justify-content:flex-end;">
+      <button class="btn btn-sec" onclick="closeModal()">取消</button>
+      <button class="btn" onclick="createInstance()">创建</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const api = axios.create({ baseURL: '' });
+
+// 认证：无令牌回登录页；401 同理
+if (!localStorage.getItem('token')) location.href = '/';
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) config.headers.Authorization = 'Bearer ' + token;
+  return config;
+});
+api.interceptors.response.use(r => r, err => {
+  if (err.response && err.response.status === 401) {
+    localStorage.removeItem('token');
+    location.href = '/';
+  }
+  return Promise.reject(err);
+});
+const params = new URLSearchParams(location.search);
+const projectId = params.get('project_id');
+
+let buildings = [], currentBuilding = null;
+let categories = [], currentCat = null;
+let instances = [], openInst = null, instClauses = {}, selections = {};
+
+function toast(msg, ok = true) {
+  const t = document.getElementById('toast');
+  t.className = 'toast show' + (ok ? '' : ' error');
+  t.textContent = msg;
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+async function init() {
+  if (!projectId) { toast('缺少 project_id 参数', false); return; }
+  const res = await api.get('/buildings/project/' + projectId);
+  buildings = res.data;
+  const sel = document.getElementById('buildingSelector');
+  sel.innerHTML = buildings.map(b =>
+    `<button class="bbtn" data-bid="${b.id}" onclick="selectBuilding('${b.id}')">${b.building_name}</button>`).join('');
+  if (buildings.length === 1) selectBuilding(buildings[0].id);
+  document.getElementById('mainLayout').style.display = buildings.length ? 'flex' : 'none';
+  if (!buildings.length) document.getElementById('instList').innerHTML = '<div class="empty">该项目下暂无建筑</div>';
+}
+
+async function selectBuilding(bid) {
+  currentBuilding = buildings.find(b => b.id === bid);
+  document.querySelectorAll('.bbtn').forEach(b => b.classList.toggle('active', b.dataset.bid === bid));
+  currentCat = null; openInst = null; instClauses = {}; selections = {};
+  await loadCategories();
+  await loadProgress();
+  await loadCoverage();
+  document.getElementById('instList').innerHTML = '<div class="empty">请选择左侧设施类别</div>';
+  document.getElementById('addInstBtn').style.display = 'none';
+  document.getElementById('catTitle').textContent = '请选择类别';
+}
+
+async function loadProgress() {
+  if (!currentBuilding) return;
+  const res = await api.get('/facility-mode/progress/' + currentBuilding.id);
+  document.getElementById('progressText').textContent = `总进度 ${res.data.progress}%（${res.data.checked}/${res.data.total}）`;
+  document.getElementById('progressFill').style.width = res.data.progress + '%';
+}
+
+const CH_LABELS = { Q1: 'Q1 无障碍通行', Q2: 'Q2 公共无障碍服务', Q3: 'Q3 无障碍住宿', Q4: 'Q4 信息交流', Q5: 'Q5 创新提升', construction: '施工验收', maintenance: '运行维护' };
+
+async function loadCoverage() {
+  if (!currentBuilding) return;
+  const card = document.getElementById('coverageCard');
+  try {
+    const res = await api.get('/facility-mode/coverage/' + currentBuilding.id);
+    const d = res.data;
+    if (d.uncovered === 0) {
+      card.style.display = 'block';
+      card.style.borderLeftColor = '#10b981';
+      card.innerHTML = '✅ 设施模式已覆盖全部应评条款（' + d.covered + '项），可直接回普通模式执行评价计算。';
+      return;
+    }
+    card.style.display = 'block';
+    card.style.borderLeftColor = '#f59e0b';
+    card.innerHTML = '<strong>⚠ 设施模式未覆盖 ' + d.uncovered + ' 项条款</strong>，完成后请回到普通模式（章节/分类评价）补齐：' +
+      '<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">' +
+      d.by_chapter.map(c =>
+        '<span class="tag" title="' + (c.examples || []).join('、') + '">' + (CH_LABELS[c.chapter] || c.chapter) + ' 缺 ' + c.uncovered + ' 项</span>'
+      ).join('') + '</div>' +
+      '<div style="margin-top:10px;"><a href="/" style="color:#1d4ed8;font-size:13px;">→ 返回普通模式补齐（项目 → 查看详情 → 开始评分）</a></div>';
+  } catch (e) { card.style.display = 'none'; }
+}
+
+async function loadCategories() {
+  const res = await api.get('/facility-mode/categories/' + currentBuilding.id);
+  categories = res.data.categories;
+  document.getElementById('catList').innerHTML =
+    '<div style="font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">设施类别</div>' +
+    categories.map(c =>
+      `<div class="cat-item ${currentCat === c.category_code ? 'active' : ''}" onclick="selectCategory('${c.category_code}')">
+        <span>${c.category_name}</span>
+        <span class="cnt">${c.instance_count}个 ${c.checked_count}/${c.clause_count * Math.max(c.instance_count,1)}</span>
+      </div>`).join('');
+}
+
+async function selectCategory(code) {
+  currentCat = code;
+  const cat = categories.find(c => c.category_code === code);
+  document.getElementById('catTitle').textContent = cat.category_name;
+  document.getElementById('addInstBtn').style.display = '';
+  loadCategories();
+  await loadInstances();
+}
+
+async function loadInstances() {
+  const res = await api.get(`/facility-mode/instances/${currentBuilding.id}?category_code=${currentCat}`);
+  instances = res.data;
+  openInst = null;
+  renderInstances();
+}
+
+function renderInstances() {
+  const el = document.getElementById('instList');
+  if (!instances.length) {
+    el.innerHTML = '<div class="empty">暂无设施，点击"添加设施"创建（如 1#坡道、南门入口）</div>';
+    return;
+  }
+  el.innerHTML = instances.map(i =>
+    `<div class="inst">
+      <div class="inst-head ${openInst === i.id ? 'open' : ''}" onclick="toggleInst('${i.id}')">
+        <div>
+          <div style="font-weight:600;font-size:14px;">${openInst === i.id ? '▾' : '▸'} ${i.instance_name}</div>
+          <div style="font-size:12px;color:#6b7280;">${i.location || ''}</div>
+        </div>
+        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();deleteInst('${i.id}')">删除</button>
+      </div>
+      ${openInst === i.id ? `<div class="inst-body" id="body-${i.id}"><div class="empty">加载中...</div></div>` : ''}
+    </div>`).join('');
+}
+
+async function toggleInst(id) {
+  openInst = openInst === id ? null : id;
+  renderInstances();
+  if (openInst) {
+    const res = await api.get(`/facility-mode/instances/${openInst}/clauses`);
+    instClauses[openInst] = res.data.clauses;
+    if (!selections[openInst]) {
+      selections[openInst] = {};
+      res.data.clauses.forEach(c => {
+        selections[openInst][c.clause_id] = c.selected_option || { status: c.status };
+      });
+    }
+    renderClauseBody(openInst);
+  }
+}
+
+function renderClauseBody(instId) {
+  const body = document.getElementById('body-' + instId);
+  const clauses = instClauses[instId] || [];
+  body.innerHTML = clauses.map((c, idx) => renderClause(instId, c, idx)).join('') +
+    `<div style="text-align:right;margin-top:12px;">
+      <button class="btn" onclick="saveChecks('${instId}')">💾 保存并计入评分</button>
+    </div>`;
+}
+
+// 清理显示内容：去掉与标题重复的【】前缀、○●符号、"是（+N分）否不参评"选项尾巴
+function cleanContent(c) {
+  let t = c.content || '';
+  t = t.replace(/^【[^】]*】\s*/, '');
+  t = t.replace(/[○●]/g, '');
+  t = t.replace(/是[（(]\s*\+?\s*[0-9.]+\s*分\s*[)）]\s*否\s*不参评/g, '');
+  t = t.replace(/是\s*否\s*不参评/g, '');
+  return t.trim();
+}
+
+function toggleSrc(cid) {
+  const el = document.getElementById('src-' + cid);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function renderClause(instId, c, idx) {
+  const sel = selections[instId][c.clause_id] || {};
+  // 有子项/选项的条文，选项已完整呈现内容，原文默认收起
+  const hasFormOptions = c.score_type !== 'boolean';
+  const cleaned = cleanContent(c);
+  let inputHtml = '';
+  if (c.score_type === 'boolean') {
+    const st = sel.status || 'pending';
+    const isControl = c.clause_type === 'control';
+    const passLabel = isControl ? '✓ 达标' : `✓ 符合（${c.max_score}分）`;
+    const failLabel = isControl ? '✗ 不达标' : '✗ 不符合（0分）';
+    inputHtml = `<div class="bools">
+      <button class="bbtn2 ${st === 'passed' ? 'sel-pass' : ''}" onclick="setBool('${instId}','${c.clause_id}','passed')">${passLabel}</button>
+      <button class="bbtn2 ${st === 'failed' ? 'sel-fail' : ''}" onclick="setBool('${instId}','${c.clause_id}','failed')">${failLabel}</button>
+      ${isControl ? '' : `<button class="bbtn2 ${st === 'na' ? 'sel-na' : ''}" onclick="setBool('${instId}','${c.clause_id}','na')">不参评</button>`}
+    </div>`;
+  } else if (c.score_type === 'single_choice') {
+    const opts = (c.score_options && c.score_options.options) || [];
+    inputHtml = opts.map((o, oi) =>
+      `<div class="opt ${sel.optionIndex === oi ? 'sel' : ''}" onclick="setSingle('${instId}','${c.clause_id}',${oi})">
+        <span style="flex:1">${o.label}</span><span class="sc">${o.score} 分</span>
+      </div>`).join('') +
+      `<div class="opt ${sel.status === 'na' ? 'sel' : ''}" onclick="setNa('${instId}','${c.clause_id}')">
+        <span style="flex:1;color:#6b7280">不参评</span>
+      </div>` +
+      `<div class="opt ${sel.optionIndex === -1 && sel.status !== 'na' ? 'sel' : ''}" onclick="setZero('${instId}','${c.clause_id}')">
+        <span style="flex:1;color:#6b7280">以上均不符合</span><span class="sc">0 分</span>
+      </div>`;
+  } else if (c.score_type === 'multiple') {
+    const subs = (c.score_options && c.score_options.sub_items) || [];
+    const checked = sel.subItems || [];
+    inputHtml = subs.map((s, si) =>
+      `<div class="opt ${checked.includes(si) ? 'sel' : ''}" onclick="toggleSub('${instId}','${c.clause_id}',${si})">
+        <span>${checked.includes(si) ? '☑' : '☐'}</span>
+        <span style="flex:1">${s.label}</span><span class="sc">+${s.score} 分</span>
+      </div>`).join('') +
+      `<div class="opt ${sel.status === 'na' ? 'sel' : ''}" onclick="setNa('${instId}','${c.clause_id}')">
+        <span style="flex:1;color:#6b7280">不参评</span>
+      </div>`;
+  }
+  const typeTag = { control: '控制项', system: '系统评分', facility: '设施评分' }[c.clause_type] || '';
+  const contentHtml = !cleaned ? '' :
+    hasFormOptions
+      ? `<div class="ctext"><strong>${c.title || ''}</strong>
+          <a style="color:#3b82f6;font-size:12px;cursor:pointer;margin-left:8px;" onclick="toggleSrc('${c.clause_id}')">📄 条文原文</a>
+          <div id="src-${c.clause_id}" style="display:none;font-size:12px;color:#6b7280;margin-top:6px;line-height:1.6;">${cleaned}</div>
+        </div>`
+      : `<div class="ctext"><strong>${c.title || ''}</strong> ${cleaned}</div>`;
+  return `<div class="clause">
+    <div class="chead">
+      <span class="cnum">${c.standard_clause_number}</span>
+      ${contentHtml}
+      <span class="tag">${typeTag}</span>
+    </div>
+    ${inputHtml}
+  </div>`;
+}
+
+function setBool(instId, cid, status) {
+  selections[instId][cid] = { status };
+  renderClauseBody(instId);
+}
+function setSingle(instId, cid, oi) {
+  selections[instId][cid] = { status: 'passed', optionIndex: oi };
+  renderClauseBody(instId);
+}
+function setZero(instId, cid) {
+  selections[instId][cid] = { status: 'failed', optionIndex: -1 };
+  renderClauseBody(instId);
+}
+function setNa(instId, cid) {
+  selections[instId][cid] = { status: 'na' };
+  renderClauseBody(instId);
+}
+function toggleSub(instId, cid, si) {
+  const sel = selections[instId][cid] || {};
+  const arr = sel.subItems ? [...sel.subItems] : [];
+  const i = arr.indexOf(si);
+  if (i >= 0) arr.splice(i, 1); else arr.push(si);
+  selections[instId][cid] = { status: arr.length ? 'passed' : 'failed', subItems: arr };
+  renderClauseBody(instId);
+}
+
+async function saveChecks(instId) {
+  const clauses = instClauses[instId] || [];
+  const checks = clauses.map(c => {
+    const sel = selections[instId][c.clause_id] || {};
+    let status = sel.status || 'pending';
+    if (c.score_type === 'single_choice' && sel.optionIndex >= 0) status = 'passed';
+    if (c.score_type === 'multiple' && sel.subItems && sel.subItems.length) status = 'passed';
+    return { clause_id: c.clause_id, status, selected_option: sel };
+  });
+  try {
+    const res = await api.post(`/facility-mode/instances/${instId}/checks`, { checks });
+    const m = res.data.mapped;
+    toast(`已保存并计入评分：设施项${m.facility_scores} 系统项${m.score_items} 控制项${m.control_checks}`);
+    await loadProgress();
+    await loadCategories();
+  } catch (e) {
+    toast('保存失败：' + (e.response?.data?.detail || e.message), false);
+  }
+}
+
+function showAddModal() { document.getElementById('addModal').classList.add('show'); }
+function closeModal() { document.getElementById('addModal').classList.remove('show'); }
+
+async function createInstance() {
+  const name = document.getElementById('instName').value.trim();
+  if (!name) { toast('请输入设施名称', false); return; }
+  try {
+    await api.post('/facility-mode/instances', {
+      building_id: currentBuilding.id, category_code: currentCat,
+      instance_name: name, location: document.getElementById('instLoc').value.trim()
+    });
+    closeModal();
+    document.getElementById('instName').value = '';
+    document.getElementById('instLoc').value = '';
+    await loadInstances();
+    await loadCategories();
+    toast('设施已创建');
+  } catch (e) { toast('创建失败', false); }
+}
+
+async function deleteInst(id) {
+  if (!confirm('确定删除该设施及核查记录？（已映射的评分数据需到评分页删除）')) return;
+  await api.delete('/facility-mode/instances/' + id);
+  await loadInstances();
+  await loadCategories();
+  await loadProgress();
+}
+
+init();
+</script>
+</body>
+</html>

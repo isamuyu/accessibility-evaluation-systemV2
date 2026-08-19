@@ -233,6 +233,81 @@ class FacilityCategoryAverage(Base):
     category_average = Column(DECIMAL(5, 2))
     calculated_at = Column(DateTime, default=_utcnow)
 
+# ========== 设施评价模式（新手快速录入，自动映射到Q维度） ==========
+
+class FacilityModeCategory(Base):
+    """设施模式类别（比设施类别更细，如门分主入口/厕所门）"""
+    __tablename__ = "facility_mode_categories"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    category_code = Column(String(30), unique=True, nullable=False)
+    category_name = Column(String(100), nullable=False)
+    # 归并到的设施类别编码（FacilityCategory.category_code），None表示无对应设施（纯系统/控制项类别）
+    facility_category_code = Column(String(20))
+    sort_order = Column(Integer, default=0)
+    is_active = Column(Boolean, default=True)
+
+    clauses = relationship("FacilityModeClause", back_populates="category")
+
+
+class FacilityModeClause(Base):
+    """设施模式条款（含选项，standard_clause_number 回链标准条款）"""
+    __tablename__ = "facility_mode_clauses"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    clause_number = Column(String(80), unique=True, nullable=False)  # 类别编码-标准编号
+    standard_clause_number = Column(String(50))  # 如 5.3.1.1 / 5.3.6.2d
+    category_code = Column(String(30), ForeignKey("facility_mode_categories.category_code"), nullable=False)
+    chapter = Column(SQLEnum(Chapter), nullable=False)
+    clause_type = Column(String(20), nullable=False)  # control/system/facility
+    title = Column(String(200))
+    content = Column(Text)
+    max_score = Column(DECIMAL(5, 2), default=0)
+    score_type = Column(String(20), nullable=False)  # boolean/single_choice/multiple
+    score_options = Column(JSON)  # {options:[...]} 或 {sub_items:[...]}
+    sort_order = Column(Integer, default=0)
+    is_active = Column(Boolean, default=True)
+
+    category = relationship("FacilityModeCategory", back_populates="clauses")
+
+
+class FacilityModeInstance(Base):
+    """设施模式实例（某建筑下的具体设施，如 1#坡道）"""
+    __tablename__ = "facility_mode_instances"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    building_id = Column(String(36), ForeignKey("buildings.id"), nullable=False)
+    category_code = Column(String(30), ForeignKey("facility_mode_categories.category_code"), nullable=False)
+    instance_name = Column(String(200), nullable=False)
+    location = Column(Text)
+    sort_order = Column(Integer, default=0)
+    # 自动映射时创建/关联的设施实体
+    mapped_facility_id = Column(String(36), ForeignKey("facility_entities.id"))
+    created_at = Column(DateTime, default=_utcnow)
+
+    checks = relationship("FacilityModeCheck", back_populates="instance", cascade="all, delete-orphan")
+
+
+class FacilityModeCheck(Base):
+    """设施模式核查记录（用户选择）"""
+    __tablename__ = "facility_mode_checks"
+    __table_args__ = (
+        UniqueConstraint("instance_id", "clause_id", name="uq_fm_check_instance_clause"),
+    )
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    instance_id = Column(String(36), ForeignKey("facility_mode_instances.id"), nullable=False)
+    clause_id = Column(String(36), ForeignKey("facility_mode_clauses.id"), nullable=False)
+    status = Column(String(10), default="pending")  # passed/failed/na/pending
+    selected_option = Column(JSON)  # {status} / {optionIndex} / {subItems:[{subIndex, checked}]}
+    auto_score = Column(DECIMAL(5, 2), default=0)
+    notes = Column(Text)
+    checked_at = Column(DateTime)
+
+    instance = relationship("FacilityModeInstance", back_populates="checks")
+    clause = relationship("FacilityModeClause")
+
+
 class ComplexBuildingScore(Base):
     __tablename__ = "complex_building_scores"
 

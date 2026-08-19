@@ -4,6 +4,8 @@ from app.models.models import StandardClause, FacilityCategory, BuildingTypeRule
 from app.core.enums import *
 from decimal import Decimal
 from app.data.standard_data import STANDARD_CLAUSES, FACILITY_CLAUSES
+import json
+import os
 
 def init_standard_clauses(db: Session):
     """初始化标准条文数据（幂等：按条文编号 upsert，保持 id 稳定）"""
@@ -115,6 +117,59 @@ def init_building_type_rules(db: Session):
     db.commit()
     print(f"建筑类型规则：新增 {inserted} 条，共 {len(rules)} 条")
 
+def init_facility_mode(db: Session):
+    """初始化设施评价模式数据（幂等：按编码 upsert）"""
+    from app.models.models import FacilityModeCategory, FacilityModeClause
+
+    data_path = os.path.join(os.path.dirname(__file__), "app", "data", "facility_mode_data.json")
+    data = json.load(open(data_path, encoding="utf-8"))
+
+    cat_inserted = 0
+    for order, cat in enumerate(data["categories"]):
+        existing = db.query(FacilityModeCategory).filter(
+            FacilityModeCategory.category_code == cat["category_code"]).first()
+        if existing:
+            existing.category_name = cat["category_name"]
+            existing.facility_category_code = cat.get("facility_category_code")
+            existing.sort_order = order
+        else:
+            db.add(FacilityModeCategory(
+                category_code=cat["category_code"],
+                category_name=cat["category_name"],
+                facility_category_code=cat.get("facility_category_code"),
+                sort_order=order,
+            ))
+            cat_inserted += 1
+
+    clause_inserted = updated = 0
+    for c in data["clauses"]:
+        existing = db.query(FacilityModeClause).filter(
+            FacilityModeClause.clause_number == c["clause_number"]).first()
+        if existing:
+            for k in ("standard_clause_number", "category_code", "chapter", "clause_type",
+                      "title", "content", "max_score", "score_type", "score_options", "sort_order"):
+                setattr(existing, k, c[k])
+            updated += 1
+        else:
+            db.add(FacilityModeClause(**c))
+            clause_inserted += 1
+
+    db.commit()
+    print(f"设施模式类别：新增 {cat_inserted}，共 {len(data['categories'])}；条款：新增 {clause_inserted}，更新 {updated}")
+
+
+def init_admin_user(db: Session):
+    """默认管理员账号（生产环境请登录后立即修改密码）"""
+    from app.models.models import User
+    from app.core.security import get_password_hash
+    if not db.query(User).filter(User.username == "admin").first():
+        db.add(User(username="admin", hashed_password=get_password_hash("admin123"), full_name="管理员"))
+        db.commit()
+        print("已创建默认管理员: admin / admin123")
+    else:
+        print("管理员账号已存在")
+
+
 def main():
     print("开始初始化数据库...")
     
@@ -127,6 +182,8 @@ def main():
         init_standard_clauses(db)
         init_facility_categories(db)
         init_building_type_rules(db)
+        init_facility_mode(db)
+        init_admin_user(db)
 
         print("数据库初始化完成！")
     except Exception as e:

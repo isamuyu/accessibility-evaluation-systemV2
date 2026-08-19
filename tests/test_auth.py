@@ -33,7 +33,12 @@ class TestAuth:
         assert resp.status_code == 401
 
     def test_me_without_token_rejected(self, setup_db):
-        assert client.get("/auth/me").status_code == 401
+        client.headers.pop("Authorization", None)
+        try:
+            assert client.get("/auth/me").status_code == 401
+        finally:
+            token = client.post("/auth/login", json={"username": "testadmin", "password": "test123456"}).json()["access_token"]
+            client.headers["Authorization"] = f"Bearer {token}"
 
     def test_me_with_invalid_token_rejected(self, setup_db):
         resp = client.get("/auth/me", headers={"Authorization": "Bearer invalid-token"})
