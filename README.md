@@ -147,6 +147,28 @@ python3 -m pytest tests/test_integration.py -v
 - **DimensionScore** - 维度得分计算结果
 - **ComplexBuildingScore** - 建筑群综合评分
 
+## 部署说明
+
+### PDF 报告依赖
+
+PDF 报告通过无头 Chrome/Chromium 打印生成：
+- **macOS/Windows**：自动探测已安装的 Chrome
+- **Linux**：
+  ```bash
+  # Debian/Ubuntu
+  apt install chromium
+  # CentOS/RHEL
+  yum install chromium
+  # 或用环境变量指定路径
+  export CHROME_PATH=/usr/bin/chromium
+  ```
+- 未安装时 PDF 接口返回 500 并提示安装方法，其余功能不受影响
+
+### 认证
+
+- 默认开启 JWT 认证（`AUTH_REQUIRED=true`），默认账号 `admin / admin123`（init_db 创建，请登录后尽快修改）
+- 开发调试可在 `.env` 设 `AUTH_REQUIRED=false` 关闭
+
 ## 许可证
 
 MIT

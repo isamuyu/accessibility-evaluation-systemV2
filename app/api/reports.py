@@ -139,10 +139,15 @@ _CHROME_CANDIDATES = [
 
 
 def _find_chrome():
+    from app.core.config import settings
+    if settings.CHROME_PATH and os.path.exists(settings.CHROME_PATH):
+        return settings.CHROME_PATH
     for p in _CHROME_CANDIDATES:
         if os.path.exists(p):
             return p
-    return None
+    # PATH 中查找
+    from shutil import which
+    return which("google-chrome") or which("chromium") or which("chromium-browser")
 
 
 @router.get("/building/{building_id}/pdf")
@@ -157,7 +162,7 @@ def get_building_report_pdf(building_id: str, db: Session = Depends(get_db)):
 
     chrome = _find_chrome()
     if not chrome:
-        raise HTTPException(status_code=500, detail="服务器未安装Chrome，无法生成PDF")
+        raise HTTPException(status_code=500, detail="服务器未安装Chrome/Chromium，无法生成PDF。Linux请安装: apt install chromium 或 yum install chromium，或用 CHROME_PATH 环境变量指定路径")
 
     grade_value = score.determined_grade.value if score.determined_grade else "none"
     html = REPORT_TEMPLATE.render(

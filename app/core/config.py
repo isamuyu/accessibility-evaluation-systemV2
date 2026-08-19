@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     UPLOAD_DIR: str = "./uploads"
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10MB
     
+    # PDF生成用的Chrome/Chromium路径（留空则自动探测常见路径）
+    CHROME_PATH: str = ""
+
     # 评价配置
     DEFAULT_STANDARD_VERSION: str = "2022"
     Q5_MAX_SCORE: float = 20.0
